@@ -1,0 +1,8 @@
+content		mailjedi		chrome/content/
+content		mailjedi		chrome/content/        contentaccessible=yes
+
+resource    mailjedi        chrome/modules/
+
+overlay		chrome://browser/content/browser.xul		chrome://mailjedi/content/browser.xul
+
+locale      mailjedi	    en-US	               locale/en-US/

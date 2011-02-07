@@ -1,0 +1,10 @@
+{
+	"extName": {
+		"message": "MailJedi for Google Chrome",
+		"description": "Extension name"
+	},
+	"extDescription": {
+		"message": "Beware of the force in your gmail, you jedi",
+		"description": "Extension description"
+	}
+}
