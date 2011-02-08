@@ -21,6 +21,7 @@ var gslayer = {
     loaded: false,
     bootstrapTimer: null,
     dataElement: null,
+    hasOffline: false,
 
     // Functions
     require: function(filename) {
@@ -34,8 +35,10 @@ var gslayer = {
         
         // Bootstrap-load all dependencies
         gslayer.require('jquery.js')
+               .require('gears_init.js')
                .require('globals.js')
-               .require('components/logger.js');
+               .require('components/logger.js')
+               .require('components/db.js');
 
         // Create our event pub/sub data element
         gslayer.dataElement = document.createElement('GSlayerDataElement');        
@@ -49,22 +52,33 @@ var gslayer = {
 			logger.log('Found gmail navigation bar');
 
 			clearInterval(gslayer.bootstrapTimer);
-            gslayer.events.publish('Loaded');
 
             if ($(gslayer.globals.OFFLINE_INDICATOR).length) {
+                gslayer.hasOffline = true;
 				logger.log('Found offline indicator');
                 
-                gslayer.events.publish('Offline', { name: 'offline', value: true });
+                gslayer.events.publish('Loaded', { name: 'offline', value: true });
 
+                // Get email address
+                var emailAddress = gslayer.state.emailAddress();
+
+                // Initialize database access
+                var parts = emailAddress.split('@');
+                var filename = /@gmail\.com$/.test(emailAddress) ?
+                        emailAddress + '-GoogleMail' :
+                        emailAddress + '-GoogleMail@' + parts[parts.length -1];
+
+                db.init(filename);
 			} else {
+                gslayer.hasOffline = false;
 				logger.log('No offline indicator found');
 
-                gslayer.events.publish('Offline', { name: 'offline', value: false });
+                gslayer.events.publish('Loaded', { name: 'offline', value: false });
 			}
 		}
 	},
 
-    // Event handler
+    // Events
     events: {
         publish: function(name, data) {
             if (typeof data != 'undefined') {
@@ -80,6 +94,23 @@ var gslayer = {
         }
     },
 
+    // State
+    state: {
+        hasOffline: function() {
+            return gslayer.hasOffline;
+        },
+        emailAddress: function() {
+            var address = $('#guser b').first().html();
+
+            if (address.indexOf('@') < 0) {
+                // Unable to verify email address, something went like wrong
+                logger.error('Unable to verify email address. Found: ' + address);
+            }
+
+            return address;
+        }
+    },
+
     // UI hooks
     ui: {
         prependNavigationItem: function(item) {
@@ -91,7 +122,12 @@ var gslayer = {
             $(gslayer.globals.GUSER).children(':first')
                 .append('<span> | </span>')
                 .append(item);
+        }
+    },
 
+    data: {
+        test: function() {
+            alert(db.executeSql('select count(*) from Messages'));
         }
     }
 };

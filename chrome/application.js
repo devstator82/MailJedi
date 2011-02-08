@@ -32,19 +32,7 @@ var application = {
 			if ($(OFFLINE_INDICATOR).length) {
 				logger.log('Found offline indicator');
 				
-				// Try to open gears database
-				var db = google.gears.factory.create('beta.database');
-				db.open('waseem@inbox2.com-GoogleMail@inbox2.com');
-				var rs = db.execute('select count(*) from Messages');
-				
-				/*
-				while (rs.isValidRow()) {
-				  alert(rs.field(0));
-				  rs.next();
-				}
-				*/
-				db.close();
-				
+
 			} else {
 				logger.log('No offline indicator found');				
 			}
