@@ -11,6 +11,9 @@ var gslayer = {
     browser : {
         resolveResource: function(filename) {
             return 'resource://mailjedi/gslayer/' + filename;
+        },
+        resolveContent: function(filename) {
+            return 'chrome://mailjedi/content/' + filename;
         }
     },
 
@@ -50,26 +53,45 @@ var gslayer = {
 
             if ($(gslayer.globals.OFFLINE_INDICATOR).length) {
 				logger.log('Found offline indicator');
-
-                //gslayer.events.publish('Offline found');
+                
+                gslayer.events.publish('Offline', { name: 'offline', value: true });
 
 			} else {
 				logger.log('No offline indicator found');
 
-                //gslayer.events.publish('No Offline found');
+                gslayer.events.publish('Offline', { name: 'offline', value: false });
 			}
 		}
 	},
 
     // Event handler
     events: {
-        publish: function(name) {
+        publish: function(name, data) {
+            if (typeof data != 'undefined') {
+                gslayer.dataElement.setAttribute(data.name, data.value);
+            }
+
             var ev = document.createEvent("Events");
             ev.initEvent(name, true, false);
             gslayer.dataElement.dispatchEvent(ev);
         },
         subscribe: function(name, callback) {
             document.addEventListener(name, callback, false, true);
+        }
+    },
+
+    // UI hooks
+    ui: {
+        prependNavigationItem: function(item) {
+            $(gslayer.globals.GUSER).children(':first')
+			    .prepend('<span> | </span>')
+			    .prepend(item);
+        },
+        appendNavigationItem: function(item) {
+            $(gslayer.globals.GUSER).children(':first')
+                .append('<span> | </span>')
+                .append(item);
+
         }
     }
 };
