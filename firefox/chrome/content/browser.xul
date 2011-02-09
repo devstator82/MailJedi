@@ -2,5 +2,6 @@
 <overlay xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml" id="mailjedi-overlay">
 
     <script type="application/x-javascript" src="chrome://mailjedi/content/bootstrap.js" />
+    <script type="application/x-javascript" src="chrome://mailjedi/content/driver.js" />
 
 </overlay>

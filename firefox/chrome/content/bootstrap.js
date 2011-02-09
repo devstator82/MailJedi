@@ -10,9 +10,15 @@ var bootstrap = {
                         // This is our gmail content frame. Inject our extension code into it
                         var doc = event.originalTarget;
 
-                        bootstrap.appendScript(doc, 'chrome://mailjedi/content/mailjedi.js');
                         bootstrap.appendScript(doc, 'resource://mailjedi/gslayer/lab.js');
+                        bootstrap.appendScript(doc, 'resource://mailjedi/gslayer/gslayer-ff.js');
                         bootstrap.appendScript(doc, 'resource://mailjedi/gslayer/gslayer.js');
+                        bootstrap.appendScript(doc, 'chrome://mailjedi/content/mailjedi.js');
+
+                        bootstrap.appendStylesheet(doc, 'chrome://mailjedi/content/mailjedi.css');
+
+                        // Test harness
+                        bootstrap.appendScript(doc, 'resource://mailjedi/gslayer/test/test.js');
                     }
                 }
             }
@@ -24,8 +30,17 @@ var bootstrap = {
         scriptElement.setAttribute('src', filename);
 
         doc.body.appendChild(scriptElement);
+    },
+    appendStylesheet: function(doc, filename) {
+        var linkElement = doc.createElement('link');
+        linkElement.setAttribute('rel', 'stylesheet');
+        linkElement.setAttribute('type', 'text/css');
+        linkElement.setAttribute('href', filename);
+
+        doc.body.appendChild(linkElement);
     }
 };
+
 //
 // Main entry point for our plugin
 //

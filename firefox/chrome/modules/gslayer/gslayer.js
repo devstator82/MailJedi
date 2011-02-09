@@ -3,19 +3,11 @@ var gslayer = {
     // Gmail UI html elements
     globals: {
         GUSER: '#guser',
-        OFFLINE_INDICATOR: '#\\:qa',
-        CANVAS_FRAME: 'canvas_frame'
-    },
-
-    // Browser specific things
-    browser : {
-        resolveResource: function(filename) {
-            return 'resource://mailjedi/gslayer/' + filename;
-        },
-        resolveContent: function(filename) {
-            return 'chrome://mailjedi/content/' + filename;
-        }
-    },
+        OFFLINE_INDICATOR: 'img.bo',
+        OFFLINE_INDICATOR_SYNCING: 'bx',
+        CANVAS_FRAME: 'canvas_frame',
+        MANAGE_THIS_DOMAIN: '#\\:r3'
+    },    
 
     // State variables
     loaded: false,
@@ -23,9 +15,12 @@ var gslayer = {
     dataElement: null,
     hasOffline: false,
 
+    syncTimer: null,
+    syncing: false,
+
     // Functions
     require: function(filename) {
-        $LAB.script(gslayer.browser.resolveResource(filename))
+        $LAB.script(browser.resolveResource('gslayer/' + filename))
             .wait();
 
         return this;
@@ -34,9 +29,10 @@ var gslayer = {
         document.gslayer = this;
         
         // Bootstrap-load all dependencies
-        gslayer.require('jquery.js')
-               .require('gears_init.js')
-               .require('globals.js')
+        gslayer.require('components/thirdparty/jquery.js')
+               .require('components/thirdparty/jquery.tools.js')
+               .require('components/thirdparty/jquery.tpl.js')
+               .require('components/thirdparty/gears_init.js')
                .require('components/logger.js')
                .require('components/db.js');
 
@@ -44,31 +40,27 @@ var gslayer = {
         gslayer.dataElement = document.createElement('GSlayerDataElement');        
         document.documentElement.appendChild(gslayer.dataElement);
 
-        gslayer.bootstrapTimer = setInterval('gslayer.waitForInit();', 1500);                
+        gslayer.bootstrapTimer = setInterval('gslayer.waitForInit();', 1500);
     },
     waitForInit: function() {
 
 		if ($(gslayer.globals.GUSER).length) {
 			logger.log('Found gmail navigation bar');
 
-			clearInterval(gslayer.bootstrapTimer);
-
+            gslayer.loaded = true;
+			clearInterval(gslayer.bootstrapTimer);            
+            
             if ($(gslayer.globals.OFFLINE_INDICATOR).length) {
                 gslayer.hasOffline = true;
 				logger.log('Found offline indicator');
                 
                 gslayer.events.publish('Loaded', { name: 'offline', value: true });
 
-                // Get email address
+                // Get email address, also performs a sanity check
                 var emailAddress = gslayer.state.emailAddress();
 
-                // Initialize database access
-                var parts = emailAddress.split('@');
-                var filename = /@gmail\.com$/.test(emailAddress) ?
-                        emailAddress + '-GoogleMail' :
-                        emailAddress + '-GoogleMail@' + parts[parts.length -1];
-
-                db.init(filename);
+                // Start sync watcher
+                gslayer.syncTimer = setInterval('gslayer.checkSyncStatus();', 500);
 			} else {
                 gslayer.hasOffline = false;
 				logger.log('No offline indicator found');
@@ -77,6 +69,18 @@ var gslayer = {
 			}
 		}
 	},
+    checkSyncStatus: function() {
+
+        var newStatus = $(gslayer.globals.OFFLINE_INDICATOR)
+                .hasClass(gslayer.globals.OFFLINE_INDICATOR_SYNCING);
+
+        if (gslayer.syncing === newStatus)
+            return; // Nothing changed        
+
+        logger.log('Sync status changed, new status is: ' + newStatus);
+
+        gslayer.events.publish('Syncing', { name: 'syncing', value: newStatus });
+    },
 
     // Events
     events: {
@@ -108,6 +112,11 @@ var gslayer = {
             }
 
             return address;
+        },
+        isAppsUser: function() {
+            return ($(gslayer.globals.GUSER)
+                    .find(gslayer.globals.MANAGE_THIS_DOMAIN)
+                    .length);
         }
     },
 
@@ -122,12 +131,6 @@ var gslayer = {
             $(gslayer.globals.GUSER).children(':first')
                 .append('<span> | </span>')
                 .append(item);
-        }
-    },
-
-    data: {
-        test: function() {
-            alert(db.executeSql('select count(*) from Messages'));
         }
     }
 };

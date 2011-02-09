@@ -1,20 +1,30 @@
-// GMail UI was loaded
-document.addEventListener('Loaded', function(e) {
+var mailjedi = {
+    addEventHandler: function(name, callback) {
+        document.addEventListener(name, callback, false, true);
+    },
 
-    var iconUrl = gslayer.browser.resolveContent("images/icon11.png");
-    var sink = $("<span><a id='show-options'><img border='0' src='" + iconUrl + "' /></a></span>")
-        .find('#show-options')
-        .click(function() {
-            alert('Clicked');
+    loaded: function() {
+        var iconUrl = browser.resolveContent('images/icon11.png');
+        var sink = $("<span><a id='show-options'><img border='0' src='" + iconUrl + "' /> MailJedi</a></span>")
+            .find('#show-options')
+            .click(function() {
+                // Show options dialog
+                $('#options-popup').overlay({
+                    color: '#fff',
+                    closeOnClick: false,
+                    load: true
+                });
         });
 
-    gslayer.ui.prependNavigationItem(sink);
+        gslayer.ui.prependNavigationItem(sink);
 
-    if (e.target.getAttribute('offline') == 'true') {
-        // We have lift-off        
+        // Add options popup to html
         
-    } else {
-        // Show UI with instructions for enabling offline
-    }    
+//          Not working yet
+//        var popup = $.get(browser.resolveContent('templates/options.html'));
+//        alert(popup);
+//        $('.cP').append(popup);
+    }
+};
 
-}, false, true);
+mailjedi.addEventHandler('Loaded', mailjedi.loaded);

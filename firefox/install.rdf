@@ -13,7 +13,8 @@
                    em:creator="MailJedi.com; http://www.mailjedi.com"
                    em:description="People based search for gmail"
                    em:homepageURL="http://www.mailjedi.com"
-                   em:iconURL="chrome://mailjedi/content/images/icon16.png">
+                   em:iconURL="chrome://mailjedi/content/images/icon16.png"
+                   em:icon64URL="chrome://mailjedi/content/images/icon128.png">
     <em:targetApplication RDF:resource="rdf:#$41y0G2"/>
   </RDF:Description>
 </RDF:RDF>
