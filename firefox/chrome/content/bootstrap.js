@@ -15,7 +15,7 @@ var bootstrap = {
                         bootstrap.appendScript(doc, 'resource://mailjedi/gslayer/gslayer.js');
                         bootstrap.appendScript(doc, 'chrome://mailjedi/content/mailjedi.js');
 
-                        bootstrap.appendStylesheet(doc, 'chrome://mailjedi/content/mailjedi.css');
+                        //bootstrap.appendStylesheet(doc, 'chrome://mailjedi/content/mailjedi.css');
 
                         // Test harness
                         bootstrap.appendScript(doc, 'resource://mailjedi/gslayer/test/test.js');

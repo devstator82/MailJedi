@@ -6,7 +6,8 @@ var gslayer = {
         OFFLINE_INDICATOR: 'img.bo',
         OFFLINE_INDICATOR_SYNCING: 'bx',
         CANVAS_FRAME: 'canvas_frame',
-        MANAGE_THIS_DOMAIN: '#\\:r3'
+        MANAGE_THIS_DOMAIN: '#\\:r3',
+        CONTENT_BODY_ELEMENT: '.cP'
     },    
 
     // State variables
@@ -131,6 +132,14 @@ var gslayer = {
             $(gslayer.globals.GUSER).children(':first')
                 .append('<span> | </span>')
                 .append(item);
+        },
+        prependHtml: function(html) {
+            $(gslayer.globals.CONTENT_BODY_ELEMENT)
+                .prepend(html);
+        },
+        appendHtml: function(html) {
+            $(gslayer.globals.CONTENT_BODY_ELEMENT)
+                .append(html);
         }
     }
 };
