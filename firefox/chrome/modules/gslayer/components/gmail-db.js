@@ -1,4 +1,4 @@
-var db = function() {
+var GmailDatabase = function() {
     this.filename = null;
 
     function open() {

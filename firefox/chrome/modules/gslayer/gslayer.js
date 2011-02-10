@@ -87,7 +87,17 @@ var gslayer = {
     events: {
         publish: function(name, data) {
             if (typeof data != 'undefined') {
-                gslayer.dataElement.setAttribute(data.name, data.value);
+
+                if (data instanceof Array) {
+                    for (var i = 0; i < data.length; i++) {
+                        var elem = data[i];
+
+                        gslayer.dataElement.setAttribute(elem.name, elem.value);
+                    }
+                }
+                else {
+                    gslayer.dataElement.setAttribute(data.name, data.value);
+                }
             }
 
             var ev = document.createEvent("Events");
@@ -140,6 +150,12 @@ var gslayer = {
         appendHtml: function(html) {
             $(gslayer.globals.CONTENT_BODY_ELEMENT)
                 .append(html);
+        },
+        addOverlayTrigger: function(trigger) {
+            $('#show-options').overlay({
+                color: '#fff',
+                closeOnClick: false
+            });
         }
     }
 };
