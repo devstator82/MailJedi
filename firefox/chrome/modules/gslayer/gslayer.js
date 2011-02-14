@@ -21,7 +21,7 @@ var gslayer = {
 
     // Functions
     require: function(filename) {
-        $LAB.script(browser.resolveResource('gslayer/' + filename))
+        $LAB.script(browser.resolveContent('gslayer/' + filename))
             .wait();
 
         return this;

@@ -1,4 +1,9 @@
-document.addEventListener('Loaded', function() {
+function testEvents() {
+    if (typeof gslayer === 'undefined') {        
+        alert('gslayer was not loaded, fireunit test suite did probably not run');
+        return;
+    }
+
     fireunit.ok(typeof gslayer !== 'undefined', 'gslayer was loaded');
     fireunit.ok(gslayer.loaded, 'gslayer loaded event was called');
     fireunit.ok($('#show-options').length, 'MailJedi icon was injected correctly');
@@ -10,12 +15,8 @@ document.addEventListener('Loaded', function() {
     if (/\/a\//.test(window.location))
         fireunit.ok(gslayer.state.isAppsUser, 'Validated apps user successfully');
 
-}, false, true);
-
-function testEvents() {
-    if (typeof gslayer === 'undefined') {        
-        alert('gslayer was not loaded, fireunit test suite did probably not run');
-    }
+    fireunit.ok($('#options-popup').length, 'Options popup was injected correctly');
+    fireunit.ok(typeof options != 'undefined', 'Options was initialized');
 }
 
 setTimeout('testEvents();', 1000 * 5); // 5 seconds

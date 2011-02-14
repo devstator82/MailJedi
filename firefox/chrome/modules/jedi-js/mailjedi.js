@@ -7,11 +7,11 @@ var mailjedi = function() {
                 $('<link>').attr({
                     type: 'text/css',
                     rel: 'stylesheet',
-                    href: browser.resolveResource('jedi-js/mailjedi.css')
+                    href: browser.resolveContent('jedi-js/mailjedi.css')
                 })
             );
 
-            var iconUrl = browser.resolveResource('jedi-js/images/icon11.png');
+            var iconUrl = browser.resolveContent('jedi-js/images/icon11.png');
             var sink = "<span><img border='0' src='" + iconUrl + "' /> " +
                     "<a id='show-options' rel='#options-popup' href='javascript:;'>MailJedi</a></span>";
 
@@ -19,7 +19,15 @@ var mailjedi = function() {
             gslayer.ui.prependNavigationItem(sink);
 
             // Add options popup to html
-            $LAB.script(browser.resolveResource('jedi-js/templates/options.js'));
+            var isFirefox = (window.navigator.userAgent.indexOf("Firefox") > -1);
+
+            $LAB.script(browser.resolveContent('jedi-js/storage/storage.js'))
+                .script(browser.resolveContent('jedi-js/storage/' + (isFirefox ? 'gears.js' : 'html5.js')))
+                .script(browser.resolveContent('jedi-js/templates/options.js'))
+                .script(browser.resolveContent('jedi-js/options.js'))
+                .wait(function(){
+                    options.init();
+                });
         },
         configure: function(service) {
             var location = browser.resolveAppRootUrl('auth/' + service);
@@ -34,11 +42,19 @@ var mailjedi = function() {
             if (/mailjedi\.com/.test(event.origin)) {
                 var response = jQuery.parseJSON(event.data);
 
+                options.add_channel(response.provider, 'waseem', response.token);
+                
                 this.win.close();
             }
         }
     };
 }();
 
-document.addEventListener('Loaded', mailjedi.loaded, false);
-window.addEventListener('message', mailjedi.configureSuccess, false);
+document.addEventListener('Loaded', bind(mailjedi, mailjedi.loaded), false);
+window.addEventListener('message', bind(mailjedi, mailjedi.configureSuccess), false);
+
+function bind(scope, fn) {
+    return function () {
+        fn.apply(scope, arguments);
+    };
+}
