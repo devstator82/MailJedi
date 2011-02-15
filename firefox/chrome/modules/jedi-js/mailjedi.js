@@ -21,9 +21,14 @@ var mailjedi = function() {
             // Add options popup to html
             var isFirefox = (window.navigator.userAgent.indexOf("Firefox") > -1);
 
-            $LAB.script(browser.resolveContent('jedi-js/storage/storage.js'))
+            $LAB.script(browser.resolveContent('jedi-js/force.js'))
+                .script(browser.resolveContent('jedi-js/lang/en-US.js'))
+                .script(browser.resolveContent('jedi-js/storage/storage.js'))
                 .script(browser.resolveContent('jedi-js/storage/' + (isFirefox ? 'gears.js' : 'html5.js')))
-                .script(browser.resolveContent('jedi-js/templates/options.js'))
+                .script(browser.resolveContent('jedi-js/storage/entities/service_user.js'))
+                .script(browser.resolveContent('jedi-js/channels/facebook.js'))
+                .script(browser.resolveContent('jedi-js/channels/channelFactory.js'))
+                .script(browser.resolveContent('jedi-js/templates/options_template.js'))
                 .script(browser.resolveContent('jedi-js/options.js'))
                 .wait(function(){
                     options.init();
@@ -40,21 +45,18 @@ var mailjedi = function() {
         configureSuccess: function(event) {
             // Make sure the message comes from a valid source
             if (/mailjedi\.com/.test(event.origin)) {
-                var response = jQuery.parseJSON(event.data);
-
-                options.add_channel(response.provider, 'waseem', response.token);
-                
-                this.win.close();
+                options.process_configure_response(
+                        jQuery.parseJSON(event.data), this.win);
             }
         }
     };
 }();
-
-document.addEventListener('Loaded', bind(mailjedi, mailjedi.loaded), false);
-window.addEventListener('message', bind(mailjedi, mailjedi.configureSuccess), false);
 
 function bind(scope, fn) {
     return function () {
         fn.apply(scope, arguments);
     };
 }
+
+document.addEventListener('Loaded', bind(mailjedi, mailjedi.loaded), false);
+window.addEventListener('message', bind(mailjedi, mailjedi.configureSuccess), false);

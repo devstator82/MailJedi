@@ -6,6 +6,7 @@ function testEvents() {
 
     fireunit.ok(typeof gslayer !== 'undefined', 'gslayer was loaded');
     fireunit.ok(gslayer.loaded, 'gslayer loaded event was called');
+    fireunit.ok(typeof the_force != 'undefined', 'Use the force luke');
     fireunit.ok($('#show-options').length, 'MailJedi icon was injected correctly');
     fireunit.ok(gslayer.state.hasOffline, 'Offline icon was found');
     fireunit.reCompare(/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/,
