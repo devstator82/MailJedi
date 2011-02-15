@@ -6,16 +6,16 @@ function isSafe(e) {
 
 function loaded(e) {
     if (isSafe(e)) {
-        if (e.target.getAttribute('offline') == 'true') {
-            // We have lift-off, start receive task
-            var receiveWorker = new Worker('chrome://mailjedi/content/workers/receive.js');
-            receiveWorker.onmessage = function(event) {
-                alert(event.data);
-            };
-        }
-        else {
-            // Show UI with instructions for enabling offline
-        }
+//        if (e.target.getAttribute('offline') == 'true') {
+//            // We have lift-off, start receive task
+//            var receiveWorker = new Worker('chrome://mailjedi/content/workers/receive.js');
+//            receiveWorker.onmessage = function(event) {
+//                alert(event.data);
+//            };
+//        }
+//        else {
+//            // Show UI with instructions for enabling offline
+//        }
     }
 }
 

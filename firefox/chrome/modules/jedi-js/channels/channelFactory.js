@@ -13,5 +13,5 @@ var channelFactory = {
             case 'linkedin':
                 return linkedin_channel(token);
         }
-    }
+    }    
 };

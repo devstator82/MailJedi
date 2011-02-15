@@ -11,12 +11,20 @@ var LocalDatabase = function() {
             // Make sure all tables exist
             instance.transaction(function(tx) {
                 tx.executeSql(create_channels_sql);
+                tx.executeSql(create_persons_sql);
+                tx.executeSql(create_profiles_sql);
             });
         }
 
         return instance;
     }
     return {
+        beginTransaction: function() {
+            // todo implement query queuing on each executeSql call
+        },
+        endTransaction: function(callback) {
+            // todo implement query flushing
+        },
         executeSql: function(query, params, callback) {
             var database = open();
 

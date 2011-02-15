@@ -1,17 +1,19 @@
 var options = function() {
     function channel_exists(source, service_id, callback) {
-        LocalDatabase.executeSql('SELECT COUNT(*) FROM channels WHERE source = ? AND service_id = ?',
+        LocalDatabase.executeSql('select count(*) from channels where source = ? and service_id = ?',
                 [ source, service_id ], callback)
     }
 
     function add_channel(source, service_id, username, auth_token) {
-        LocalDatabase.executeSql('INSERT INTO channels (source, service_id, username, auth_token) VALUES (?, ?, ?, ?)',
+        LocalDatabase.executeSql('insert intro channels (source, service_id, username, auth_token) values (?, ?, ?, ?)',
                 [ source, service_id, username, auth_token ])
     }
 
     return {
         init: function() {
-            LocalDatabase.executeSql('SELECT * FROM channels', function(rs) {
+            logger.log('Options initialized');
+
+            LocalDatabase.executeSql('select * from channels', function(rs) {
                 var data = {
                     available: ['Google', 'Facebook', 'Twitter', 'LinkedIn'],
                     configured: rs
@@ -26,7 +28,7 @@ var options = function() {
             });
         },
         refresh: function() {
-            LocalDatabase.executeSql('SELECT * FROM channels', function(rs) {
+            LocalDatabase.executeSql('select * from channels', function(rs) {
                 var data = {
                     available: ['Google', 'Facebook', 'Twitter', 'LinkedIn'],
                     configured: rs
@@ -42,7 +44,7 @@ var options = function() {
         process_configure_response: function(response, win) {
             var channel = channelFactory.build(response.provider, response.token);
 
-            channel.me(function(user) {
+            channel.me(function(user) {                
                 win.close();
 
                 if (user == null) {

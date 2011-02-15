@@ -8,11 +8,27 @@ var LocalDatabase = function() {
             
             // Make sure all tables exist
             instance.execute(create_channels_sql);
+            instance.execute(create_persons_sql);
+            instance.execute(create_profiles_sql);
         }
 
         return instance;
     }
     return {
+        beginTransaction: function() {
+            var database = open();
+            database.execute('BEGIN');
+        },
+        endTransaction: function(callback) {
+            var database = open();
+            database.execute('COMMIT');
+
+            if (typeof callback == 'function') {
+                logger.log('Invoking commit callback');
+
+                callback();
+            }
+        },
         executeSql: function(query, params, callback) {
             var database = open();
 
