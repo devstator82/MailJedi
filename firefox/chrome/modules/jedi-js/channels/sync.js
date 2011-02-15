@@ -10,7 +10,7 @@ var sync = function(config) {
                     // Build an hashtable of all found profiles
                     var service_ids = [];
                     for (var i =0; i < profiles.length; i++) {
-                        service_ids.push(profiles[i].service_id);
+                        service_ids.push(String(profiles[i].service_id));
                     }
                     
                     LocalDatabase.beginTransaction();
@@ -18,13 +18,12 @@ var sync = function(config) {
                     try {
                         // Save all found friends
                         $.each(friends, function(i, friend) {
-                            logger.log(friend.service_id);
-                            if ($.inArray(friend.service_id, service_ids) == -1) {
+                            if ($.inArray(String(friend.service_id), service_ids) == -1) {
                                 LocalDatabase.executeSql('insert into profiles (' +
                                         'service_id, source, channel_id, displayname, ' +
                                         'first_name, last_name, avatar, url, created_at) ' +
                                         'values (?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                                        [ friend.service_id.toString(), channel.source(), config.id, friend.displayname,
+                                        [ String(friend.service_id), channel.source(), config.id, friend.displayname,
                                             friend.first_name, friend.last_name, friend.avatar, friend.url,
                                                 new Date().to_unixtime() ]);
                             }
