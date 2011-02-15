@@ -5,7 +5,7 @@ var options = function() {
     }
 
     function add_channel(source, service_id, username, auth_token) {
-        LocalDatabase.executeSql('insert intro channels (source, service_id, username, auth_token) values (?, ?, ?, ?)',
+        LocalDatabase.executeSql('insert into channels (source, service_id, username, auth_token) values (?, ?, ?, ?)',
                 [ source, service_id, username, auth_token ])
     }
 
@@ -13,10 +13,10 @@ var options = function() {
         init: function() {
             logger.log('Options initialized');
 
-            LocalDatabase.executeSql('select * from channels', function(rs) {
+            j_channels(function(channels) {
                 var data = {
                     available: ['Google', 'Facebook', 'Twitter', 'LinkedIn'],
-                    configured: rs
+                    configured: channels
                 };
 
                 gslayer.ui.appendHtml($.tmpl(options_popup_tpl, data));
@@ -28,10 +28,10 @@ var options = function() {
             });
         },
         refresh: function() {
-            LocalDatabase.executeSql('select * from channels', function(rs) {
+            j_channels(function(channels) {
                 var data = {
                     available: ['Google', 'Facebook', 'Twitter', 'LinkedIn'],
-                    configured: rs
+                    configured: channels
                 };
 
                 var template = $.tmpl(options_popup_channels_tpl, data);

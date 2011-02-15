@@ -2,29 +2,28 @@ var mailjedi = function() {
     var receiveTimer = null;
 
     function workerHeartBeat() {
-        LocalDatabase.executeSql('SELECT * FROM channels', function(rs) {
-            $.each(rs, function(i, elem) {
+        j_channels(function(channels) {
+            $.each(channels, function(i, channel) {
 
                 function shouldSync() {
                     if (the_force.use)
                         return true;
 
-                    if (elem.lastsync_at == null || elem.lastsync_at == 0) {
-                        logger.log('Channel {0} did not have a lastsync date, forcing sync'.format(elem.id));
+                    if (channel.lastsync_at == null || channel.lastsync_at == 0) {
+                        logger.log('Channel {0} did not have a lastsync date, forcing sync'.format(channel.id));
 
                         return true;
                     }
 
-                    var date = elem.lastsync_at.to_date();
+                    var date = channel.lastsync_at.to_date();
                     var diff = (new Date().getTime() - date.getTime()) / 1000;
 
                     return diff > 120
                 }
-                
+
                 if (shouldSync()) {
                     // Last sync was more then 2 minutes ago, run sync
-                    var channel = channelFactory.build(elem.source, elem.auth_token);
-                    sync(elem.id, channel).run();
+                    sync(channel).run();
                 }
             });
 
@@ -57,7 +56,7 @@ var mailjedi = function() {
 
             $LAB.script(browser.resolveContent('jedi-js/the_force.js'))
                 .script(browser.resolveContent('jedi-js/lang/en-US.js'))
-                .script(browser.resolveContent('jedi-js/storage/storage.js'))
+                .script(browser.resolveContent('jedi-js/storage/schema.js'))
                 .script(browser.resolveContent('jedi-js/storage/' + (isFirefox ? 'gears.js' : 'html5.js')))
                 .script(browser.resolveContent('jedi-js/storage/entities/channel.js'))
                 .script(browser.resolveContent('jedi-js/storage/entities/profile.js'))

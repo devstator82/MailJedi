@@ -18,8 +18,8 @@ var facebook_channel = function(token) {
                 callback(profile);
             });
         },
-        friends: function(callback) {
-            var query = 'SELECT uid, name, first_name, last_name, pic_square, profile_url FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1=1279498012)';
+        friends: function(service_id, callback) {
+            var query = 'SELECT uid, name, first_name, last_name, pic_square, profile_url FROM user WHERE uid IN (SELECT uid2 FROM friend WHERE uid1={0})'.format(service_id);
 
             $.getJSON('{0}fql.query?access_token={1}&query={2}&format=json&callback=?'.format(apiUrl, access_token, query), function(data) {
                 var profiles = [];
