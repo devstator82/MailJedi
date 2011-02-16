@@ -35,7 +35,7 @@ var gslayer = {
                .require('components/thirdparty/jquery.tpl.js')
                .require('components/thirdparty/gears_init.js')
                .require('components/logger.js')
-               .require('components/db.js');
+               .require('components/gmail-db.js');
 
         // Create our event pub/sub data element
         gslayer.dataElement = document.createElement('GSlayerDataElement');        
@@ -128,6 +128,21 @@ var gslayer = {
             return ($(gslayer.globals.GUSER)
                     .find(gslayer.globals.MANAGE_THIS_DOMAIN)
                     .length);
+        },
+        getBaseUrl: function() {
+            var location = window.location.href;
+
+            if (/mail\.google\.com\/mail\//i.test(location)) {
+                return 'https://mail.google.com/mail/';
+            }
+
+            if (/mail\.google\.com\/a\//i.test(location)) {
+                var matches = /mail\.google\.com\/a\/(.+)\//i.exec(location);
+
+                return 'https://mail.google.com/a/' + matches[1] + '/';
+            }
+
+            return null;
         }
     },
 

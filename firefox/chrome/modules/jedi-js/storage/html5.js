@@ -11,8 +11,11 @@ var LocalDatabase = function() {
             // Make sure all tables exist
             instance.transaction(function(tx) {
                 tx.executeSql(create_channels_sql);
+                tx.executeSql(create_accounts_sql);
                 tx.executeSql(create_persons_sql);
                 tx.executeSql(create_profiles_sql);
+                tx.executeSql(create_messages_sql);
+                tx.executeSql(create_documents_sql);
             });
         }
 

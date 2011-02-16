@@ -11,6 +11,7 @@ function testEvents() {
     fireunit.ok(gslayer.state.hasOffline, 'Offline icon was found');
     fireunit.reCompare(/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/,
             gslayer.state.emailAddress(), 'Validated email address successfully');
+    fireunit.ok(gslayer.state.getBaseUrl() != null, 'Base url resolved correctly');
 
     // Only when url indicates this is an apps account
     if (/\/a\//.test(window.location))

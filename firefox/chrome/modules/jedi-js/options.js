@@ -13,9 +13,9 @@ var options = function() {
         init: function() {
             logger.log('Options initialized');
 
-            j_channels(function(channels) {
+            j_all_channels(function(channels) {
                 var data = {
-                    available: ['Google', 'Facebook', 'Twitter', 'LinkedIn'],
+                    available: ['Facebook', 'Twitter', 'LinkedIn'],
                     configured: channels
                 };
 
@@ -28,7 +28,7 @@ var options = function() {
             });
         },
         refresh: function() {
-            j_channels(function(channels) {
+            j_all_channels(function(channels) {
                 var data = {
                     available: ['Google', 'Facebook', 'Twitter', 'LinkedIn'],
                     configured: channels

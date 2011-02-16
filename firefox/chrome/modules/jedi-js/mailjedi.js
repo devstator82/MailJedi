@@ -2,7 +2,7 @@ var mailjedi = function() {
     var receiveTimer = null;
 
     function workerHeartBeat() {
-        j_channels(function(channels) {
+        j_all_channels(function(channels) {
             $.each(channels, function(i, channel) {
 
                 function shouldSync() {
@@ -26,6 +26,8 @@ var mailjedi = function() {
                     sync(channel).run();
                 }
             });
+
+            // Import new data from the gmail database
 
             // Reset to idle state
             receiveTimer = setTimeout(workerHeartBeat, 1000 * 60 * 2);
@@ -59,8 +61,11 @@ var mailjedi = function() {
                 .script(browser.resolveContent('jedi-js/storage/schema.js'))
                 .script(browser.resolveContent('jedi-js/storage/' + (isFirefox ? 'gears.js' : 'html5.js')))
                 .script(browser.resolveContent('jedi-js/storage/entities/channel.js'))
+                .script(browser.resolveContent('jedi-js/storage/entities/account.js'))
                 .script(browser.resolveContent('jedi-js/storage/entities/profile.js'))
                 .script(browser.resolveContent('jedi-js/storage/entities/person.js'))
+                .script(browser.resolveContent('jedi-js/storage/entities/message.js'))
+                .script(browser.resolveContent('jedi-js/storage/entities/document.js'))
                 .script(browser.resolveContent('jedi-js/channels/facebook.js'))
                 .script(browser.resolveContent('jedi-js/channels/channelFactory.js'))
                 .script(browser.resolveContent('jedi-js/channels/sync.js'))
@@ -68,6 +73,9 @@ var mailjedi = function() {
                 .script(browser.resolveContent('jedi-js/options.js'))
                 .wait(function(){
                     options.init();
+
+                    // Add this gmail account if not added already
+                    j_ensure_account();
 
                     var hasOffline = (e.target.getAttribute('offline') == 'true');
 

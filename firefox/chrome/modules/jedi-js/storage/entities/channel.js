@@ -10,7 +10,7 @@ var j_channel = function() {
     }
 };
 
-function j_channels(callback) {
+function j_all_channels(callback) {
     LocalDatabase.executeSql('SELECT * FROM channels', function(rs) {
         var channels = [];
 

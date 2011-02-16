@@ -18,11 +18,20 @@ var GmailDatabase = function() {
         database.close();
     }
     return {
-        executeSql: function(query) {
+        executeSql: function(query, params, callback) {
+
             var database = null;
 
             try {
                 database = open();
+
+                if (typeof params == 'function') {
+                    // No data, only callback
+                    callback = params;
+                    params = null;
+                }
+
+                logger.log('Executing GMail query: ' + query);
 
                 var resultSet = [];
                 var rs = database.execute(query);
@@ -45,6 +54,15 @@ var GmailDatabase = function() {
 
                     resultSet.push(obj);
                     rs.next();
+                }
+
+                logger.log('GMail query returned ' + resultSet.length + ' rows');
+
+                // Execute our callback function
+                if (typeof callback == 'function') {
+                    logger.log('Invoking GMail query callback');
+
+                    callback(resultSet);
                 }
 
                 return resultSet;
