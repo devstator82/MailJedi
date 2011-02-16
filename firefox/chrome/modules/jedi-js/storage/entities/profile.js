@@ -10,6 +10,7 @@ var j_profile = function() {
         last_name: null,
         avatar: null,
         url: null,
+        is_soft: true,
         created_at: null        
     }
 };

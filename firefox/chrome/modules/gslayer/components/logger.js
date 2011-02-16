@@ -9,6 +9,13 @@ var logger = {
             alert(statement);
         }
 	},
+    warn: function(statement) {
+        console.log(logger.prefix + 'WARNING: ' + statement);
+
+        if (logger.doAlert) {
+            alert(statement);
+        }
+    },
     error: function(statement) {
         console.log(logger.prefix + 'ERROR: ' + statement);
 

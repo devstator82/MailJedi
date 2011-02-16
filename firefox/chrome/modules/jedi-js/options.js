@@ -5,15 +5,15 @@ var options = function() {
     }
 
     function add_channel(source, service_id, username, auth_token) {
-        LocalDatabase.executeSql('insert into channels (source, service_id, username, auth_token) values (?, ?, ?, ?)',
-                [ source, service_id, username, auth_token ])
+        LocalDatabase.executeSql('insert into channels (source, service_id, username, auth_token, type) values (?, ?, ?, ?, ?)',
+                [ source, service_id, username, auth_token, 5 ])
     }
 
     return {
         init: function() {
             logger.log('Options initialized');
 
-            j_all_channels(function(channels) {
+            j_all_social_channels(function(channels) {
                 var data = {
                     available: ['Facebook', 'Twitter', 'LinkedIn'],
                     configured: channels
@@ -28,9 +28,9 @@ var options = function() {
             });
         },
         refresh: function() {
-            j_all_channels(function(channels) {
+            j_all_social_channels(function(channels) {
                 var data = {
-                    available: ['Google', 'Facebook', 'Twitter', 'LinkedIn'],
+                    available: ['Facebook', 'Twitter', 'LinkedIn'],
                     configured: channels
                 };
 

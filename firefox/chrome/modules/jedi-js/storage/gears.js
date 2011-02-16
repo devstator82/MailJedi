@@ -8,7 +8,6 @@ var LocalDatabase = function() {
             
             // Make sure all tables exist
             instance.execute(create_channels_sql);
-            instance.execute(create_accounts_sql);
             instance.execute(create_persons_sql);
             instance.execute(create_profiles_sql);
             instance.execute(create_messages_sql);

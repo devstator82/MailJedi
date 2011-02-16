@@ -25,12 +25,10 @@ var mailjedi = function() {
                     // Last sync was more then 2 minutes ago, run sync
                     sync(channel).run();
                 }
+
+                // Reset to idle state
+                receiveTimer = setTimeout(workerHeartBeat, 1000 * 60 * 2);
             });
-
-            // Import new data from the gmail database
-
-            // Reset to idle state
-            receiveTimer = setTimeout(workerHeartBeat, 1000 * 60 * 2);
         });
     }
 
@@ -61,13 +59,17 @@ var mailjedi = function() {
                 .script(browser.resolveContent('jedi-js/storage/schema.js'))
                 .script(browser.resolveContent('jedi-js/storage/' + (isFirefox ? 'gears.js' : 'html5.js')))
                 .script(browser.resolveContent('jedi-js/storage/entities/channel.js'))
-                .script(browser.resolveContent('jedi-js/storage/entities/account.js'))
                 .script(browser.resolveContent('jedi-js/storage/entities/profile.js'))
                 .script(browser.resolveContent('jedi-js/storage/entities/person.js'))
                 .script(browser.resolveContent('jedi-js/storage/entities/message.js'))
                 .script(browser.resolveContent('jedi-js/storage/entities/document.js'))
+                .script(browser.resolveContent('jedi-js/channels/gmail.js'))
                 .script(browser.resolveContent('jedi-js/channels/facebook.js'))
-                .script(browser.resolveContent('jedi-js/channels/channelFactory.js'))
+                .script(browser.resolveContent('jedi-js/channels/twitter.js'))
+                .script(browser.resolveContent('jedi-js/channels/linkedin.js'))
+                .script(browser.resolveContent('jedi-js/channels/channel-factory.js'))
+                .script(browser.resolveContent('jedi-js/channels/contact-matcher.js'))
+                .script(browser.resolveContent('jedi-js/channels/profile-matcher.js'))
                 .script(browser.resolveContent('jedi-js/channels/sync.js'))
                 .script(browser.resolveContent('jedi-js/templates/options_template.js'))
                 .script(browser.resolveContent('jedi-js/options.js'))
@@ -75,7 +77,7 @@ var mailjedi = function() {
                     options.init();
 
                     // Add this gmail account if not added already
-                    j_ensure_account();
+                    j_ensure_gmail_channel();
 
                     var hasOffline = (e.target.getAttribute('offline') == 'true');
 

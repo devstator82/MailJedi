@@ -1,8 +1,8 @@
 var channelFactory = {
     build: function(source, token) {
         switch (source.toLocaleLowerCase()) {
-            case 'google':
-                return google_channel(token);
+            case 'gmail':
+                return gmail_channel(token);
 
             case 'facebook':
                 return facebook_channel(token);

@@ -1,22 +1,30 @@
-var GmailDatabase = function() {
-    this.filename = null;
+var GmailDatabase = function(emailAddress) {
+    var filename = null;
+    var emailAddress = null;
+
+    function buildFilename() {
+        var emailAddress = gslayer.state.emailAddress();
+        var parts = emailAddress.split('@');
+        return /@gmail\.com$/.test(emailAddress) ?
+                emailAddress + '-GoogleMail' :
+                emailAddress + '-GoogleMail@' + parts[parts.length -1];
+    }
 
     function open() {
         // Initialize database access
-        var emailAddress = gslayer.state.emailAddress();
-        var parts = emailAddress.split('@');
-        this.filename = /@gmail\.com$/.test(emailAddress) ?
-                emailAddress + '-GoogleMail' :
-                emailAddress + '-GoogleMail@' + parts[parts.length -1];
+        if (filename == null)
+            filename = buildFilename();
 
         var database = google.gears.factory.create('beta.database');
-        database.open(this.filename);
+        database.open(filename);
 
         return database;
     }
+
     function close(database) {
         database.close();
     }
+
     return {
         executeSql: function(query, params, callback) {
 

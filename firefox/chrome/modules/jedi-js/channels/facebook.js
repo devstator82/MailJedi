@@ -5,7 +5,7 @@ var facebook_channel = function(token) {
 
     return {
         source: function() {
-            return 'Facebook';
+            return 'facebook';
         },
         me: function(callback) {
             $.getJSON('{0}me?access_token={1}&callback=?'.format(graphUrl, access_token), function(data) {
@@ -31,8 +31,10 @@ var facebook_channel = function(token) {
                     profile.displayname = elem.name;
                     profile.first_name = elem.first_name;
                     profile.last_name = elem.last_name;
+                    profile.address = elem.uid;
                     profile.avatar = elem.pic_square;
                     profile.url = elem.profile_url;
+                    profile.is_soft = false;
 
                     profiles.push(profile);
                 });

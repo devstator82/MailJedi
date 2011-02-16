@@ -172,6 +172,22 @@ var gslayer = {
                 closeOnClick: false
             });
         }
+    },
+
+    // Local database access
+    db: {
+        contacts: function(callback) {
+            GmailDatabase.executeSql('select * from Contacts', callback);
+        },
+        conversation: function(callback) {
+            GmailDatabase.executeSql('select * from Conversations', callback);
+        },
+        messages: function(callback) {
+            GmailDatabase.executeSql('select * from Messages', callback);
+        },
+        attachments: function(callback) {
+            GmailDatabase.executeSql('select * from Attachments', callback);
+        }
     }
 };
 
