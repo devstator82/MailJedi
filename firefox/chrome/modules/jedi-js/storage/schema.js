@@ -30,9 +30,6 @@ var create_persons_sql =
     'CREATE TABLE IF NOT EXISTS persons (' +
         'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
         'redirect_id INTEGER, ' +
-        'service_id TEXT, ' +
-        'source TEXT, ' +
-        'channel_id INTEGER, ' +
         'displayname TEXT, ' +
         'first_name TEXT, ' +
         'last_name TEXT, ' +

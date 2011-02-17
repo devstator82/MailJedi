@@ -42,7 +42,7 @@ var options = function() {
             });
         },
         process_configure_response: function(response, win) {
-            var channel = channelFactory.build(response.provider, response.token);
+            var channel = j_channelFactory.build(response.provider, response.token);
 
             channel.me(function(user) {                
                 win.close();

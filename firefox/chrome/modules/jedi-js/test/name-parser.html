@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+        <script type="text/javascript" src="../../gslayer/components/logger.js"></script>
+        <script type="text/javascript" src="../the_force.js"></script>
+        <script type="text/javascript" src="../storage/entities/person.js"></script>
+    </head>
+    <body>
+        <h1 id="qunit-header">Name Parser Unit Tests</h1>
+        <h2 id="qunit-banner"></h2>
+        <div id="qunit-testrunner-toolbar"></div>
+        <ol id="qunit-tests"></ol>
+        <div id="qunit-fixture">test markup, will be hidden</div>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                 test('Parse twitter name', function() {
+                    var result = j_name_parser('waseemsadiq');
+
+                    equals(result.first_name(), 'waseemsadiq', 'First name was waseemsadiq');
+                    equals(result.last_name(), null, 'Last name was empty');
+                    equals(result.toString(), 'waseemsadiq', 'toString rendered correctly');
+                });
+
+                test('Parse name with comma', function() {
+                    var result = j_name_parser('Sadiq, Waseem');
+
+                    equals(result.first_name(), 'Waseem', 'First name was Waseem');
+                    equals(result.last_name(), 'Sadiq', 'Last name was Sadiq');
+                    equals(result.toString(), 'Waseem Sadiq', 'toString rendered correctly');
+                });
+
+                test('Parse name with two commas', function() {
+                    var result = j_name_parser('Sadiq, Waseem, 1st');
+
+                    equals(result.first_name(), 'Sadiq, waseem, 1st', 'First name was unchanged');
+                    equals(result.last_name(), null, 'Last name was empty');
+                    equals(result.toString(), 'Sadiq, waseem, 1st', 'toString rendered correctly');
+                });
+
+                test('Parse name with space', function() {
+                    var result = j_name_parser('waseem Sadiq');
+
+                    equals(result.first_name(), 'Waseem', 'First name was Waseem');
+                    equals(result.last_name(), 'Sadiq', 'Last name was Sadiq');
+                    equals(result.toString(), 'Waseem Sadiq', 'toString rendered correctly');
+                });
+
+                test('Parse name with three spaces', function() {
+                    var result = j_name_parser('waseem le sadiq');
+
+                    equals(result.first_name(), 'Waseem Le', 'First name was Waseem Le');
+                    equals(result.last_name(), 'Sadiq', 'Last name was Sadiq');
+                    equals(result.toString(), 'Waseem Le Sadiq', 'toString rendered correctly');
+                });
+            });
+        </script>
+    </body>
+</html>

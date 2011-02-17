@@ -1,4 +1,4 @@
-var channelFactory = {
+var j_channelFactory = {
     build: function(source, token) {
         switch (source.toLocaleLowerCase()) {
             case 'gmail':

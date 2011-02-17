@@ -1,3 +1,3 @@
-var profileMatcher = function() {
+var j_profileMatcher = function() {
     
 };

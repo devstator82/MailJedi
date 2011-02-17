@@ -1,5 +1,5 @@
 var sync = function(config) {
-    var channel = channelFactory.build(config.source, config.auth_token);
+    var channel = j_channelFactory.build(config.source, config.auth_token);
 
     function syncProfiles() {
         logger.log('Starting contact sync. Channels = {0}'.format(config.id));
@@ -25,7 +25,7 @@ var sync = function(config) {
                                     'last_name, address, avatar, url, is_soft, created_at) ' +
                                     'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                                     [ String(friend.service_id), channel.source(), config.id, friend.displayname,
-                                        friend.first_name, friend.last_name, friend.address, friend.avatar, friend.url,
+                                        friend.first_name, friend.last_name, friend.address.toLowerCase(), friend.avatar, friend.url,
                                             friend.is_soft, new Date().to_unixtime() ]);
                         }
                     });

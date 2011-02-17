@@ -1,6 +1,7 @@
 var j_person = function() {
     return {
         id: null,
+        redirect_id: null,
         displayname: null,
         first_name: null,
         last_name: null,
@@ -31,7 +32,7 @@ function j_name_parser(name) {
             name = $.trim(name);
 
             if (name.indexOf(' ') < 0) {
-                first_name = name.capitalize();
+                first_name = name;
                 return;
             }
 
@@ -42,12 +43,12 @@ function j_name_parser(name) {
                 });
 
                 if (commaSep.length != 2) {
-                    first_name = name.capitalize();
+                    first_name = $.trim(name).capitalize();
                     return;
                 }
 
-                first_name = commaSep[0].capitalize();
-                last_name = commaSep[1].capitalize();
+                first_name = $.trim(commaSep[1]).capitalize();
+                last_name = $.trim(commaSep[0]).capitalize();
                 return;
             }
 
@@ -58,10 +59,13 @@ function j_name_parser(name) {
 
             if (parts.length > 2) {
                 // Something like [jean-luc jesuis] [leleur]
-                for (var i = 0; i < parts.length - 1; i++)
-                    first_name += parts[i] + ' ';
+                first_name = '';
+                
+                for (var i = 0; i < parts.length - 1; i++) {
+                    first_name += parts[i].capitalize() + ' ';
+                }
 
-                first_name = $.trim(first_name).capitalize();
+                first_name = $.trim(first_name);
                 last_name = parts[parts.length - 1].capitalize();
                 return;
             }
