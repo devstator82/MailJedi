@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+        <script type="text/javascript" src="../../gslayer/components/logger.js"></script>
+        <script type="text/javascript" src="../the_force.js"></script>
+        <script type="text/javascript" src="../channels/sourceaddress.js"></script>
+    </head>
+    <body>
+        <h1 id="qunit-header">Name Parser Unit Tests</h1>
+        <h2 id="qunit-banner"></h2>
+        <div id="qunit-testrunner-toolbar"></div>
+        <ol id="qunit-tests"></ol>
+        <div id="qunit-fixture">test markup, will be hidden</div>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                 test('Parse email address', function() {
+                    var result = j_sourceAddress('waseem@sadiq.nl');
+                    result.parse();
+
+                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname(), 'waseem@sadiq.nl', 'Displayname is correct');
+                    equals(result.toString(), 'waseem@sadiq.nl', 'toString is correct');
+                });
+
+                test('Parse angled email address', function() {
+                    var result = j_sourceAddress('<waseem@sadiq.nl>');
+                    result.parse();
+
+                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname(), 'waseem@sadiq.nl', 'Displayname is correct');
+                    equals(result.toString(), 'waseem@sadiq.nl', 'toString is correct');
+                });
+
+                test('Parse name with angled email address', function() {
+                    var result = j_sourceAddress('Waseem Sadiq <waseem@sadiq.nl>');
+                    result.parse();
+
+                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname(), 'Waseem Sadiq', 'Displayname is correct');
+                    equals(result.toString(), 'Waseem Sadiq <waseem@sadiq.nl>', 'toString is correct');
+                });
+
+                test('Parse quoted name with angled email address', function() {
+                    var result = j_sourceAddress('"Waseem Sadiq" <waseem@sadiq.nl>');
+                    result.parse();
+
+                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname(), 'Waseem Sadiq', 'Displayname is correct');
+                    equals(result.toString(), 'Waseem Sadiq <waseem@sadiq.nl>', 'toString is correct');
+                });
+
+                test('Parse quoted name with leading space with angled email address', function() {
+                    var result = j_sourceAddress('" Waseem Sadiq" <waseem@sadiq.nl>');
+                    result.parse();
+
+                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname(), 'Waseem Sadiq', 'Displayname is correct');
+                    equals(result.toString(), 'Waseem Sadiq <waseem@sadiq.nl>', 'toString is correct');
+                });
+            });
+        </script>
+    </body>
+</html>

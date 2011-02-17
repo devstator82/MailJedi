@@ -40,6 +40,22 @@ Date.prototype.to_unixtime = function() {
     return Math.ceil(this.getTime() / 1000);
 };
 
+String.prototype.startsWith = function (str) {
+    return this.substr(0, str.length) === str;
+};
+
+String.prototype.endsWith = function (str) {
+    return this.substr(this.length - str.length -1, str.length) === str;
+};
+
+String.prototype.unquote = function() {
+    if (this.startsWith('"') && this.endsWith('"')) {
+        return this.substring(1, this.length -2);
+    }
+
+    return this;
+};
+
 //This prototype is provided by the Mozilla foundation and
 //is distributed under the MIT license.
 //http://www.ibiblio.org/pub/Linux/LICENSES/mit.license
