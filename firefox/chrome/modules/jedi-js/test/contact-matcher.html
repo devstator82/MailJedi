@@ -21,22 +21,29 @@
         <div id="qunit-fixture">test markup, will be hidden</div>
 
         <script type="text/javascript">
-            $(document).ready(function(){
-                var persons = [
-                    { id: 1, displayname: 'Waseem Sadiq' },
-                    { id: 2, displayname: 'Palwisha Sadiq' },
-                    { id: 3, displayname: 'Amina Sadiq', redirect_id: 2 },
-                    { id: 4, displayname: 'Softie Sadiq', is_soft: true },
-                    { id: 5, displayname: 'Softie2 Sadiq', is_soft: true }
-                ];
+            $(document).ready(function() {
+                var persons = null;
+                var profiles = null;
 
-                var profiles = [
-                    { id: 1, displayname: 'Waseem Sadiq', service_id: '123456789', address: 'waseem@inbox2.com', person_id: 1 },
-                    { id: 2, displayname: 'Palwisha Sadiq', service_id: '987654321', address: 'palwisha@sadiq.nl', person_id: 2 },
-                    { id: 3, displayname: 'Amina Sadiq', service_id: '0', address: 'amina@sadiq.nl', person_id: 3 },
-                    { id: 4, displayname: 'Softie Sadiq', service_id: 'xxx', address: 'softie@sadiq.nl', person_id: 4, is_soft: true },
-                    { id: 5, displayname: 'Softie2 Sadiq', service_id: 'xxx2', address: 'softie2@sadiq.nl', person_id: 5, is_soft: true }
-                ];
+                function resetData() {
+                    persons = [
+                        { id: 1, displayname: 'Waseem Sadiq' },
+                        { id: 2, displayname: 'Palwisha Sadiq' },
+                        { id: 3, displayname: 'Amina Sadiq', redirect_id: 2 },
+                        { id: 4, displayname: 'Softie Sadiq', is_soft: true },
+                        { id: 5, displayname: 'Softie2 Sadiq', is_soft: true }
+                    ];
+
+                    profiles = [
+                        { id: 1, displayname: 'Waseem Sadiq', service_id: '123456789', address: 'waseem@inbox2.com', person_id: 1 },
+                        { id: 2, displayname: 'Palwisha Sadiq', service_id: '987654321', address: 'palwisha@sadiq.nl', person_id: 2 },
+                        { id: 3, displayname: 'Amina Sadiq', service_id: '0', address: 'amina@sadiq.nl', person_id: 3 },
+                        { id: 4, displayname: 'Softie Sadiq', service_id: 'xxx', address: 'softie@sadiq.nl', person_id: 4, is_soft: true },
+                        { id: 5, displayname: 'Softie2 Sadiq', service_id: 'xxx2', address: 'softie2@sadiq.nl', person_id: 5, is_soft: true }
+                    ];
+                }
+
+                resetData();
 
                 test('Match on name', function() {
                     var matcher = j_contactMatcher(persons, profiles,
@@ -49,6 +56,8 @@
                     equals(person.id, 1, 'Person id matched');
                 });
 
+                resetData();
+
                 test('Match on name with different case', function() {
                     var matcher = j_contactMatcher(persons, profiles,
                         { displayname: 'waseem sadiq', service_id: '123456789' });
@@ -59,6 +68,8 @@
                     equals(result, matcher.result.matchedOnServiceId, 'Result matched');
                     equals(person.id, 1, 'Person id matched');
                 });
+
+                resetData();
 
                 test('Match on twitter name', function() {
                     var matcher = j_contactMatcher(persons, profiles,
@@ -71,6 +82,8 @@
                     equals(person.id, 1, 'Person id matched');
                 });
 
+                resetData();
+
                 test('Match on redirect_id', function() {
                     var matcher = j_contactMatcher(persons, profiles,
                         { displayname: 'Amina Sadiq', service_id: '', address: 'amina@sadiq.nl' });
@@ -82,6 +95,8 @@
                     equals(person.id, 2, 'Person id matched');
                 });
 
+                resetData();
+
                 test('Match on profile address', function() {
                     var matcher = j_contactMatcher(persons, profiles,
                         { displayname: 'Waseem Sadiq', address: 'waseem@inbox2.com' });
@@ -92,6 +107,8 @@
                     equals(result, matcher.result.matchedOnPerson, 'Result matched');
                     equals(person.id, 1, 'Person id matched');
                 });
+
+                resetData();
 
                 test('Match on profile service_id and change is_soft', function() {
                     var original_length = profiles.length;
@@ -110,7 +127,7 @@
                     equals(query1.query, 'update persons set is_soft = ? where id = ?', 'Query matched');
                     equals(query1.params[0], false, 'Parameter1 matched');
                     equals(query1.params[1], person.id, 'Parameter2 matched');
-                    
+
                     var query2 = LocalDatabase.pop();
                     ok(query2.query.indexOf('profiles') > 0, 'Query matched');
                     equals(query2.params[0], 'aapje35', 'Parameter1 matched');
@@ -121,6 +138,8 @@
 
                     equals(profiles.length, original_length, 'Profiles array still contains original nr. of items')
                 });
+
+                resetData();
 
                 test('Match on profile service_id', function() {
                     var matcher = j_contactMatcher(persons, profiles,
@@ -133,6 +152,8 @@
                     equals(person.id, 1, 'Person id matched');
                 });
 
+                resetData();
+
                 test('Match on profile address', function() {
                     var matcher = j_contactMatcher(persons, profiles,
                         { displayname: 'Gnie Pie', address: 'waseem@inbox2.com' });
@@ -143,6 +164,21 @@
                     equals(result, matcher.result.matchedOnProfile, 'Result matched');
                     equals(person.id, 1, 'Person id matched');
                 });
+
+                resetData();
+
+                test('Match on profile address with different case', function() {
+                    var matcher = j_contactMatcher(persons, profiles,
+                        { displayname: 'Gnie Pie', address: 'Waseem@Inbox2.com' });
+
+                    var result = matcher.match();
+                    var person = matcher.person();
+
+                    equals(result, matcher.result.matchedOnProfile, 'Result matched');
+                    equals(person.id, 1, 'Person id matched');
+                });
+
+                resetData();
 
                 test('Match on profile address and change is_soft', function() {
                     var matcher = j_contactMatcher(persons, profiles,
@@ -159,12 +195,14 @@
                     equals(query1.query, 'update persons set is_soft = ? where id = ?', 'Query matched');
                     equals(query1.params[0], false, 'Parameter1 matched');
                     equals(query1.params[1], person.id, 'Parameter2 matched');
-                    
+
                     var query2 = LocalDatabase.pop();
-                    equals(query2.query, 'update profiles set is_soft = ? where id = ?', 'Query matched');
+                    equals(query2.query, 'update profiles set is_soft = ? person_id = ? where id = ?', 'Query matched');
                     equals(query2.params[0], false, 'Parameter1 matched');
                     equals(query2.params[1], profile.id, 'Parameter2 matched');
                 });
+
+                resetData();
 
                 test('No match', function() {
                     var matcher = j_contactMatcher(persons, profiles,

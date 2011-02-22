@@ -56,6 +56,32 @@ String.prototype.unquote = function() {
     return this;
 };
 
+Array.prototype.popArray = function(fieldname) {
+
+    var resp = [];
+
+    for (var i = 0; i < this.length; i++) {
+        if (typeof fieldname == 'undefined') {
+            if (typeof this[i] == 'array') {
+                resp.push(this[i][0]);
+            }
+            else {
+                resp.push(this[i]);
+            }
+        }
+        else {
+            if (fieldname.endsWith('id')) {
+                resp.push(String(this[i][fieldname]));
+            }
+            else {
+                resp.push(this[i][fieldname]);
+            }
+        }
+    }
+
+    return resp;
+};
+
 //This prototype is provided by the Mozilla foundation and
 //is distributed under the MIT license.
 //http://www.ibiblio.org/pub/Linux/LICENSES/mit.license
@@ -83,3 +109,7 @@ if (!Array.prototype.filter)
     return res;
   };
 }
+
+Object.prototype.isArray = function() {
+   return (this.constructor.toString().indexOf("Array") > -1);
+};

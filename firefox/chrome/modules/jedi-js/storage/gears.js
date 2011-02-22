@@ -10,6 +10,7 @@ var LocalDatabase = function() {
             instance.execute(create_channels_sql);
             instance.execute(create_persons_sql);
             instance.execute(create_profiles_sql);
+            instance.execute(create_person_messages_sql);
             instance.execute(create_messages_sql);
             instance.execute(create_documents_sql);
         }
@@ -40,7 +41,8 @@ var LocalDatabase = function() {
                 params = null;
             }
 
-            logger.log('Executing query: ' + query);
+            var paramsLog = (params != null && params.isArray()) ? ' >> params: ' + params.join(', ') : '';
+            logger.log('Executing query: ' + query + paramsLog);
 
             var resultSet = [];
             var rs = database.execute(query, params);

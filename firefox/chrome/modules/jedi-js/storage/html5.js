@@ -13,6 +13,7 @@ var LocalDatabase = function() {
                 tx.executeSql(create_channels_sql);
                 tx.executeSql(create_persons_sql);
                 tx.executeSql(create_profiles_sql);
+                tx.executeSql(create_person_messages_sql);
                 tx.executeSql(create_messages_sql);
                 tx.executeSql(create_documents_sql);
             });

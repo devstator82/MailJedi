@@ -1,0 +1,24 @@
+<div id="options-popup" class="overlay">\
+    <div class="overlay-inner">\
+        <h2 class="overlay-header">Configure your accounts</h2>\
+        <div class="overlay-body">\
+			<p>Your accounts:</p>\
+            {{tmpl options_popup_channels_tpl}}\
+			\
+			<p>Add more accounts:</p>\
+			{{each available}}\
+				<div class="channel-add-icon">\
+					<a class="configure-link" rel="${$value.toLowerCase()}">\
+						<img src="resource://mailjedi/jedi-js/images/channels/logo_${$value.toLowerCase()}_channel.png" border="0" alt="${$value}" />\
+						<div class="add-channel-displayname">${$value}</div>\
+					</a>\
+				</div>\
+			{{/each}}\
+		</div>\
+        <div class="overlay-footer">\
+            <label class="button fr close">\
+                <input type="button" value="Close">\
+            </label>\
+        </div>\
+    </div>\
+</div>

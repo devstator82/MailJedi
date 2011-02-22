@@ -1,0 +1,26 @@
+{{if configured.length > 0}}\
+<table id="setup-list" class="table-list setup-list channels-root">\
+    <colgroup>\
+        <col class="col-1" />\
+        <col class="col-2" />\
+        <col class="col-3" />\
+    </colgroup>\
+    <tbody>\
+        {{each configured}}\
+        <tr>\
+          <td>\
+              <img src="resource://mailjedi/jedi-js/images/channels/logo_${$value.source}_dock.png" alt="${$value.source}" width="23" height="25" />\
+          </td>\
+          <td>\
+              <span class="username">${$value.username}</span>\
+          </td>\
+          <td>\
+              <a class="delete-channel" rel="${$value.channel_id}" href="javascript:;">Remove</a>\
+          </td>\
+        </tr>\
+        {{/each}}\
+    </tbody>\
+</table>\
+{{else}}\
+    <em id="setup-list-empty" class="channels-root">Start by adding one or more of your accounts</em>\
+{{/if}}

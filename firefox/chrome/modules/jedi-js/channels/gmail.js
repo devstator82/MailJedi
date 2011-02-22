@@ -1,4 +1,4 @@
-var gmail_channel = function(token) {
+var gmail_channel = function(config) {
     return {
         source: function() {
             return 'gmail';
@@ -6,7 +6,7 @@ var gmail_channel = function(token) {
         me: function(callback) {
             // Not implemented
         },
-        friends: function(service_id, callback) {
+        friends: function(callback) {
             gslayer.db.contacts(function(data) {
 
                 var profiles = [];
@@ -14,12 +14,16 @@ var gmail_channel = function(token) {
                 $.each(data, function(i, elem) {
                     var profile = j_profile();
                     var name = j_name_parser(elem.Name);
+                    var sourceaddress = j_sourceAddress(elem.PrimaryEmail);
+                    sourceaddress.parse();
 
                     profile.service_id = elem.ServerId;
-                    profile.displayname = name.toString();
+                    profile.source = 'gmail';
+                    profile.channel_id = config.id;
+                    profile.displayname = elem.Name;
                     profile.first_name = name.first_name();
                     profile.last_name = name.last_name();
-                    profile.address = elem.PrimaryEmail;
+                    profile.address = sourceaddress.address();
                     profile.avatar = null;
                     profile.url = null;
                     profile.is_soft = false;
@@ -34,6 +38,55 @@ var gmail_channel = function(token) {
                 });
 
                 callback(profiles);
+            });
+        },
+        messages: function(callback) {
+            if (config.lastmessage_at == null) {
+                config.lastmessage_at = 0;
+            }
+
+            gslayer.db.messages(config.lastmessage_at, function(data) {
+                var messages = [];
+
+                function parseFolder(elem) {
+                    if (elem.IsInbox)
+                        return 10;
+
+                    if (elem.IsOutbox)
+                        return 20;
+
+                    if (elem.IsDraft)
+                        return 30;
+
+                    if (elem.IsSpam)
+                        return 40;
+
+                    if (elem.IsTrash)
+                        return 50;
+                }
+
+                $.each(data, function(i, elem) {
+                    var message = j_message();
+
+                    message.id = elem.id;
+                    message.channel_id = config.id;
+                    message.service_id = elem.ServerId;
+                    message.source = 'gmail';
+                    message.subject = elem.Subject;
+                    message.preview = elem.Snippet;
+                    message.from = j_sourceAddress(elem.ReplyToAddress).parse();
+                    //message.to = jQuery.parseJSON(elem.to);
+                    //message.cc = jQuery.parseJSON(elem.cc);
+                    //message.bcc = jQuery.parseJSON(elem.bcc);
+                    message.is_unread = elem.IsUnread;
+                    message.folder = parseFolder(elem);
+                    message.attachments = elem.NumberOfAttachments;
+                    message.sort_date = elem.ReceiveDateMs / 1000;
+
+                    messages.push(message);
+                });
+
+                callback(messages);
             });
         }
     }

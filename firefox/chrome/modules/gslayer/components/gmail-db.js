@@ -42,7 +42,7 @@ var GmailDatabase = function(emailAddress) {
                 logger.log('Executing GMail query: ' + query);
 
                 var resultSet = [];
-                var rs = database.execute(query);
+                var rs = database.execute(query, params);
 
                 while (rs.isValidRow()) {
                     var obj = [];

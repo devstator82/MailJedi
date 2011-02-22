@@ -1,73 +1,65 @@
 var sync = function(config) {
-    var channel = j_channelFactory.build(config.source, config.auth_token);
+    var channel = j_channelFactory.build(config);
 
-    function syncProfiles() {
-        logger.log('Starting contact sync. Channels = {0}'.format(config.id));
+    function syncProfiles(persons, profiles) {
+        logger.log('Starting contact sync. Channel = {0}'.format(config.id));
 
-        channel.friends(config.service_id, function(friends) {
-            // Retrieve all profiles for this channel
-            LocalDatabase.executeSql('select * from profiles where channel_id = ?', [ config.id ], function(profiles) {
+        // Build an hashtable of all found profile service_id's
+        var service_ids = profiles.popArray('service_id');
 
-                // Build an hashtable of all found profiles
-                var service_ids = [];
-                for (var i =0; i < profiles.length; i++) {
-                    service_ids.push(String(profiles[i].service_id));
+        channel.friends(function(unmatched_profiles) {
+
+            LocalDatabase.beginTransaction();
+
+            // Save all found friends
+            $.each(unmatched_profiles, function(i, profile) {
+                if ($.inArray(profile.service_id, service_ids) == -1) {
+                    // Find match for this profile
+                    j_contactMatcher(persons, profiles, profile).match();
                 }
-
-                LocalDatabase.beginTransaction();
-
-                try {
-                    // Save all found friends
-                    $.each(friends, function(i, friend) {
-                        if ($.inArray(String(friend.service_id), service_ids) == -1) {
-                            LocalDatabase.executeSql('insert into profiles (' +
-                                    'service_id, source, channel_id, displayname, first_name, ' +
-                                    'last_name, address, avatar, url, is_soft, created_at) ' +
-                                    'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                                    [ String(friend.service_id), channel.source(), config.id, friend.displayname,
-                                        friend.first_name, friend.last_name, friend.address.toLowerCase(), friend.avatar, friend.url,
-                                            friend.is_soft, new Date().to_unixtime() ]);
-                        }
-                    });
-                }
-                finally {
-                    LocalDatabase.endTransaction();
-                }
-
-                logger.log('SyncProfiles finished. Channel = {0}, Profiles = {1}'.format(config.id, friends.length));
-
-                LocalDatabase.executeSql('update channels set lastsync_at = ? where id = ?',
-                    [ new Date().to_unixtime(), config.id ])
             });
+
+            LocalDatabase.endTransaction();
+
+            logger.log('SyncProfiles finished. Channel = {0}, Profiles = {1}'.format(config.id, unmatched_profiles.length));
         });
     }
 
-    function syncPersons() {
-        LocalDatabase.executeSql('select * from profiles where channel_id = null', function(profiles) {
-            if (profiles.length > 0) {
-                LocalDatabase.executeSql('select * from persons', function(persons) {
+    function syncMessages(persons, profiles) {
+        logger.log('Starting messages sync. Channel = {0}'.format(config.id));
 
-                    LocalDatabase.beginTransaction();
+        LocalDatabase.executeSql('select id, service_id from messages', function(messages) {
+            var service_ids = messages.popArray('service_id');
 
-                    try {
-                        $.each(profiles, function(i, profile) {
-                            // Find match for this profile
-                        });
+            channel.messages(function(unmatched_messages) {
+                LocalDatabase.beginTransaction();
+
+                // Save all found messages
+                $.each(unmatched_messages, function(i, message) {
+                    if ($.inArray(String(message.service_id), service_ids) == -1) {
+                        j_profile_matcher(persons, profiles, message).match();
                     }
-                    finally {
-                        LocalDatabase.endTransaction();
-                    }
-
-                    logger.log('SyncPersons finished. Channel = {0}, Profiles = {1}'.format(config.id, profiles.length));
                 });
-            }
+
+                LocalDatabase.endTransaction();
+
+                logger.log('SyncMessages finished. Channel = {0}, Profiles = {1}'.format(config.id, unmatched_messages.length));
+            });
         });
     }
 
     return {
         run: function() {
-            syncProfiles();
-            syncPersons();
+            LocalDatabase.executeSql('select * from persons', function(persons) {
+                LocalDatabase.executeSql('select * from profiles', function(profiles) {
+
+                    syncProfiles(persons, profiles);
+                    //syncMessages(persons, profiles);
+
+                    LocalDatabase.executeSql('update channels set lastsync_at = ? where id = ?',
+                        [ new Date().to_unixtime(), config.id ]);
+                });
+            });
         }
     }
 };

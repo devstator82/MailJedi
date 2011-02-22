@@ -1,4 +1,4 @@
-var j_contactMatcher = function(persons, profiles, friend){
+var j_contactMatcher = function(persons, profiles, contact) {
 
     var person = null;
     var profile = null;
@@ -64,7 +64,7 @@ var j_contactMatcher = function(persons, profiles, friend){
             return profile;
         },
         match: function() {
-            person = find_person_by_name(friend.displayname);
+            person = find_person_by_name(contact.displayname);
 
             if (person != null && person.redirect_id != null) {
                 person = find_person_by_id(person.redirect_id);
@@ -73,27 +73,29 @@ var j_contactMatcher = function(persons, profiles, friend){
             if (person != null) {
 
                 // Match found, check if profile needs updating
-                profile = find_profile_by_service_id(friend.service_id);
+                profile = find_profile_by_service_id(contact.service_id);
 
                 if (profile == null) {
-                    var matchOnAddress = find_profile_by_address(friend.address.toLowerCase());
+                    var matchOnAddress = find_profile_by_address(contact.address);
 
                     if (matchOnAddress != null) {
                         logger.log('Found soft profile {0} for for person {1} with address {2}, removing and recreating'
-                            .format(matchOnAddress.id, person.displayname, friend.address));
+                            .format(matchOnAddress.id, person.displayname, contact.address));
 
                         // We have a soft profile on the same address that we are now receiving a hard profile for,
                         // remove the soft profile so that the matcher will create a new hard profile.
-                        delete_profile_by_id(friend.id);
+                        delete_profile_by_id(matchOnAddress.id);
 
                         LocalDatabase.executeSql('delete from profiles where id = ?', [ matchOnAddress.id ]);
                     }
 
-                    logger.log('Found new profile {0} for person {1}'.format(friend.service_id, person.displayname));
+                    logger.log('Found new profile {0} for person {1}'.format(contact.service_id, person.displayname));
 
                     // Append new profile to person
                     this.save_profile();
                     this.update_person();
+
+                    logger.log('matched on person');
 
                     return this.result.matchedOnPerson;
                 }
@@ -103,19 +105,22 @@ var j_contactMatcher = function(persons, profiles, friend){
                     this.update_person();
                     this.update_profile();
 
+                    logger.log('matched on service id');
+
                     return this.result.matchedOnServiceId;
                 }
             }
             else {
-                // Match not found, try to match to profile address                
-                profile = find_profile_by_address(friend.address.toLowerCase());
+                // Match not found, try to match to profile address
+                profile = find_profile_by_address(contact.address);
 
                 if (profile != null) {
-                    this.update_profile();
-
                     person = find_person_by_id(profile.person_id);
 
+                    this.update_profile();
                     this.update_person();
+
+                    logger.log('matched on profile');
 
                     return this.result.matchedOnProfile;
                 }
@@ -126,41 +131,44 @@ var j_contactMatcher = function(persons, profiles, friend){
         },
         save_friend: function() {
             person = j_person();
-            person.displayname = friend.displayname;
-            person.first_name = $.trim(friend.first_name);
-            person.last_name = $.trim(friend.last_name);
-            person.avatar = friend.avatar;
-            person.is_soft = friend.is_soft;
+            person.displayname = contact.displayname;
+            person.first_name = $.trim(contact.first_name);
+            person.last_name = $.trim(contact.last_name);
+            person.avatar = contact.avatar;
+            person.is_soft = contact.is_soft;
             person.created_at = new Date().to_unixtime();
+
+            var that = this;
 
             LocalDatabase.executeSql('insert into persons (' +
                 'displayname, first_name, last_name, avatar, is_soft, created_at) ' +
-                'values (?, ?, ?, ?, ?, ?); ' +
-                    'select last_insert_rowid();',
+                'values (?, ?, ?, ?, ?, ?);',
                 [ person.displayname, person.first_name, person.last_name,
-                    person.avatar, person.is_soft, person.created_at], function(rs) {
+                    person.avatar, person.is_soft, person.created_at], function() {
 
-                    person.id = rs[0];
+                    LocalDatabase.executeSql('select last_insert_rowid();', function(rs) {
+                        person.id = rs[0];
+
+                        that.save_profile();
+                    });
             });
 
             // Add profile to our profiles array
             persons.push(person);
-
-            this.save_profile();
         },
         save_profile: function() {            
             profile = j_profile();
-            profile.service_id = friend.service_id;
+            profile.service_id = String(contact.service_id);
             profile.person_id = person.id;
-            profile.source = friend.source;
-            profile.channel_id = friend.channel_id;
-            profile.displayname = $.trim(friend.displayname);
-            profile.first_name = $.trim(friend.first_name);
-            profile.last_name = $.trim(friend.last_name);
-            profile.address = $.trim(friend.address).toLowerCase();
-            profile.avatar = friend.avatar;
-            profile.url = friend.url;
-            profile.is_soft = friend.is_soft;
+            profile.source = contact.source;
+            profile.channel_id = contact.channel_id;
+            profile.displayname = $.trim(contact.displayname);
+            profile.first_name = $.trim(contact.first_name);
+            profile.last_name = $.trim(contact.last_name);
+            profile.address = contact.address;
+            profile.avatar = contact.avatar;
+            profile.url = contact.url;
+            profile.is_soft = contact.is_soft;
             profile.created_at = new Date().to_unixtime();
 
             LocalDatabase.executeSql('insert into profiles (' +
@@ -179,22 +187,24 @@ var j_contactMatcher = function(persons, profiles, friend){
             profiles.push(profile);
         },
         update_person: function() {
-            if (!friend.is_soft) {
+            if (!contact.is_soft) {
                 if (person.is_soft) {
                     person.is_soft = false;
 
-                    LocalDatabase.executeSql('update persons set is_soft = ? where id = ?', [ false, person.id ]);
+                    LocalDatabase.executeSql('update persons set is_soft = ? where id = ?',
+                        [ false, person.id ]);
                 }
             }
         },
         update_profile: function() {            
-            if (!friend.is_soft) {
+            if (!contact.is_soft) {
                 if (profile.is_soft) {
                     profile.is_soft = false;
-
-                    LocalDatabase.executeSql('update profiles set is_soft = ? where id = ?', [ false, profile.id ]);
                 }
             }
+
+            LocalDatabase.executeSql('update profiles set is_soft = ?, person_id = ? where id = ?',
+                [ profile.is_soft, person.id, profile.id ]);
         },
         result: {
             noMatch: 'no match',

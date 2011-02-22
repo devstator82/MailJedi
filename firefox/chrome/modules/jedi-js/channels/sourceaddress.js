@@ -35,6 +35,8 @@ j_sourceAddress = function(rawAddress) {
 
             if (address == null)
                 address = rawAddress;
+
+            return this;
         },
         toString: function() {
             // todo implement renderProperties when we start dealing with status updates
@@ -43,7 +45,7 @@ j_sourceAddress = function(rawAddress) {
                 return '{0} <{1}>'.format(displayname, address);
             }
 
-            return address;
+            return $.trim(address);
         }
     }
 };

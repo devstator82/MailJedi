@@ -1,0 +1,75 @@
+/* Textfield and Textarea */
+label.textfield,
+div.textfield,
+div.textarea {
+	background: #FFF url(../images/textfield_bg.gif) repeat-x left top;
+	border: 1px #DDE2EB solid;
+	border-top: 1px solid #C2CCDD;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	cursor: text;
+	display: block;
+	padding: 4px;
+	position: relative;
+	outline: 0 none;
+}
+label.textfield input,
+div.textfield input, 
+div.textarea textarea {
+	background-color: #FFF;
+	border: 0 none;
+	display: block;
+	margin: 3px 0;
+	width: 100%;
+	outline: 0 none;
+}
+
+/* Forms */
+.form-container {
+	background-color: #f5f5f5;
+	border: 1px solid #999;
+	display: block;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	padding: 10px;
+}
+.form-container fieldset legend {
+	color: #666;
+	font-size: 1.5em;
+	padding-bottom: 0.5em;
+}
+.form-container .form-row {
+	background: #fff;
+	border: 1px solid #999;
+	margin-bottom: 10px;
+	padding: 10px 10px 0 10px;
+	overflow: hidden;
+}
+.form-container .form-row .form-row-item {
+	display: block;
+	overflow: hidden;
+	margin-bottom: 10px;
+}
+.form-container .form-row-item-desc {	
+	color: #666;
+	display: block;
+	font-style: italic;
+	padding-left: 20%;
+	margin-bottom: 10px;
+}
+.form-container .form-label {
+	display: inline-block;
+	float: left;
+	font-weight: bold;	
+	margin-right: 1%;
+	width: 19%;
+}
+.form-container .form-input-holder {
+	float: left;
+	width: 80%;	
+}
+.form-container .textfield {
+	display: block;	
+}

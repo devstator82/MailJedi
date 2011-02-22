@@ -1,17 +1,17 @@
 var j_channelFactory = {
-    build: function(source, token) {
-        switch (source.toLocaleLowerCase()) {
+    build: function(config) {
+        switch (config.source.toLocaleLowerCase()) {
             case 'gmail':
-                return gmail_channel(token);
+                return gmail_channel(config);
 
             case 'facebook':
-                return facebook_channel(token);
+                return facebook_channel(config);
 
             case 'twitter':
-                return twitter_channel(token);
+                return twitter_channel(config);
 
             case 'linkedin':
-                return linkedin_channel(token);
+                return linkedin_channel(config);
         }
-    }    
+    }
 };

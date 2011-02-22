@@ -5,6 +5,7 @@ var j_channel = function() {
         source: null,
         username: null,
         auth_token: null,
+        lastmessage_at: null,
         lastsync_at: null,
         created_at: null
     }
@@ -39,6 +40,7 @@ function j_all_channels_process_response(rs, callback) {
         channel.source = data.source;
         channel.username = data.username;
         channel.auth_token = data.auth_token;
+        channel.lastmessage_at = data.lastmessage_at;
         channel.lastsync_at = data.lastsync_at;
         channel.created_at = data.created_at;
 

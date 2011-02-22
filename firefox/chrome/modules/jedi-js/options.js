@@ -11,8 +11,6 @@ var options = function() {
 
     return {
         init: function() {
-            logger.log('Options initialized');
-
             j_all_social_channels(function(channels) {
                 var data = {
                     available: ['Facebook', 'Twitter', 'LinkedIn'],
@@ -26,6 +24,8 @@ var options = function() {
                     mailjedi.configure($(this).attr('rel'));
                 });
             });
+
+            logger.log('Options initialized');
         },
         refresh: function() {
             j_all_social_channels(function(channels) {
@@ -42,7 +42,7 @@ var options = function() {
             });
         },
         process_configure_response: function(response, win) {
-            var channel = j_channelFactory.build(response.provider, response.token);
+            var channel = j_channelFactory.build({ source: response.provider, token: response.token });
 
             channel.me(function(user) {                
                 win.close();

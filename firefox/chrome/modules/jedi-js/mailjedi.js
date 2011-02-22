@@ -40,7 +40,7 @@ var mailjedi = function() {
                 $('<link>').attr({
                     type: 'text/css',
                     rel: 'stylesheet',
-                    href: browser.resolveContent('jedi-js/mailjedi.css')
+                    href: browser.resolveContent('jedi-js/stylesheets/master.css')
                 })
             );
 
@@ -67,13 +67,15 @@ var mailjedi = function() {
                 .script(browser.resolveContent('jedi-js/channels/facebook.js'))
                 .script(browser.resolveContent('jedi-js/channels/twitter.js'))
                 .script(browser.resolveContent('jedi-js/channels/linkedin.js'))
+                .script(browser.resolveContent('jedi-js/channels/sourceaddress.js'))
                 .script(browser.resolveContent('jedi-js/channels/channel-factory.js'))
                 .script(browser.resolveContent('jedi-js/channels/contact-matcher.js'))
                 .script(browser.resolveContent('jedi-js/channels/profile-matcher.js'))
                 .script(browser.resolveContent('jedi-js/channels/sync.js'))
-                .script(browser.resolveContent('jedi-js/templates/options_template.js'))
+                .script(browser.resolveContent('jedi-js/templates/templates.js'))
                 .script(browser.resolveContent('jedi-js/options.js'))
-                .wait(function(){
+                .script(browser.resolveContent('jedi-js/dashboard.js'))
+                .wait(function() {
                     options.init();
 
                     // Add this gmail account if not added already
@@ -99,7 +101,7 @@ var mailjedi = function() {
             // Make sure the message comes from a valid source
             if (/mailjedi\.com/.test(event.origin)) {
                 options.process_configure_response(
-                        jQuery.parseJSON(event.data), this.win);
+                    jQuery.parseJSON(event.data), this.win);
             }
         }
     };
@@ -112,4 +114,5 @@ function bind(scope, fn) {
 }
 
 document.addEventListener('Loaded', bind(mailjedi, mailjedi.loaded), false);
+document.addEventListener('Rendered', bind(mailjedi, function() { dashboard.init(); }), false);
 window.addEventListener('message', bind(mailjedi, mailjedi.configureSuccess), false);

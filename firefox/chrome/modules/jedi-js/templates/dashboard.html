@@ -1,0 +1,37 @@
+<div id="content">\
+    <div class="row-resize-height row clearfix">\
+        <div class="column-16">\
+            <div id="message-stream-container" class="box rounded-corner-box">\
+                <div class="inner">\
+                    <div class="header">\
+                        <h3 class="icon-contact float-left">Your Contacts</h3>\
+                        <div class="search-field textfield wrap-centered">\
+                            <label for="searchfield-input">Search for a contact</label>\
+                            <input id="searchfield-input" name="searchfield-input" type="text" />\
+                            <a id="button-search" title="Search" class="search-button"></a>\
+                        </div>\
+                    </div>\
+                    <div class="body">\
+                        {{each groups}}\
+                        <h3 class="section-header">${$value.title}</h3>\
+                        <ul class="thumbnail-list wrap-centered">\
+                            {{each ${$value.people}}}\
+                                <li>\
+                                    <div class="thumb-container">\
+                                        <a href="person-detail.html">\
+                                            <div class="mbm"><img src="${$value.avatar}" width="70" height="70" /></div>\
+                                            <strong class="text-wrap">${$value.displayname}</strong>\
+                                        </a>\
+                                        <span class="badge-counter-rt">3</span>\
+                                    </div>\
+                                </li>\
+                            {{/each}}\
+                        </ul>\
+                        {{/each}}\
+                        <div class="clear"></div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>

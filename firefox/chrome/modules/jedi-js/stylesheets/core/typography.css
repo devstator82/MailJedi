@@ -1,0 +1,49 @@
+/* Basics
+*****************************************************/
+body, table, input, textarea, select {
+	font: normal 12px Tahoma, Geneva, Kalimati, sans-serif;
+}
+body {
+	color: #000;
+}
+h1 {
+	font-size: 3em;
+	line-height: 1;
+}
+h2 {
+	font-size: 2em;
+}
+h3 {
+	font-size: 1.5em;
+	line-height: 1.33em;
+}
+h4 {
+	font-size: 1.2em;
+	line-height: 1.25;
+}
+h5 {
+	font-size: 1em;
+	font-weight: bold;
+}
+h6 {
+	font-size: 1em;
+	font-weight: bold;
+}
+h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {
+	margin: 0;
+}
+a {
+	cursor: pointer;
+	text-decoration: none;
+	outline: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+strong {
+	font-weight: bold;
+}
+
+.disabled-text {
+    color: #959595;
+}

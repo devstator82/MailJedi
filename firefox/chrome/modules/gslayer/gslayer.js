@@ -7,7 +7,11 @@ var gslayer = {
         OFFLINE_INDICATOR_SYNCING: 'bx',
         CANVAS_FRAME: 'canvas_frame',
         MANAGE_THIS_DOMAIN: '#\\:r3',
-        CONTENT_BODY_ELEMENT: '.cP'
+        CONTENT_BODY_ELEMENT: '.cP',
+        NAVIGATION_ELEMENT: '.nM[role="navigation"]',
+        INBOX_ELEMENT: '.TO:first',
+        INBOX_SELECTED_ELEMENT: 'nZ',
+        INBOX_ELEMENT_ANCHOR: 'n0'
     },    
 
     // State variables
@@ -33,6 +37,8 @@ var gslayer = {
         gslayer.require('components/thirdparty/jquery.js')
                .require('components/thirdparty/jquery.tools.js')
                .require('components/thirdparty/jquery.tpl.js')
+               .require('components/thirdparty/jquery.autocomplete.js')
+               .require('components/thirdparty/jquery.labelover.js')
                .require('components/thirdparty/gears_init.js')
                .require('components/logger.js')
                .require('components/gmail-db.js');
@@ -41,7 +47,7 @@ var gslayer = {
         gslayer.dataElement = document.createElement('GSlayerDataElement');        
         document.documentElement.appendChild(gslayer.dataElement);
 
-        gslayer.bootstrapTimer = setInterval('gslayer.waitForInit();', 1500);
+        gslayer.bootstrapTimer = setInterval('gslayer.waitForInit();', 500);
     },
     waitForInit: function() {
 
@@ -60,6 +66,8 @@ var gslayer = {
                 // Get email address, also performs a sanity check
                 var emailAddress = gslayer.state.emailAddress();
 
+                gslayer.bootstrapTimer = setInterval('gslayer.waitForInbox();', 500);
+
                 // Start sync watcher
                 gslayer.syncTimer = setInterval('gslayer.checkSyncStatus();', 500);
 			} else {
@@ -70,6 +78,18 @@ var gslayer = {
 			}
 		}
 	},
+    waitForInbox: function() {
+        var elem = $(gslayer.globals.NAVIGATION_ELEMENT)
+                .find(gslayer.globals.INBOX_ELEMENT);
+
+        if (elem.length) {
+            logger.log('Found inbox');
+
+            gslayer.events.publish('Rendered');
+
+            clearInterval(gslayer.bootstrapTimer);
+        }
+    },
     checkSyncStatus: function() {
 
         var newStatus = $(gslayer.globals.OFFLINE_INDICATOR)
@@ -78,7 +98,7 @@ var gslayer = {
         if (gslayer.syncing === newStatus)
             return; // Nothing changed        
 
-        logger.log('Sync status changed, new status is: ' + newStatus);
+        //logger.log('Sync status changed, new status is: ' + newStatus);
 
         gslayer.events.publish('Syncing', { name: 'syncing', value: newStatus });
     },
@@ -158,6 +178,33 @@ var gslayer = {
                 .append('<span> | </span>')
                 .append(item);
         },
+        appendInboxNavigationItem: function(item, callback) {
+            var elem = $(gslayer.globals.NAVIGATION_ELEMENT)
+                    .find(gslayer.globals.INBOX_ELEMENT);
+
+            var newElem = elem.clone();
+
+            newElem.attr('id', 22)
+                    .removeClass(gslayer.globals.INBOX_SELECTED_ELEMENT);
+
+            newElem.find('a')
+                    .attr('href', 'javascript:;')
+                    .attr('title', item)
+                    .text(item);
+
+            newElem.click(function() {
+                // Doesn't work yet
+//                $(gslayer.globals.NAVIGATION_ELEMENT)
+//                    .find(gslayer.globals.INBOX_SELECTED_ELEMENT)
+//                    .removeClass(gslayer.globals.INBOX_SELECTED_ELEMENT);
+
+//                $(this).addClass(gslayer.globals.INBOX_SELECTED_ELEMENT);
+
+                callback();
+            });
+
+            newElem.insertAfter(elem);
+        },
         prependHtml: function(html) {
             $(gslayer.globals.CONTENT_BODY_ELEMENT)
                 .prepend(html);
@@ -179,11 +226,9 @@ var gslayer = {
         contacts: function(callback) {
             GmailDatabase.executeSql('select * from Contacts', callback);
         },
-        conversation: function(callback) {
-            GmailDatabase.executeSql('select * from Conversations', callback);
-        },
-        messages: function(callback) {
-            GmailDatabase.executeSql('select * from Messages', callback);
+        messages: function(since, callback) {
+            GmailDatabase.executeSql('select m.*, c.Subject, c.SenderListHtml from Messages m, Conversations c ' +
+                    'where c.ConversationId = m.ConversationId and m.Timestamp > ?', [ since ], callback);
         },
         attachments: function(callback) {
             GmailDatabase.executeSql('select * from Attachments', callback);
