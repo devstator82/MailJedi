@@ -66,8 +66,6 @@ var gslayer = {
                 // Get email address, also performs a sanity check
                 var emailAddress = gslayer.state.emailAddress();
 
-                gslayer.bootstrapTimer = setInterval('gslayer.waitForInbox();', 500);
-
                 // Start sync watcher
                 gslayer.syncTimer = setInterval('gslayer.checkSyncStatus();', 500);
 			} else {
@@ -76,6 +74,8 @@ var gslayer = {
 
                 gslayer.events.publish('Loaded', { name: 'offline', value: false });
 			}
+
+            gslayer.bootstrapTimer = setInterval('gslayer.waitForInbox();', 500);
 		}
 	},
     waitForInbox: function() {
