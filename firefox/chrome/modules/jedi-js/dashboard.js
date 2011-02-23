@@ -26,6 +26,8 @@ var dashboard = function() {
                 ]};
 
                 $('#wrapper').html($.tmpl(dashboard_tpl, data));
+
+                $('.search-field label').labelOver('labelover-apply');
             });
         },
         showPerson: function() {
