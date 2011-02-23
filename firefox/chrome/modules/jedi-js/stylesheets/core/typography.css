@@ -1,49 +1,59 @@
 /* Basics
 *****************************************************/
-body, table, input, textarea, select {
+.mail-jedi,
+.mail-jedi body, 
+.mail-jedi table, 
+.mail-jedi input, 
+.mail-jedi textarea, 
+.mail-jedi select {
 	font: normal 12px Tahoma, Geneva, Kalimati, sans-serif;
 }
-body {
+.mail-jedi body {
 	color: #000;
 }
-h1 {
+.mail-jedi h1 {
 	font-size: 3em;
 	line-height: 1;
 }
-h2 {
+.mail-jedi h2 {
 	font-size: 2em;
 }
-h3 {
+.mail-jedi h3 {
 	font-size: 1.5em;
 	line-height: 1.33em;
 }
-h4 {
+.mail-jedi h4 {
 	font-size: 1.2em;
 	line-height: 1.25;
 }
-h5 {
+.mail-jedi h5 {
 	font-size: 1em;
 	font-weight: bold;
 }
-h6 {
+.mail-jedi h6 {
 	font-size: 1em;
 	font-weight: bold;
 }
-h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {
+.mail-jedi h1 img, 
+.mail-jedi h2 img, 
+.mail-jedi h3 img, 
+.mail-jedi h4 img, 
+.mail-jedi h5 img, 
+.mail-jedi h6 img {
 	margin: 0;
 }
-a {
+.mail-jedi a {
 	cursor: pointer;
 	text-decoration: none;
 	outline: none;
 }
-a:hover {
+.mail-jedi a:hover {
 	text-decoration: underline;
 }
-strong {
+.mail-jedi strong {
 	font-weight: bold;
 }
 
-.disabled-text {
+.mail-jedi .disabled-text {
     color: #959595;
 }

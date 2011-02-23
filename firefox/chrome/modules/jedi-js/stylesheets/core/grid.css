@@ -1,101 +1,101 @@
 /* Grid - Global
 *********************************************/
-.grid-container {
+.mail-jedi .grid-container {
 	width: 98%;
 	margin-left: 1%;
 	margin-right: 1%;
 }
-.grid-container .row {
+.mail-jedi .grid-container .row {
 	display: block;
 }
-.grid-container .row-bottom-margin {
+.mail-jedi .grid-container .row-bottom-margin {
 	margin-bottom: 18px;
 }
-.grid-container .row-resize-height {
+.mail-jedi .grid-container .row-resize-height {
     /* this css class is used by jQuery to automatically resize 
     the height of the components place in a row */
 }
-.column-1,
-.column-2, 
-.column-3, 
-.column-4, 
-.column-5, 
-.column-6, 
-.column-7, 
-.column-8, 
-.column-9, 
-.column-10, 
-.column-11, 
-.column-12, 
-.column-13, 
-.column-14, 
-.column-15, 
-.column-16, 
-.column-1of3 {
+.mail-jedi .column-1,
+.mail-jedi .column-2, 
+.mail-jedi .column-3, 
+.mail-jedi .column-4, 
+.mail-jedi .column-5, 
+.mail-jedi .column-6, 
+.mail-jedi .column-7, 
+.mail-jedi .column-8, 
+.mail-jedi .column-9, 
+.mail-jedi .column-10, 
+.mail-jedi .column-11, 
+.mail-jedi .column-12, 
+.mail-jedi .column-13, 
+.mail-jedi .column-14, 
+.mail-jedi .column-15, 
+.mail-jedi .column-16, 
+.mail-jedi .column-1of3 {
 	display: inline;
 	float: left;
 }
 
 /* Grid - 16 Columns
 *********************************************/
-.grid-container .column-1 {
+.mail-jedi .grid-container .column-1 {
 	width: 6.25%;
 }
-.grid-container .column-2 {
+.mail-jedi .grid-container .column-2 {
 	width: 12.5%;
 }
-.grid-container .column-3 {
+.mail-jedi .grid-container .column-3 {
 	width: 18.75%;
 }
-.grid-container .column-4 {
+.mail-jedi .grid-container .column-4 {
 	width: 25%;
 }
-.grid-container .column-5 {
+.mail-jedi .grid-container .column-5 {
 	width: 31.25%;
 }
-.grid-container .column-6 {
+.mail-jedi .grid-container .column-6 {
 	width: 37.5%;
 }
-.grid-container .column-7 {
+.mail-jedi .grid-container .column-7 {
 	width: 43.75%;
 }
-.grid-container .column-8 {
+.mail-jedi .grid-container .column-8 {
 	width: 50%;
 }
-.grid-container .column-9 {
+.mail-jedi .grid-container .column-9 {
 	width: 56.25%;
 }
-.grid-container .column-10 {
+.mail-jedi .grid-container .column-10 {
 	width: 62.5%;
 }
-.grid-container .column-11 {
+.mail-jedi .grid-container .column-11 {
 	width: 68.75%;
 }
-.grid-container .column-12 {
+.mail-jedi .grid-container .column-12 {
 	width: 75%;
 }
-.grid-container .column-13 {
+.mail-jedi .grid-container .column-13 {
 	width: 81.25%;
 }
-.grid-container .column-14 {
+.mail-jedi .grid-container .column-14 {
 	width: 87.5%;
 }
-.grid-container .column-15 {
+.mail-jedi .grid-container .column-15 {
 	width: 93.75%;
 }
-.grid-container .column-16 {
+.mail-jedi .grid-container .column-16 {
 	width: 100%;
 }
 
 /* Grid - Special Columns
 *********************************************/
-.grid-container .column-1of3 {
+.mail-jedi .grid-container .column-1of3 {
 	width: 33.3%;
 }
 
 /* Clearfix and Clear
 *********************************************/
-.clearfix:after {
+.mail-jedi .clearfix:after {
 	content: ".";
 	display: block;
 	clear: both;
@@ -104,19 +104,19 @@
 	height: 0;
 }
  
-.clearfix {
+.mail-jedi .clearfix {
 	display: inline-block;
 }
  
-html[xmlns] .clearfix {
+html[xmlns] .mail-jedi .clearfix {
 	display: block;
 }
  
-* html .clearfix {
+* html .mail-jedi .clearfix {
 	height: 1%;
 }
 
-.clear {
+.mail-jedi .clear {
     clear: both;
     /*
     display: block;

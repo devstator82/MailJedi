@@ -6,56 +6,103 @@
 * build: 47
 *******************************************************/
 
+/* Disabled:
 html {
     color: #000;
     background: #FFF;
-}
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, select {
+} */
+.mail-jedi body, 
+.mail-jedi div, 
+.mail-jedi dl, 
+.mail-jedi dt, 
+.mail-jedi dd, 
+.mail-jedi ul, 
+.mail-jedi ol, 
+.mail-jedi li, 
+.mail-jedi h1, 
+.mail-jedi h2, 
+.mail-jedi h3, 
+.mail-jedi h4, 
+.mail-jedi h5, 
+.mail-jedi h6, 
+.mail-jedi pre, 
+.mail-jedi code, 
+.mail-jedi form, 
+.mail-jedi fieldset, 
+.mail-jedi legend, 
+.mail-jedi input, 
+.mail-jedi textarea, 
+.mail-jedi p, 
+.mail-jedi blockquote, 
+.mail-jedi th,
+.mail-jedi td,
+.mail-jedi select {
     margin: 0;
     padding: 0;
 }
-table {
+.mail-jedi table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-fieldset, img {
+.mail-jedi fieldset, 
+.mail-jedi img {
     border: 0;
 }
-address, caption, cite, code, dfn, em, strong, th, var {
+.mail-jedi address, 
+.mail-jedi caption, 
+.mail-jedi cite, 
+.mail-jedi code, 
+.mail-jedi dfn, 
+.mail-jedi em, 
+.mail-jedi strong, 
+.mail-jedi th, 
+.mail-jedi var {
     font-style: normal;
     font-weight: normal;
 }
-li {
+.mail-jedi li {
     list-style: none;
 }
-caption, th {
+.mail-jedi caption, 
+.mail-jedi th {
     text-align: left;
 }
-h1, h2, h3, h4, h5, h6 {
+.mail-jedi h1, 
+.mail-jedi h2, 
+.mail-jedi h3, 
+.mail-jedi h4, 
+.mail-jedi h5, 
+.mail-jedi h6 {
     font-size: 100%;
     font-weight: normal;
 }
-q:before, q:after {
+.mail-jedi q:before, 
+.mail-jedi q:after {
     content: '';
 }
-abbr, acronym {
+.mail-jedi abbr, 
+.mail-jedi acronym {
     border: 0;
     font-variant: normal;
 }
-sup {
+.mail-jedi sup {
     vertical-align: text-top;
 }
-sub {
+.mail-jedi sub {
     vertical-align: text-bottom;
 }
-input, textarea, select {
+.mail-jedi input, 
+.mail-jedi textarea, 
+.mail-jedi select {
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
 }
-input, textarea, select {
+.mail-jedi input, 
+.mail-jedi textarea, 
+.mail-jedi select {
     *font-size:100%;
 }
-legend {
+.mail-jedi legend {
     color: #000;
 }

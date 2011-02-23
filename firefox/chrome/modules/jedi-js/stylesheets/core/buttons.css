@@ -1,5 +1,5 @@
 /* Button (Default) */
-.button {
+.mail-jedi .button {
     background: #eee url(../../images/buttons/sprite.png) repeat 0 0;
     border: 1px solid #999;
     border-bottom-color: #888;
@@ -18,12 +18,12 @@
     white-space: nowrap;
 }
 
-.button input::-moz-focus-inner {
+.mail-jedi .button input::-moz-focus-inner {
     border: 0;
     padding: 0;
 }
 
-.button input {
+.mail-jedi .button input {
     background: none;
     border: 0;
     color: #333;
@@ -40,12 +40,12 @@
 }
 
 /* Button Submit (extends the default button) */
-.button-submit {
+.mail-jedi .button-submit {
     background-color: #5B74A8;
     background-position: 0 -48px;
     border-color: #29447E #29447E #1A356E;
 }
 
-.button-submit input {
+.mail-jedi .button-submit input {
     color: #fff;
 }

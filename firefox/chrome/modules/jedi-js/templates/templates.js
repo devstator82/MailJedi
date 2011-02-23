@@ -53,7 +53,7 @@ var options_popup_channels_tpl = '\
 {{/if}}';
 
 var dashboard_tpl = '\
-<div id="content">\
+<div id="content" class="mail-jedi pam">\
     <div class="row-resize-height row clearfix">\
         <div class="column-16">\
             <div id="message-stream-container" class="box rounded-corner-box">\

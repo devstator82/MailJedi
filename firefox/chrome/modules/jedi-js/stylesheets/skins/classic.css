@@ -1,271 +1,276 @@
 /* Typography : Basic
 *********************************************/
-h1, h2, h3, h4, h5, h6 {
+.mail-jedi h1, 
+.mail-jedi h2, 
+.mail-jedi h3, 
+.mail-jedi h4, 
+.mail-jedi h5, 
+.mail-jedi h6 {
 	color: #373838;
 }
-a {
+.mail-jedi a {
 	color: #39a0ef;
 }
 
 /* Global 
 *********************************************/
 /* Button Bar */
-.button-bar  {
+.mail-jedi .button-bar  {
 	background-color: #ebeff6;
 	border-top: 1px solid #dde5f5;
 }
 
 /* .rounded-corner-box (extends .box) */
-.rounded-corner-box {
+.mail-jedi .rounded-corner-box {
 	border: 1px solid #C7DFFF;
 }
-.rounded-corner-box .header {
+.mail-jedi .rounded-corner-box .header {
 	border-bottom: 1px solid #D6E8FC;
 	background-image:url(../images/skins/classic/box_header_bg.png);
 	background-repeat: repeat-x;
 }
 
 /* Header Control Bar */
-.header-control-bar ul.filter-tabs li a.filter-block {
+.mail-jedi .header-control-bar ul.filter-tabs li a.filter-block {
     color: #39A0EF;
 }
-.header-control-bar ul.filter-tabs li.active a.filter-block {
+.mail-jedi .header-control-bar ul.filter-tabs li.active a.filter-block {
     background-color: #39A0EF;
     color: #fff;
 }
 
 /* Table List */
-.table-list tr td {
+.mail-jedi .table-list tr td {
 	border-bottom: 1px solid #ddecff;
 }
 
 /* loading-block */
-.loading-block {
+.mail-jedi .loading-block {
 	background-image: url(../images/skins/classic/loader_large_white_bg.gif);
 	background-repeat: no-repeat;
 	background-position: center 12px;
 }
 
 /* unordered list types */
-ul.circle-bullet-list li {
+.mail-jedi ul.circle-bullet-list li {
     background-image: url(../images/skins/classic/circle-bullet.png);
 }
 
 
 /* Buttons
 *********************************************/
-.button-normal,
-.button-normal-onhover {
+.mail-jedi .button-normal,
+.mail-jedi .button-normal-onhover {
 	color: #0053a0;
 }
-.button-normal,
-.button-normal-onhover:hover {
+.mail-jedi .button-normal,
+.mail-jedi .button-normal-onhover:hover {
 	background: url(../images/skins/classic/sprites_ui.png) no-repeat right -70px;	
 }
-.button-normal span {
+.mail-jedi .button-normal span {
 	background: url(../images/skins/classic/sprites_ui.png) no-repeat left -70px;
 }
 
-.button-normal-disabled {
+.mail-jedi .button-normal-disabled {
     background: url(../images/skins/classic/sprites_ui.png) no-repeat right -114px;
 }
-.button-normal-disabled span {
+.mail-jedi .button-normal-disabled span {
     background: url(../images/skins/classic/sprites_ui.png) no-repeat left -114px;
 }
 
-.button-small,
-.button-small-onhover:hover {
+.mail-jedi .button-small,
+.mail-jedi .button-small-onhover:hover {
 	background:url(../images/skins/classic/sprites_ui.png) no-repeat right 0;	
 }
-.button-small span,
-.button-small-onhover:hover span {
+.mail-jedi .button-small span,
+.mail-jedi .button-small-onhover:hover span {
 	background: url(../images/skins/classic/sprites_ui.png) no-repeat left 0;	
 }
-.button-has-dropdown-onhover {
+.mail-jedi .button-has-dropdown-onhover {
 	background:url(../images/skins/classic/sprites_ui.png) no-repeat right -30px;
 }
-.button-has-dropdown,
-.button-has-dropdown-onhover:hover {
+.mail-jedi .button-has-dropdown,
+.mail-jedi .button-has-dropdown-onhover:hover {
 	background: url(../images/skins/classic/sprites_ui.png) no-repeat right 0;	
 }
 
 /* Forms
 *********************************************/
-.form-container {
+.mail-jedi .form-container {
 	background-color: #eef6ff;
 	border: 1px solid #cde3fb;
 }
-.form-container fieldset legend {
+.mail-jedi .form-container fieldset legend {
 	color: #39A0EF;
 }
-.form-container .form-row {
+.mail-jedi .form-container .form-row {
 	background: #fff;
 	border: 1px solid #E3EFFD;
 }
 
 /* Components : Tab Menu
 *********************************************/
-ul#tab-menu {
+.mail-jedi ul#tab-menu {
 	color: #fff;
 }
-ul#tab-menu li {
+.mail-jedi ul#tab-menu li {
 	background-color: #94c3ff;
 }
-ul#tab-menu a {
+.mail-jedi ul#tab-menu a {
 	color: #fff;
 }
-ul#tab-menu li.active {
+.mail-jedi ul#tab-menu li.active {
 	background-color: #fff;
 }
-ul#tab-menu li.active a {
+.mail-jedi ul#tab-menu li.active a {
 	color: #7cbbfe;
 }
 
 /* Components : Option Menu
 *********************************************/
-#option-menu {
+.mail-jedi #option-menu {
 	color: #fff;
 }
-#option-menu li.active {
+.mail-jedi #option-menu li.active {
 	background-color: #94c3ff;
 }
-#option-menu a {
+.mail-jedi #option-menu a {
 	color: #fff;
 }
 
 /* Components : Progress Bar
 *********************************************/
-#progressbar .ui-widget-header {
+.mail-jedi #progressbar .ui-widget-header {
 	background-image: url(../images/skins/classic/jquery_ui_progress_bar.png);	
 }
 
 /* Components : Side Navigation
 *********************************************/
-ul#side-nav li strong.title {
+.mail-jedi ul#side-nav li strong.title {
 	border-bottom: 1px solid #e6e6e6;	
 }
-ul#side-nav li.folder-list ul li:hover {
+.mail-jedi ul#side-nav li.folder-list ul li:hover {
 	background-color: #eff6ff;
 }
-ul#side-nav li.active,
-ul#side-nav li ul li.active:hover {
+.mail-jedi ul#side-nav li.active,
+.mail-jedi ul#side-nav li ul li.active:hover {
 	background-color: #daeaff;
 }
 
 /* extends ul#side-nav li strong.title */
-ul#side-nav li strong.title-progress {
+.mail-jedi ul#side-nav li strong.title-progress {
 	color: #39A0EF;
 }
 
 /* Components : Message Detail
 *********************************************/
-#message-detail-container .inner .body {
+.mail-jedi #message-detail-container .inner .body {
 	background-color: #EEF6FF;
 }
-#message-detail-container .contact-name {
+.mail-jedi #message-detail-container .contact-name {
 	color: #39A0EF;
 }
-.message-list tr.unread .unread-badge {
+.mail-jedi .message-list tr.unread .unread-badge {
 	background: url(../images/skins/classic/unread-badge.png) no-repeat;
 }
-#message-detail-container .message-envelope {
+.mail-jedi #message-detail-container .message-envelope {
 	border-color: #C7DFFF;
 }
-.two-lined-message-list .inbox-item-contact  {
+.mail-jedi .two-lined-message-list .inbox-item-contact  {
 	color: #39A0EF;
 }
 
 /* Contact Token
 *****************************************************/
-.contact-token-block {
+.mail-jedi .contact-token-block {
 	background-color: #E9F7FF;
 	border-color: #BCE7FF;
 }
 
 /* Contact List
 *********************************************/
-.contact-list .contact-name {
+.mail-jedi .contact-list .contact-name {
 	color: #39A0EF;
 }
 
 /* Components : Real Time Stream
 *********************************************/
-#realtime-list-container .header-bar .counter {
+.mail-jedi #realtime-list-container .header-bar .counter {
 	color: #39A0EF;
 }
-#realtime-list-container.ui-tabs .ui-tabs-panel {
+.mail-jedi #realtime-list-container.ui-tabs .ui-tabs-panel {
 	border-color: #CDE3FB;		
 }
 
 /* header control bar */
-#realtime-list-container .header-control-bar {
+.mail-jedi #realtime-list-container .header-control-bar {
     border-bottom: 1px solid #D6D6D6;
 }
 
 /* realtime list */
-.realtime-list li.realtime-item {
+.mail-jedi .realtime-list li.realtime-item {
 	border-bottom: 1px solid #ddecff; 
 }
-.realtime-list .realtime-item-contact a {
+.mail-jedi .realtime-list .realtime-item-contact a {
 	color: #39a0ef;
 }
-.realtime-list .realtime-photo {
+.mail-jedi .realtime-list .realtime-photo {
 	border: 1px solid #ddecff;
 }
 
 /* attachments list */
-.realtime-list .realtime-item-attachments ul li.image-item a {
+.mail-jedi .realtime-list .realtime-item-attachments ul li.image-item a {
 	border: 1px solid #ddecff;
 }
 
 /* realtime reply */
-.realtime-item-reply {
+.mail-jedi .realtime-item-reply {
 	background-color:#EEF6FF;
 	border-color: #C7DFFF;
 }
-.realtime-item-reply .reply-arrow {
+.mail-jedi .realtime-item-reply .reply-arrow {
 	background:url(../images/skins/classic/sprites_ui.png) no-repeat right -278px;
 }
 
 /* Components : Contact Profile Column
 *********************************************/
-#contact-profile-column .inner .body {
+.mail-jedi #contact-profile-column .inner .body {
 	background-color: #EEF6FF;
 }
 
 /* .contact-profile-mail-list (extends .table-list) */
-.contact-profile-mail-list .contact-email {
+.mail-jedi .contact-profile-mail-list .contact-email {
 	color: #39A0EF;
 }
-.contact-profile-mail-list tr td {
+.mail-jedi .contact-profile-mail-list tr td {
 	border-bottom: 0 none;
 }
 
 /* Components: Profile Detail 
 *********************************************/
-#profile-container .profile-detail-list .contact-name {
+.mail-jedi #profile-container .profile-detail-list .contact-name {
 	color: #39A0EF;
 }
 
-#profile-container strong.list-title {
+.mail-jedi #profile-container strong.list-title {
     color: #6bb8f3;
 }
 
 /* profile search */
-#profile-container .profile-search-container .contact-name {
+.mail-jedi #profile-container .profile-search-container .contact-name {
 	color: #39A0EF;
 }
 
 /* Social Media Hyperlink List */
-ul.social-media-list li a {
+.mail-jedi ul.social-media-list li a {
     background-color: #fff;
 }
-ul.social-media-list li a:hover {
+.mail-jedi ul.social-media-list li a:hover {
     background-color: #ebebeb;
 }
 
 /* Referral
 *********************************************/
-#referral-container .number {
+.mail-jedi #referral-container .number {
 	color: #C7DFFF;
 }

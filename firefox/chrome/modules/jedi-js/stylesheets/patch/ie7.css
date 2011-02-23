@@ -1,18 +1,18 @@
 /* Global 
 *********************************************/
-.channel-icon {
+.mail-jedi .channel-icon {
 	height: 13px;
 }
 
 /* icons */
-.icon-bitly {
+.mail-jedi .icon-bitly {
     top: 4px !important;
     position: relative !important;
 }
 
 /* Forms 
 *********************************************/
-.form-container .form-input-holder {
+.mail-jedi .form-container .form-input-holder {
 	float: left;
 	padding: 0;
 }
@@ -20,33 +20,33 @@
 
 /* Components 
 *********************************************/
-#message-stream-container h3 {
+.mail-jedi #message-stream-container h3 {
 	display: inline !important;
 }
 
-.message-list col.col-1 {
+.mail-jedi .message-list col.col-1 {
 	width: 16px;
 }
 
 /* realtime */
-#realtime-list-container .header-bar a.button-small {
+.mail-jedi #realtime-list-container .header-bar a.button-small {
     float: left;
     margin-right: 3px;
 }
-#realtime-list-container a.button-normal {
+.mail-jedi #realtime-list-container a.button-normal {
     float: left;
     margin-right: 3px;
 }
-#realtime-list-container .tabs-container a.button-normal {
+.mail-jedi #realtime-list-container .tabs-container a.button-normal {
     margin-right: 0;
 }
-.realtime-list li.realtime-item {
+.mail-jedi .realtime-list li.realtime-item {
 	overflow: hidden;
 }
 
 /* Button 
 *********************************************/
-.button-icon {
+.mail-jedi .button-icon {
     position: static;
 	top: 0;
 }

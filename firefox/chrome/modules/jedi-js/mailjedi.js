@@ -41,6 +41,11 @@ var mailjedi = function() {
                     type: 'text/css',
                     rel: 'stylesheet',
                     href: browser.resolveContent('jedi-js/stylesheets/master.css')
+                }),
+				$('<link>').attr({
+                    type: 'text/css',
+                    rel: 'stylesheet',
+                    href: browser.resolveContent('jedi-js/stylesheets/skins/classic.css')
                 })
             );
 

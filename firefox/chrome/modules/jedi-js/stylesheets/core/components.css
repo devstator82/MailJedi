@@ -1,6 +1,6 @@
 /* Notification
 *********************************************/
-#notification {
+.mail-jedi #notification {
 	border-radius: 5px;
 	-moz-border-radius:	5px;
 	-webkit-border-radius: 5px;
@@ -15,47 +15,47 @@
 	top: 50px;
 	z-index: 9999;
 }
-#notification a,
-#notification p {
+.mail-jedi #notification a,
+.mail-jedi #notification p {
     display: inline;
 }
-#notification a {
+.mail-jedi #notification a {
 	color: #000;
 	text-decoration: underline;
 }
-#notification.error a,
-#notification.success a {
+.mail-jedi #notification.error a,
+.mail-jedi #notification.success a {
 	color: #FFF;
 }
-#notification.error {
+.mail-jedi #notification.error {
 	background-color: #E81818;
 	color: #FFF;
 }
-#notification.success {
+.mail-jedi #notification.success {
 	background-color: #3ED521;
 	color: #FFF;
 }
-#notification.alert {
+.mail-jedi #notification.alert {
 	background-color: #FFF3B0;
 }
 
 /* Wrapper
 *********************************************/
-#wrapper {
+.mail-jedi #wrapper {
 	margin-bottom: 18px;
 }
 
 
 /* Header
 *********************************************/
-#header {
+.mail-jedi #header {
 	height: 38px;
 }
 
 
 /* Logo
 *********************************************/
-#logo a {
+.mail-jedi #logo a {
 	display: block;
 	background: url(../images/logo_inbox2.png) 0 6px no-repeat;
 	float: left;
@@ -69,14 +69,14 @@
 
 /* Tab Menu
 *********************************************/
-ul#tab-menu {
+.mail-jedi ul#tab-menu {
 	display: inline-block;
 	float: left;
 	font-weight: bold;
 	list-style-type: none;
 	margin: 8px 0 0 0;
 }
-ul#tab-menu li {
+.mail-jedi ul#tab-menu li {
 	border-radius-topleft: 4px;
 	border-radius-topright: 4px;
 	-moz-border-radius-topleft: 4px;
@@ -86,7 +86,7 @@ ul#tab-menu li {
 	float: left;
 	margin: 0px 2px;
 }
-ul#tab-menu a {
+.mail-jedi ul#tab-menu a {
 	display: block;
 	float: left;
 	height: 30px;
@@ -95,43 +95,43 @@ ul#tab-menu a {
 	text-decoration: none;
 	vertical-align: middle;
 }
-ul#tab-menu #inbox-tab {
+.mail-jedi ul#tab-menu #inbox-tab {
 	background: url(../images/icons/inbox.png) no-repeat 6px center;
 }
-ul#tab-menu #contact-tab {
+.mail-jedi ul#tab-menu #contact-tab {
 	background: url(../images/icons/contacts.png) no-repeat 6px center;
 }
-ul#tab-menu #search-tab {
+.mail-jedi ul#tab-menu #search-tab {
 	background: url(../images/icons/magnifier-gray.png) no-repeat 6px center;
 }
-ul#tab-menu #getstarted-tab {
+.mail-jedi ul#tab-menu #getstarted-tab {
 	background: url(../images/icons/present.png) no-repeat 6px center;
 }
 
 
 /* Start Screen
 *********************************************/
-#start-screen .panel {
+.mail-jedi #start-screen .panel {
     display: block;
     height: 320px;
     margin-bottom: 9px;
     overflow: hidden;    
 }
-#start-screen .panel h2 {
+.mail-jedi #start-screen .panel h2 {
     display: block;
     margin-bottom: 9px;
 }
-#start-screen .panel p {
+.mail-jedi #start-screen .panel p {
     margin-bottom: 9px;
 }
-#start-screen #education-video {
+.mail-jedi #start-screen #education-video {
     margin-left: 70px;
 }
 
 
 /* Invite a Friend
 *********************************************/
-#invite-a-friend {
+.mail-jedi #invite-a-friend {
 	background: url(../images/invite-a-friend.png) no-repeat scroll left top transparent;
 	cursor: pointer;
 	height: 28px;
@@ -144,17 +144,17 @@ ul#tab-menu #getstarted-tab {
 
 /* Option Menu
 *********************************************/
-#option-menu {
+.mail-jedi #option-menu {
 	display: inline-block;
 	float: right;
 	list-style-type: none;
 	margin: 0;
 }
-#option-menu li {
+.mail-jedi #option-menu li {
 	float: left;
 	margin: 0px 2px;
 }
-#option-menu a {
+.mail-jedi #option-menu a {
 	background-position: left center;
 	display: block;
 	float: left;
@@ -168,12 +168,12 @@ ul#tab-menu #getstarted-tab {
 
 /* Application Toolbar
 *********************************************/
-#app-toolbar {
+.mail-jedi #app-toolbar {
 	display: block;	
 	height: 26px;
 	padding: 12px 0 0;
 }
-#app-toolbar li {
+.mail-jedi #app-toolbar li {
 	float: left;
 	margin: 0 6px 0 0
 }
@@ -181,22 +181,22 @@ ul#tab-menu #getstarted-tab {
 
 /* Channel Progress Bar
 *********************************************/
-#channel-progress-bar {
+.mail-jedi #channel-progress-bar {
     display: inline-block;
     float: left;
     margin: 5px 0 0 9px;
 }
-#channel-progress-bar span {
+.mail-jedi #channel-progress-bar span {
     font-size: 0.93em;
 }
-#channel-progress-bar img {
+.mail-jedi #channel-progress-bar img {
     cursor: pointer;
     vertical-align: middle;
 }
     
 /* Content
 *********************************************/
-#content {
+.mail-jedi #content {
 	margin: 0 auto;
 	padding-top: 12px;
 }
@@ -204,56 +204,56 @@ ul#tab-menu #getstarted-tab {
 
 /* Progress bar
 *********************************************/
-#progressbar {
+.mail-jedi #progressbar {
 	margin: 3px 9px 6px 0;
 }
 
 
 /* Side navigation
 *********************************************/
-#side-nav-container {
+.mail-jedi #side-nav-container {
 	width: 100%;
 }
-ul#side-nav {
+.mail-jedi ul#side-nav {
 	width: 100%;
 }
-ul#side-nav li {
+.mail-jedi ul#side-nav li {
 	display: block;
 }
-ul#side-nav li.folder-list a {
+.mail-jedi ul#side-nav li.folder-list a {
 	background-position: 0.33em center;
 	display: block;
 	padding: 5px 5px 5px 27px;
 	text-decoration: none;
 	width: 151px;
 }
-ul#side-nav li.label-list ul li {
+.mail-jedi ul#side-nav li.label-list ul li {
 	padding: 5px 0 0;
 }
-#side-nav-container>ul#side-nav li.folder-list a {
+.mail-jedi #side-nav-container>ul#side-nav li.folder-list a {
 	width: auto;
 }
-ul#side-nav li strong.title {
+.mail-jedi ul#side-nav li strong.title {
 	color: #666;
 	display: block;
 	padding: 5px 5px 5px 0;	
 	font-weight: bold;
 }
-ul#side-nav li.active {
+.mail-jedi ul#side-nav li.active {
 	background-color: #F4F4F4;
 }
-ul#side-nav li.active a {
+.mail-jedi ul#side-nav li.active a {
 	font-weight: bold;
 }
 /* extends ul#side-nav li strong.title */
-ul#side-nav li strong.title-progress {
+.mail-jedi ul#side-nav li strong.title-progress {
 	color: #333;
 }
-ul#side-nav li strong.title-collapsed {    
+.mail-jedi ul#side-nav li strong.title-collapsed {    
     background: url(../images/icons/collapsed.png) no-repeat center right;
     cursor: pointer;
 }
-ul#side-nav li strong.title-expanded {    
+.mail-jedi ul#side-nav li strong.title-expanded {    
     background: url(../images/icons/expanded.png) no-repeat center right;
     cursor: pointer;
 }
@@ -262,85 +262,85 @@ ul#side-nav li strong.title-expanded {
 /* Message List
 *********************************************/
 /* .message-list (extends .table-list) */
-.message-list {
+.mail-jedi .message-list {
 	margin-bottom: 1em;
 }
 
-.message-list col.col-1 {
+.mail-jedi .message-list col.col-1 {
 	width: 20px;
 }
-.message-list col.col-2 {
+.mail-jedi .message-list col.col-2 {
 	width: 20px;
 }
-.message-list col.col-3 {
+.mail-jedi .message-list col.col-3 {
 	width: 24px;
 }
-.message-list col.col-4 {
+.mail-jedi .message-list col.col-4 {
 	width: 21px;
 }
-.message-list col.col-5 {
+.mail-jedi .message-list col.col-5 {
 	width: 15px;
 }
-.message-list col.col-6 {
+.mail-jedi .message-list col.col-6 {
 	width: 22ex;
 }
-.message-list col.col-7 {
+.mail-jedi .message-list col.col-7 {
 	width: 1ex;
 }
-.message-list col.col-8 {
+.mail-jedi .message-list col.col-8 {
 }
-.message-list col.col-9 {
+.mail-jedi .message-list col.col-9 {
 	width: 3ex;
 }
-.message-list col.col-10 {
+.mail-jedi .message-list col.col-10 {
 	width: 14ex;
 }
-.message-list col.col-11 {
+.mail-jedi .message-list col.col-11 {
 	width: 62px;
 }
 
-.message-list .inbox-item-contact {
+.mail-jedi .message-list .inbox-item-contact {
 	color: #4C4C4C;
 	white-space: nowrap;
 }
-.message-list .inbox-item-subject {
+.mail-jedi .message-list .inbox-item-subject {
 	color: #4C4C4C;
 	white-space: nowrap;
 }
-.message-list .inbox-item-content {
+.mail-jedi .message-list .inbox-item-content {
 	color: #7D7D7D;
 	white-space: nowrap;
 }
-.message-list .inbox-item-datetime {
+.mail-jedi .message-list .inbox-item-datetime {
 	color: #BFBFBF;
 	font-size: 0.92em;
 	white-space: nowrap;
 }
-.message-list .label-block {
+.mail-jedi .message-list .label-block {
 	display: inline;
 	padding: 1px 5px;
 }
 
-.message-list tr.unread {
+.mail-jedi .message-list tr.unread {
 	background-color: #fff;
 }
-.message-list tr.unread .unread-badge {
+.mail-jedi .message-list tr.unread .unread-badge {
 	background: url(../images/icons/unread-badge.png) no-repeat;
 	display: block;
 	width: 16px;
 	height: 16px;
 }
-.message-list tr td a {
+.mail-jedi .message-list tr td a {
     text-decoration: none;
 }
-.message-list tr.unread .inbox-item-contact,
-.message-list tr.unread .inbox-item-subject,
-.message-list tr.unread .inbox-item-content {
+.mail-jedi .message-list tr.unread .inbox-item-contact,
+.mail-jedi .message-list tr.unread .inbox-item-subject,
+.mail-jedi .message-list tr.unread .inbox-item-content {
 	font-weight: bold;
 }
 
-.message-list tr td.last .button-small,
-.message-list tr td.last .button-small-onhover{
+.mail-jedi .message-list tr td.last .button-small,
+.mail-jedi .message-list tr td.last .button-small-onhover{
     display: block;
     width: auto;
 }
@@ -349,35 +349,35 @@ ul#side-nav li strong.title-expanded {
 *********************************************/
 /* .two-lined-message-list, used in 
  search result overview (extends .table-list) */
-.two-lined-message-list {
+.mail-jedi .two-lined-message-list {
 	margin-bottom: 1em;
 }
-.two-lined-message-list tr td {
+.mail-jedi .two-lined-message-list tr td {
 	height: 6ex;
 }
-.two-lined-message-list col.col-1 {
+.mail-jedi .two-lined-message-list col.col-1 {
 	width: 20px;
 }
-.two-lined-message-list col.col-2 {
+.mail-jedi .two-lined-message-list col.col-2 {
 }
-.two-lined-message-list col.col-3 {
+.mail-jedi .two-lined-message-list col.col-3 {
 	width: 75px;
 }
-.two-lined-message-list .channel-icon {
+.mail-jedi .two-lined-message-list .channel-icon {
 	display: block;
 	margin: 0 0 2px 2px;
 }
-.two-lined-message-list .inbox-item-contact {
+.mail-jedi .two-lined-message-list .inbox-item-contact {
 	color: #333;
 	display: block;
 	margin-bottom: 2px;
 	white-space: nowrap;
 }
-.two-lined-message-list .inbox-item-subject {
+.mail-jedi .two-lined-message-list .inbox-item-subject {
 	display: block;
 	white-space: nowrap;
 }
-.two-lined-message-list .inbox-item-datetime {
+.mail-jedi .two-lined-message-list .inbox-item-datetime {
 	color: #BFBFBF;
 }
 
@@ -385,22 +385,22 @@ ul#side-nav li strong.title-expanded {
 /* Contact List
 *********************************************/
 /* .contact-list (extends .table-list) */
-.contact-list {
+.mail-jedi .contact-list {
 	margin-bottom: 1em;
 }
-.contact-list col.col-1 {
+.mail-jedi .contact-list col.col-1 {
 	width: 25px;
 }
-.contact-list col.col-2 {
+.mail-jedi .contact-list col.col-2 {
 	width: auto;
 }
-.contact-list col.col-3 {
+.mail-jedi .contact-list col.col-3 {
 	width: auto;
 }
-.contact-list .contact-name {
+.mail-jedi .contact-list .contact-name {
 	color: #999;
 }
-.contact-list .known-channels {
+.mail-jedi .contact-list .known-channels {
 	text-align: right;
 }
 
@@ -408,54 +408,54 @@ ul#side-nav li strong.title-expanded {
 /* Document List
 *********************************************/
 /* .document-list (extends .table-list) */
-.document-list {
+.mail-jedi .document-list {
 	margin-bottom: 1em;
 }
-.document-list col.col-1 {
+.mail-jedi .document-list col.col-1 {
 	width: 20px;
 }
-.document-list col.col-2 {
+.mail-jedi .document-list col.col-2 {
 	width: 20px;
 }
-.document-list col.col-3 {
+.mail-jedi .document-list col.col-3 {
 	width: auto;
 }
-.document-list a {
+.mail-jedi .document-list a {
     text-decoration: none;
 }
-.document-list .document-name {
+.mail-jedi .document-list .document-name {
 	color: #262626;	
 	white-space: nowrap;
 }
 
 /* Message Stream
 *********************************************/
-#message-stream-container {	
+.mail-jedi #message-stream-container {	
 	min-height: 600px;	
 	position: relative;
 }
-#message-stream-container h3 {
+.mail-jedi #message-stream-container h3 {
 	background-position: left center;
 	padding-left: 24px;
 }
-#message-stream-container .header select {
+.mail-jedi #message-stream-container .header select {
 	padding-left: 20px;
 }
 
 /* Message Detail
 *********************************************/
-#message-detail-container {	
+.mail-jedi #message-detail-container {	
 	position: relative;
 }
-#message-detail-container .header a {
+.mail-jedi #message-detail-container .header a {
 	margin-right: 9px;
 }
-#message-detail-container .inner .body {
+.mail-jedi #message-detail-container .inner .body {
 	background-color: #F2F2F2;
 }
 
 /* message envelope */
-#message-detail-container .message-envelope {
+.mail-jedi #message-detail-container .message-envelope {
 	background-color: #fff;
 	border: 1px solid #000;
 	border-radius: 4px; 
@@ -465,7 +465,7 @@ ul#side-nav li strong.title-expanded {
 	margin-bottom: 18px;
 	padding: 9px;
 }
-#message-detail-container .collapsed {
+.mail-jedi #message-detail-container .collapsed {
 	border-radius-bottomleft: 0;
 	border-radius-bottomright: 0;
 	-moz-border-radius-bottomleft: 0;
@@ -476,80 +476,80 @@ ul#side-nav li strong.title-expanded {
 	margin-bottom: 0;
 	padding-bottom: 1px;
 }
-#message-detail-container .show-on-collapsed {
+.mail-jedi #message-detail-container .show-on-collapsed {
 	display: none;
 }
-#message-detail-container .collapsed .show-on-collapsed {
+.mail-jedi #message-detail-container .collapsed .show-on-collapsed {
 	display: block;
 }
-#message-detail-container .collapsed .hide-on-collapsed {
+.mail-jedi #message-detail-container .collapsed .hide-on-collapsed {
 	display: none;
 }
-#message-detail-container .contact-name {
+.mail-jedi #message-detail-container .contact-name {
 	color: #333;
 	font-weight: bold;
 }
-#message-detail-container .receive-date {
+.mail-jedi #message-detail-container .receive-date {
 	color: #999;
 }
 
 /* message header small */
-#message-detail-container .message-header-small {
+.mail-jedi #message-detail-container .message-header-small {
 	cursor: pointer;
 	margin-bottom: 9px;
 }
-#message-detail-container .message-header-small table {
+.mail-jedi #message-detail-container .message-header-small table {
 	width: 100%
 }
-#message-detail-container .message-header-small table tr td {
+.mail-jedi #message-detail-container .message-header-small table tr td {
 	border-bottom: 0 none;
 }
-#message-detail-container .message-header-small col.col-1 {
+.mail-jedi #message-detail-container .message-header-small col.col-1 {
 	width: 25px;
 }
-#message-detail-container .message-header-small col.col-2 {
+.mail-jedi #message-detail-container .message-header-small col.col-2 {
 	width: 21px;
 }
-#message-detail-container .message-header-small col.col-3 {
+.mail-jedi #message-detail-container .message-header-small col.col-3 {
 	width: auto;
 }
 
 /* message header large */
-#message-detail-container .message-header-large {
+.mail-jedi #message-detail-container .message-header-large {
 	cursor: pointer;
 	margin-bottom: 9px;
 }
-#message-detail-container .message-header-large table {
+.mail-jedi #message-detail-container .message-header-large table {
 	width: 100%
 }
-#message-detail-container .message-header-large table tr td {
+.mail-jedi #message-detail-container .message-header-large table tr td {
 	border-bottom: 0 none;
 }
-#message-detail-container .message-header-large col.col-1 {
+.mail-jedi #message-detail-container .message-header-large col.col-1 {
 	width: 45px;
 }
-#message-detail-container .message-header-large col.col-2 {
+.mail-jedi #message-detail-container .message-header-large col.col-2 {
 	width: 21px;
 }
-#message-detail-container .message-header-large col.col-3 {
+.mail-jedi #message-detail-container .message-header-large col.col-3 {
 	width: auto;
 }
-#message-detail-container .message-header-large dl dt {
+.mail-jedi #message-detail-container .message-header-large dl dt {
 	color: #C0C0C0;
 	display: inline-block;
 	float: left;
 	width: 50px;
 }
-#message-detail-container .message-header-large dl dd {
+.mail-jedi #message-detail-container .message-header-large dl dd {
 	margin-bottom: 9px;
 }
-#message-detail-container .message-header-large dl dd a.contact-token-block {
+.mail-jedi #message-detail-container .message-header-large dl dd a.contact-token-block {
 	margin-right: 9px;
 	margin-bottom: 9px;
 }
 
 /* message labels */
-#message-detail-container .labels-inline-list {
+.mail-jedi #message-detail-container .labels-inline-list {
     border: 1px dotted #D9D9D9;
 	border-width: 1px 0;
     display: block;
@@ -559,24 +559,24 @@ ul#side-nav li strong.title-expanded {
 }
 
 /* message attachment */
-#message-detail-container .message-attachments {
+.mail-jedi #message-detail-container .message-attachments {
 	padding: 6px 0 3px;
 }
-#message-detail-container .message-attachments ul li {
+.mail-jedi #message-detail-container .message-attachments ul li {
 	float: left;
 	margin: 0 6px 3px 0;	
 }
-#message-detail-container .message-attachments .filetype-icon {
+.mail-jedi #message-detail-container .message-attachments .filetype-icon {
 	float: left;
 }
 
 /* message body */
-#message-detail-container .message-body {
+.mail-jedi #message-detail-container .message-body {
 	margin: 9px 0;
 }
 
 /* message button bar */
-#message-detail-container .button-bar {
+.mail-jedi #message-detail-container .button-bar {
 	margin-top: 18px;
 	padding: 6px;
 }
@@ -584,32 +584,32 @@ ul#side-nav li strong.title-expanded {
 
 /* Realtime Stream
 ********************************************/
-#realtime-container {
+.mail-jedi #realtime-container {
 	min-height: 600px;	
 	position: relative;
 }
 
-#realtime-textarea {
+.mail-jedi #realtime-textarea {
 	margin: 0 0 9px;
 }
-#realtime-textarea textarea {
+.mail-jedi #realtime-textarea textarea {
 	max-height: 88px;
 }
-#realtime-textarea textarea.focus {
+.mail-jedi #realtime-textarea textarea.focus {
     height: 88px;
 }
 
 /* realtime header bar */
-#realtime-list-container .header-bar {
+.mail-jedi #realtime-list-container .header-bar {
 	margin-bottom: 9px;		
 }
-#realtime-list-container .header-bar .counter {
+.mail-jedi #realtime-list-container .header-bar .counter {
 	color: #333;
 	float: right;
 	font-weight: bold;
 	margin: 3px;
 }
-#realtime-reply-to-text {
+.mail-jedi #realtime-reply-to-text {
     display: block;
     margin-bottom: 3px;
     overflow: hidden;
@@ -617,11 +617,11 @@ ul#side-nav li strong.title-expanded {
 }
 
 /* jquery ui tabs */
-#realtime-list-container.ui-tabs {
+.mail-jedi #realtime-list-container.ui-tabs {
     border-width: 0;
     padding: 0.3em;
 }
-#realtime-list-container.ui-tabs .ui-tabs-nav {
+.mail-jedi #realtime-list-container.ui-tabs .ui-tabs-nav {
     border-radius-bottomleft: 0;
     -moz-border-radius-bottomleft: 0;
     -webkit-border-bottom-left-radius: 0;    
@@ -630,13 +630,13 @@ ul#side-nav li strong.title-expanded {
     -webkit-border-bottom-right-radius: 0;
 	margin-top: 9px;
 }
-#realtime-list-container.ui-tabs .ui-tabs-nav li {
+.mail-jedi #realtime-list-container.ui-tabs .ui-tabs-nav li {
     position: relative;
 }
-#realtime-list-container.ui-tabs .ui-tabs-nav li a {
+.mail-jedi #realtime-list-container.ui-tabs .ui-tabs-nav li a {
 	outline: 0 none;
 }
-#realtime-list-container.ui-tabs .ui-tabs-panel {	
+.mail-jedi #realtime-list-container.ui-tabs .ui-tabs-panel {	
 	border-color: #AAA;
 	border-style: solid;
 	border-width: 0 1px 1px 1px;
@@ -645,43 +645,43 @@ ul#side-nav li strong.title-expanded {
 }
 
 /* customized: .filter-tabs */
-#realtime-list-container ul.filter-tabs li {
+.mail-jedi #realtime-list-container ul.filter-tabs li {
     position: relative;
 }
 
 /* realtime list */
-.realtime-list {
+.mail-jedi .realtime-list {
 	margin-bottom: 9px;
 }
-.realtime-list li.realtime-item {
+.mail-jedi .realtime-list li.realtime-item {
 	padding: 9px 0;
 }
-.realtime-list .realtime-item-message {
+.mail-jedi .realtime-list .realtime-item-message {
 }
-.realtime-list .realtime-photo {
+.mail-jedi .realtime-list .realtime-photo {
 	border: 1px solid #000;
 	display: block;
 	padding: 2px;
 }
-.realtime-list .realtime-item-contact {
+.mail-jedi .realtime-list .realtime-item-contact {
 	font-weight: bold;
 	clear: both;
 }
-.realtime-list .realtime-item-body {
+.mail-jedi .realtime-list .realtime-item-body {
 	padding-left: 55px;
 	overflow: hidden;
 }
-.realtime-list .realtime-actions {
+.mail-jedi .realtime-list .realtime-actions {
 	float: left;
 	margin-left: -55px;
 }
-.realtime-list .realtime-actions ul {
+.mail-jedi .realtime-list .realtime-actions ul {
 	visibility: hidden;
 }
-.realtime-list .realtime-item-message:hover .realtime-actions ul {
+.mail-jedi .realtime-list .realtime-item-message:hover .realtime-actions ul {
 	visibility: visible;
 }
-.realtime-list .realtime-actions ul li {
+.mail-jedi .realtime-list .realtime-actions ul li {
 	display: inline;
 	text-align: center;
 	float: left;
@@ -689,38 +689,38 @@ ul#side-nav li strong.title-expanded {
 }
 
 /* realtime attachments */
-.realtime-list .realtime-item-attachments {
+.mail-jedi .realtime-list .realtime-item-attachments {
 	margin-top: 9px;
 }
 
-.realtime-list .realtime-item-attachments ul {
+.mail-jedi .realtime-list .realtime-item-attachments ul {
 	overflow: hidden;
 }
-.realtime-list .realtime-item-attachments ul li.image-item,
-.realtime-list .realtime-item-attachments ul li.link-item,
-.realtime-list .realtime-item-attachments ul li.document-item {
+.mail-jedi .realtime-list .realtime-item-attachments ul li.image-item,
+.mail-jedi .realtime-list .realtime-item-attachments ul li.link-item,
+.mail-jedi .realtime-list .realtime-item-attachments ul li.document-item {
 	margin-bottom: 3px;
 }
-.realtime-list .realtime-item-attachments ul li.image-item a {
+.mail-jedi .realtime-list .realtime-item-attachments ul li.image-item a {
 	border: 1px solid #000;
 	display: inline-block;
 	padding: 2px;
 }
-.realtime-list .realtime-item-attachments ul li.link-item a {
+.mail-jedi .realtime-list .realtime-item-attachments ul li.link-item a {
 	white-space: nowrap;
 	overflow: hidden;
 }
-.realtime-list .realtime-item-attachments ul li.document-item {
+.mail-jedi .realtime-list .realtime-item-attachments ul li.document-item {
 	margin-bottom: 3px;
 	white-space: nowrap;
 }
-.realtime-list .realtime-item-attachments ul li.document-item a {
+.mail-jedi .realtime-list .realtime-item-attachments ul li.document-item a {
 	white-space: nowrap;
 	overflow: hidden;
 }
 
 /* realtime reply (extends .realtime-item-message)*/
-.realtime-item-reply {
+.mail-jedi .realtime-item-reply {
 	background-color:#CCC;
 	border:1px solid #999;
 	border-radius: 5px;
@@ -730,7 +730,7 @@ ul#side-nav li strong.title-expanded {
 	padding:1.5%;
 	position:relative;
 }
-.realtime-item-reply .reply-arrow {
+.mail-jedi .realtime-item-reply .reply-arrow {
 	height:13px;
 	left:50px;
 	position:absolute;
@@ -741,24 +741,24 @@ ul#side-nav li strong.title-expanded {
 
 /* Contact Profile Column
 *********************************************/
-#contact-profile-column .inner .body {
+.mail-jedi #contact-profile-column .inner .body {
 	background-color: #F2F2F2;
 }
 
 /* .contact-profile-mail-list (extends .table-list) */
-.contact-profile-mail-list col.col-1 {
+.mail-jedi .contact-profile-mail-list col.col-1 {
 	width: 25px;
 }
-.contact-profile-mail-list col.col-2 {
+.mail-jedi .contact-profile-mail-list col.col-2 {
 	width: 18px;
 }
-.contact-profile-mail-list col.col-3 {
+.mail-jedi .contact-profile-mail-list col.col-3 {
 	width: auto;
 }
-.contact-profile-mail-list col.col-4 {
+.mail-jedi .contact-profile-mail-list col.col-4 {
 	width: 33px;
 }
-.contact-profile-mail-list .contact-email {
+.mail-jedi .contact-profile-mail-list .contact-email {
 	color: #262626;	
 	white-space: nowrap;
 }
@@ -766,74 +766,69 @@ ul#side-nav li strong.title-expanded {
 
 /* Profile Detail 
 *********************************************/
-/*
-#profile-container.ui-tabs .ui-tabs-panel {
-	padding-top: 1em;
-}
-*/
-#profile-container .profile-detail-list {
+.mail-jedi #profile-container .profile-detail-list {
 	margin-bottom: 18px;
 	line-height: 18px;
 }
-#profile-container .profile-detail-list li {
+.mail-jedi #profile-container .profile-detail-list li {
 	display: block;
 }
-#profile-container .profile-detail-list li.top-spacer {
+.mail-jedi #profile-container .profile-detail-list li.top-spacer {
 	margin-top: 18px;
 }
-#profile-container .profile-detail-list .function-name {
+.mail-jedi #profile-container .profile-detail-list .function-name {
     font-size: 1.2em;
     font-weight: bold;
 }
-#profile-container .profile-detail-list .contact-name {
+.mail-jedi #profile-container .profile-detail-list .contact-name {
 	color: #999;
 	font-size: 1.33em;
 	font-weight: bold;
 }
-#profile-container .profile-detail-list .last-status-update {
+.mail-jedi #profile-container .profile-detail-list .last-status-update {
     color: #5d5d5d;
 }
-#profile-container .profile-detail-list .datetime {
+.mail-jedi #profile-container .profile-detail-list .datetime {
     color: #aaaaaa;
     font-size: 0.93em;
 }
-#profile-container strong.list-title {
+.mail-jedi #profile-container strong.list-title {
 	color: #333;
 	display: block;
 	font-weight: bold;
 	margin-bottom: 6px;
 }
-#profile-container .profile-detail-list .list-desc {
+.mail-jedi #profile-container .profile-detail-list .list-desc {
 	color: #999;
 	font-style: italic;
 }
 
 /* profile search */
-#profile-container .profile-search-container .search-field {
+.mail-jedi #profile-container .profile-search-container .search-field {
 	width: auto;
 	margin-top: 6px;
 	margin-bottom: 6px;
 }
-#profile-container .profile-search-container .contact-name {
+.mail-jedi #profile-container .profile-search-container .contact-name {
 	font-weight: bold;
 }
-#profile-container .profile-search-container .no-result {
+.mail-jedi #profile-container .profile-search-container .no-result {
 	color: #999;
 	font-style: italic;
 }
 
 /* Social Media List */
-#profile-container .social-media-list {
+.mail-jedi #profile-container .social-media-list {
     margin-bottom: 18px;
 }
 
 
 /* Search Field
 *********************************************/
-.search-field {
+.mail-jedi .search-field {
 	width: 32.5%;
 }
-.search-field a.search-button {
+.mail-jedi .search-field a.search-button {
 	position: absolute;
 	right: 5px;
 	top: 5px;
@@ -842,7 +837,7 @@ ul#side-nav li strong.title-expanded {
 /* Setup
 *********************************************/
 
-.channel-add-icon {
+.mail-jedi .channel-add-icon {
     display:inline-block;
     float:left;
     font-size:0.92em;
@@ -851,38 +846,38 @@ ul#side-nav li strong.title-expanded {
 }
 
 /* .setup-list (extends .table-list) */
-.setup-list {
+.mail-jedi .setup-list {
 	margin-bottom: 1em;
 }
-.setup-list thead th {
+.mail-jedi .setup-list thead th {
     color: #606060;
 }
-.setup-list tr td {
+.mail-jedi .setup-list tr td {
 	height: 6ex;
 }
-.setup-list col.col-1 {
+.mail-jedi .setup-list col.col-1 {
 	width: 30px;
 }
-.setup-list col.col-2 {
+.mail-jedi .setup-list col.col-2 {
     width: 350px;
 }
-.setup-list col.col-3 {
+.mail-jedi .setup-list col.col-3 {
     width: auto;
 }
-.setup-list col.col-4 {
+.mail-jedi .setup-list col.col-4 {
 	width: 80px;
 	text-align: right;
 }
-.setup-list .channel-icon {
+.mail-jedi .setup-list .channel-icon {
 	display: block;
 	margin: 0 0 2px 2px;
 }
-#setup-list-empty {
+.mail-jedi #setup-list-empty {
     display: block;
     text-align: center;
 }
 
-.add-channel-displayname {
+.mail-jedi .add-channel-displayname {
     text-align: center;
     font-size: 95%;
     width: 44px;

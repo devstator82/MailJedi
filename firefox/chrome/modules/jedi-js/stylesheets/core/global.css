@@ -1,30 +1,30 @@
 /* Global
 *****************************************************/
-.hide {
+.mail-jedi .hide {
 	display: none !important;
 }
-.no-float {
+.mail-jedi .no-float {
 	float: none !important;
 }
-.float-right {
+.mail-jedi .float-right {
 	float: right !important;
 }
-.float-left {
+.mail-jedi .float-left {
 	float: left !important;
 }
-.no-padding {
+.mail-jedi .no-padding {
 	padding: 0 !important;
 }
-.no-margin {
+.mail-jedi .no-margin {
 	margin: 0 !important;
 }
-.no-border {
+.mail-jedi .no-border {
 	border: 0 none !important;
 	border-radius: 0 !important;
 	-moz-border-radius: 0 !important;
 	-webkit-border-radius: 0 !important;
 }
-.no-top-border {
+.mail-jedi .no-top-border {
 	border-top: 0 none !important;
 	border-radius-topleft: 0 !important;
 	border-radius-topright: 0 !important;
@@ -33,7 +33,7 @@
 	-webkit-border-top-right-radius: 0 !important;
 	-webkit-border-top-left-radius: 0 !important;
 }
-.no-left-border {
+.mail-jedi .no-left-border {
 	border-left: 0 none !important;
 	border-radius-topleft: 0 !important;
 	border-radius-bottomleft: 0 !important;
@@ -42,7 +42,7 @@
 	-webkit-border-top-left-radius: 0 !important;
 	-webkit-border-bottom-left-radius: 0 !important;
 }
-.no-bottom-border {
+.mail-jedi .no-bottom-border {
 	border-bottom: 0 none !important;
 	border-radius-bottomleft: 0 !important;
 	border-radius-bottomright: 0 !important;
@@ -51,7 +51,7 @@
 	-webkit-border-bottom-right-radius: 0 !important;
 	-webkit-border-bottom-left-radius: 0 !important;
 }
-.no-right-border {
+.mail-jedi .no-right-border {
 	border-right: 0 none !important;
 	border-radius-topright: 0 !important;
 	border-radius-bottomright: 0 !important;
@@ -61,34 +61,34 @@
 	-webkit-border-bottom-right-radius: 0 !important;
 }
 
-.no-top-left-radius {
+.mail-jedi .no-top-left-radius {
 	border-radius-topleft: 0 !important;
 	-moz-border-radius-topleft: 0 !important;
 	-webkit-border-top-left-radius: 0 !important;
 }
-.no-top-right-radius {
+.mail-jedi .no-top-right-radius {
 	border-radius-topright: 0 !important;
 	-moz-border-radius-topright: 0 !important;
 	-webkit-border-top-right-radius: 0 !important;
 }
-.no-bottom-left-radius {
+.mail-jedi .no-bottom-left-radius {
 	border-radius-bottomleft: 0 !important;
 	-moz-border-radius-bottomleft: 0 !important;
 	-webkit-border-bottom-left-radius: 0 !important;
 }
-.no-bottom-right-radius {
+.mail-jedi .no-bottom-right-radius {
 	border-radius-bottomright: 0 !important;
 	-moz-border-radius-bottomright: 0 !important;
 	-webkit-border-bottom-right-radius: 0 !important;
 }
-.wrap-centered {
+.mail-jedi .wrap-centered {
 	margin: 0 auto;
 }
-.new-item {
+.mail-jedi .new-item {
 	background-color: #FFF3B0;
 }
-.badge-counter,
-.badge-counter-rt {
+.mail-jedi .badge-counter,
+.mail-jedi .badge-counter-rt {
     background: none repeat scroll 0 0 #DF0000;
     border-radius: 12px; 
 	-moz-border-radius: 12px; 
@@ -98,13 +98,13 @@
     font-weight: bold;
     padding: 2px 4px;
 }
-.badge-counter-rt {
+.mail-jedi .badge-counter-rt {
     position: absolute;
     right: -9px;
     top: -4px;
     z-index: 300;
 }
-.text-wrap {
+.mail-jedi .text-wrap {
 	white-space: pre-wrap;
 	white-space: -moz-pre-wrap;
     white-space: -pre-wrap;
@@ -113,7 +113,7 @@
 }
 
 /* Section Header */
-.section-header {
+.mail-jedi .section-header {
     background-color: #F2F2F2;
     border-bottom: medium none;
     border-top: 1px solid #E2E2E2;
@@ -121,7 +121,7 @@
 }
 
 /* Label Over (jQuery Plugin uses this) */
-.labelover-apply { 
+.mail-jedi .labelover-apply { 
 	color: #ccc; 
 	font-style: italic;
 	position: absolute; 
@@ -131,153 +131,153 @@
 }
 
 /* Channel Icons */
-.channel-icon {
+.mail-jedi .channel-icon {
 	display: inline-block;
 	height: 11px; 
 	line-height: 13px; 
 	width: 11px;	
 }
-.channel-icon-large {
+.mail-jedi .channel-icon-large {
 	height: 30px;
 }
 
 /* Channel Icons - Small */
-.aol-s {
+.mail-jedi .aol-s {
 	background: url(../images/sprite_channels.gif) 0 -2789px no-repeat;
 }
-.exchange-s {
+.mail-jedi .exchange-s {
 	background: url(../images/sprite_channels.gif) 0 -2879px no-repeat;
 }
-.facebook-s {
+.mail-jedi .facebook-s {
 	background: url(../images/sprite_channels.gif) 0 -2969px no-repeat;
 }
-.gmail-s {
+.mail-jedi .gmail-s {
 	background: url(../images/sprite_channels.gif) 0 -3149px no-repeat;
 }
-.hotmail-s {
+.mail-jedi .hotmail-s {
 	background: url(../images/sprite_channels.gif) 0 -3239px no-repeat;
 }
-.hyves-s {
+.mail-jedi .hyves-s {
 	background: url(../images/sprite_channels.gif) 0 -3329px no-repeat;
 }
-.linkedin-s {
+.mail-jedi .linkedin-s {
 	background: url(../images/sprite_channels.gif) 0 -3419px no-repeat;
 }
-.twitter-s {
+.mail-jedi .twitter-s {
 	background: url(../images/sprite_channels.gif) 0 -3509px no-repeat;
 }
-.yahoo-s {
+.mail-jedi .yahoo-s {
 	background: url(../images/sprite_channels.gif) 0 -3599px no-repeat;
 }
-.inbox2-s {
+.mail-jedi .inbox2-s {
 	background: url(../images/sprite_channels.gif) 0 -3688px no-repeat;
 }
-.mail-s {
+.mail-jedi .mail-s {
 	background: url(../images/sprite_channels.gif) 0 -3779px no-repeat;
 }
-.draftmail-s {
+.mail-jedi .draftmail-s {
 	background: url(../images/sprite_channels.gif) 0 -3867px no-repeat;
 }
-.yammer-s {
+.mail-jedi .yammer-s {
 	background: url(../images/sprite_channels.gif) 0 -3959px no-repeat;
 }
 
 /* Channel Icons - Small (gray) */
-.aol-gray-s {
+.mail-jedi .aol-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4139px no-repeat;
 }
-.exchange-gray-s {
+.mail-jedi .exchange-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4229px no-repeat;
 }
-.facebook-gray-s {
+.mail-jedi .facebook-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4319px no-repeat;
 }
-.gmail-gray-s {
+.mail-jedi .gmail-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4500px no-repeat;
 }
-.hotmail-gray-s {
+.mail-jedi .hotmail-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4590px no-repeat;
 }
-.hyves-gray-s {
+.mail-jedi .hyves-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4679px no-repeat;
 }
-.linkedin-gray-s {
+.mail-jedi .linkedin-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4769px no-repeat;
 }
-.twitter-gray-s {
+.mail-jedi .twitter-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4859px no-repeat;
 }
-.yahoo-gray-s {
+.mail-jedi .yahoo-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -4949px no-repeat;
 }
-.inbox2-gray-s {
+.mail-jedi .inbox2-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -5039px no-repeat;
 }
-.mail-gray-s {
+.mail-jedi .mail-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -5127px no-repeat;
 }
-.draftmail-gray-s {
+.mail-jedi .draftmail-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -5307px no-repeat;
 }
-.yammer-gray-s {
+.mail-jedi .yammer-gray-s {
 	background: url(../images/sprite_channels.gif) 0 -5219px no-repeat;
 }
 
 /* Channel Icons - Large */
-.aol-l {
+.mail-jedi .aol-l {
 	background: url(../images/sprite_channels.gif) 0 6px no-repeat;
 }
-.exchange-l {
+.mail-jedi .exchange-l {
 	background: url(../images/sprite_channels.gif) 0 -84px no-repeat;
 }
-.facebook-l {
+.mail-jedi .facebook-l {
 	background: url(../images/sprite_channels.gif) 0 -171px no-repeat;
 }
-.gmail-l {
+.mail-jedi .gmail-l {
 	background: url(../images/sprite_channels.gif) 0 -264px no-repeat;
 }
-.hotmail-l {
+.mail-jedi .hotmail-l {
 	background: url(../images/sprite_channels.gif) 0 -352px no-repeat;
 }
-.hyves-l {
+.mail-jedi .hyves-l {
 	background: url(../images/sprite_channels.gif) 0 -443px no-repeat;
 }
-.linkedin-l {
+.mail-jedi .linkedin-l {
 	background: url(../images/sprite_channels.gif) 0 -534px no-repeat;
 }
-.twitter-l {
+.mail-jedi .twitter-l {
 	background: url(../images/sprite_channels.gif) 0 -624px no-repeat;
 }
-.yahoo-l {
+.mail-jedi .yahoo-l {
 	background: url(../images/sprite_channels.gif) 0 -712px no-repeat;
 }
-.yammer-l {
+.mail-jedi .yammer-l {
 	background: url(../images/sprite_channels.gif) 0 -805px no-repeat;
 }
 
 /* Selectmenu (jQuery Plugin uses this) */
-.aol-s ui-selectmenu-item-icon,
-.exchange-s ui-selectmenu-item-icon,
-.facebook-s ui-selectmenu-item-icon,
-.gmail-s ui-selectmenu-item-icon,
-.hotmail-s ui-selectmenu-item-icon,
-.hyves-s ui-selectmenu-item-icon,
-.linkedin-s ui-selectmenu-item-icon,
-.twitter-s ui-selectmenu-item-icon,
-.yahoo-s ui-selectmenu-item-icon,
-.inbox2-s ui-selectmenu-item-icon,
-.mail-s ui-selectmenu-item-icon,
-.yammer-s ui-selectmenu-item-icon {	
+.mail-jedi .aol-s ui-selectmenu-item-icon,
+.mail-jedi .exchange-s ui-selectmenu-item-icon,
+.mail-jedi .facebook-s ui-selectmenu-item-icon,
+.mail-jedi .gmail-s ui-selectmenu-item-icon,
+.mail-jedi .hotmail-s ui-selectmenu-item-icon,
+.mail-jedi .hyves-s ui-selectmenu-item-icon,
+.mail-jedi .linkedin-s ui-selectmenu-item-icon,
+.mail-jedi .twitter-s ui-selectmenu-item-icon,
+.mail-jedi .yahoo-s ui-selectmenu-item-icon,
+.mail-jedi .inbox2-s ui-selectmenu-item-icon,
+.mail-jedi .mail-s ui-selectmenu-item-icon,
+.mail-jedi .yammer-s ui-selectmenu-item-icon {	
 }
 
 /* Social Media Hyperlink List */
-ul.social-media-list {
+.mail-jedi ul.social-media-list {
     border-top: 1px solid #e0e0e0;
 }
-ul.social-media-list li {
+.mail-jedi ul.social-media-list li {
     border-bottom: 1px solid #e0e0e0;    
 }
-ul.social-media-list li a {
+.mail-jedi ul.social-media-list li a {
     background-repeat: no-repeat;
     background-position: 6px center;
     color: #333;
@@ -285,146 +285,146 @@ ul.social-media-list li a {
     padding: 9px 33px;
     text-decoration: none;
 }
-ul.social-media-list li a.email {
+.mail-jedi ul.social-media-list li a.email {
     background-image: url(../images/icons/social/email.gif);
 }
-ul.social-media-list li a.facebook {
+.mail-jedi ul.social-media-list li a.facebook {
     background-image: url(../images/icons/social/facebook.gif);
 }
-ul.social-media-list li a.twitter {
+.mail-jedi ul.social-media-list li a.twitter {
     background-image: url(../images/icons/social/twitter.gif);
 }
-ul.social-media-list li a.linkedin {
+.mail-jedi ul.social-media-list li a.linkedin {
     background-image: url(../images/icons/social/linkedin.gif);
 }
 
 /* Icons */
-.icon {
+.mail-jedi .icon {
 	display: inline-block;
 	height: 16px;
 	width: 16px;
 }
 
-.icon-unread {
+.mail-jedi .icon-unread {
 	background-image: url(../images/icons/mail-new.png);
 	background-repeat: no-repeat;
 }
-.icon-inbox {
+.mail-jedi .icon-inbox {
 	background-image: url(../images/icons/inbox.png);
 	background-repeat: no-repeat;
 }
-.icon-inbox2 {
+.mail-jedi .icon-inbox2 {
 	background-image: url(../images/icons/inbox2.png);
 	background-repeat: no-repeat;
 }
-.icon-archive {
+.mail-jedi .icon-archive {
 	background-image: url(../images/icons/mails-stack.png);
 	background-repeat: no-repeat;
 }
-.icon-received {
+.mail-jedi .icon-received {
 	background-image: url(../images/icons/mail-opened.png);
 	background-repeat: no-repeat;
 }
-.icon-sent {
+.mail-jedi .icon-sent {
 	background-image: url(../images/icons/mail-sent.png);
 	background-repeat: no-repeat;
 }
-.icon-drafts {
+.mail-jedi .icon-drafts {
 	background-image: url(../images/icons/mail-draft.png);
 	background-repeat: no-repeat;
 }
-.icon-trash {
+.mail-jedi .icon-trash {
 	background-image: url(../images/icons/trash.gif);
 	background-repeat: no-repeat;
 }
-.icon-present {
+.mail-jedi .icon-present {
 	background-image: url(../images/icons/present.png);
 	background-repeat: no-repeat;
 }
-.icon-starred {
+.mail-jedi .icon-starred {
 	background-image: url(../images/icons/starred.png);
 	background-repeat: no-repeat;
 }
-.icon-unstarred {
+.mail-jedi .icon-unstarred {
 	background-image: url(../images/icons/unstarred.png);
 	background-repeat: no-repeat;
 }
-.icon-todo {
+.mail-jedi .icon-todo {
 	background-image: url(../images/icons/todo.png);
 	background-repeat: no-repeat;
 }
-.icon-waitingfor {
+.mail-jedi .icon-waitingfor {
 	background-image: url(../images/icons/waiting-for.png);
 	background-repeat: no-repeat;
 }
-.icon-someday {
+.mail-jedi .icon-someday {
 	background-image: url(../images/icons/someday.png);
 	background-repeat: no-repeat;
 }
-.icon-cross {
+.mail-jedi .icon-cross {
 	background-image: url(../images/icons/cross.png);
 	background-repeat: no-repeat;
 }
-.icon-reply {
+.mail-jedi .icon-reply {
 	background-image: url(../images/icons/reply.png);
 	background-repeat: no-repeat;
 }
-.icon-replyall {
+.mail-jedi .icon-replyall {
 	background-image: url(../images/icons/reply-all.png);
 	background-repeat: no-repeat;
 }
-.icon-forward {
+.mail-jedi .icon-forward {
 	background-image: url(../images/icons/forward.png);
 	background-repeat: no-repeat;
 }
-.icon-attachment {
+.mail-jedi .icon-attachment {
     background-image: url(../images/icons/paper-clip.png);
 	background-repeat: no-repeat;
 }
-.icon-help {
+.mail-jedi .icon-help {
 	background-image: url(../images/icons/help.png);
 	background-repeat: no-repeat;
 }
-.icon-retweet {
+.mail-jedi .icon-retweet {
 	background-image: url(../images/icons/retweet.png);
 	background-repeat: no-repeat;
 }
-.icon-label {
+.mail-jedi .icon-label {
 	background-image: url(../images/icons/label.png);
 	background-repeat: no-repeat;
 }
-.icon-bitly {
+.mail-jedi .icon-bitly {
 	background-image: url(../images/icons/bitly.png);
 	background-repeat: no-repeat;
 	width: 20px !important;
 }
-.icon-back {
+.mail-jedi .icon-back {
 	background-image: url(../images/icons/back.png);
 	background-repeat: no-repeat;
 }
-.icon-home {
+.mail-jedi .icon-home {
 	background-image: url(../images/icons/home.png);
 	background-repeat: no-repeat;
 }
-.icon-contact {
+.mail-jedi .icon-contact {
 	background-image: url(../images/icons/user-white.png);
 	background-repeat: no-repeat;
 }
-.icon-facebook {
+.mail-jedi .icon-facebook {
     background-image: url(../images/icons/socialmedia/facebook.png);
 	background-repeat: no-repeat;
 }
-.icon-twitter {
+.mail-jedi .icon-twitter {
     background-image: url(../images/icons/socialmedia/twitter.png);
 	background-repeat: no-repeat;
 }
-.icon-linkedin {
+.mail-jedi .icon-linkedin {
     background-image: url(../images/icons/socialmedia/linkedin.png);
 	background-repeat: no-repeat;
 }
 
 /* File Types */
-.filetype-icon {
+.mail-jedi .filetype-icon {
 	display: inline-block;
 	height: 16px; 
 	line-height: 16px; 
@@ -433,72 +433,91 @@ ul.social-media-list li a.linkedin {
 }
 
 /* extends .filetype-icon */
-.mdb {
+.mail-jedi .mdb {
 	background-position: 0 -32px;
 }
-.xls, .xlsx {
+.mail-jedi .xls, 
+.mail-jedi .xlsx {
 	background-position: 0 -64px;
 }
-.csv {
+.mail-jedi .csv {
 	background-position: 0 -96px;
 }
-.mov, .avi, .wmv {
+.mail-jedi .mov, 
+.mail-jedi .avi, 
+.mail-jedi .wmv {
 	background-position: 0 -128px;
 }
-.fla {
+.mail-jedi .fla {
 	background-position: 0 -160px;
 }
-.swf, .flv {
+.mail-jedi .swf, 
+.mail-jedi .flv {
 	background-position: 0 -192px;
 }
-.ai {
+.mail-jedi .ai {
 	background-position: 0 -224px;
 }
-.png, .jpeg, .jpg, .gif {
+.mail-jedi .png, 
+.mail-jedi .jpeg, 
+.mail-jedi .jpg, 
+.mail-jedi .gif {
 	background-position: 0 -256px;
 }
-.mp3, .wav, .wma {
+.mail-jedi .mp3, 
+.mail-jedi .wav, 
+.mail-jedi .wma {
 	background-position: 0 -288px;
 }
-.wpl, .m3u {
+.mail-jedi .wpl,
+.mail-jedi .m3u {
 	background-position: 0 -320px;
 }
-.msoffice {
+.mail-jedi .msoffice {
 	background-position: 0 -352px;
 }
-.pst {
+.mail-jedi .pst {
 	background-position: 0 -384px;
 }
-.pdf {
+.mail-jedi .pdf {
 	background-position: 0 -416px;
 }
-.psd {
+.mail-jedi .psd {
 	background-position: 0 -448px;
 }
-.php {
+.mail-jedi .php {
 	background-position: 0 -480px;
 }
-.ppt, .pps, .pptx {
+.mail-jedi .ppt, 
+.mail-jedi .pps, 
+.mail-jedi .pptx {
 	background-position: 0 -512px;
 }
-.cs, .vb, .sln, .csproj, .vbproj {
+.mail-jedi .cs, 
+.mail-jedi .vb, 
+.mail-jedi .sln, 
+.mail-jedi .csproj, 
+.mail-jedi .vbproj {
 	background-position: 0 -544px;
 }
-.doc, .docx {
+.mail-jedi .doc,
+.mail-jedi .docx {
 	background-position: 0 -576px;
 }
-.zip, .rar, .gzip {
+.mail-jedi .zip, 
+.mail-jedi .rar, 
+.mail-jedi .gzip {
 	background-position: 0 -608px;
 }
-.rss {
+.mail-jedi .rss {
 	background-position: 0 -640px;
 }
-.bin {
+.mail-jedi .bin {
 	background-position: 0 -672px;
 }
 
 /* Labels */
-.label-block {
+.mail-jedi .label-block {
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 2px;
@@ -511,11 +530,11 @@ ul.social-media-list li a.linkedin {
 	padding: 2px 5px 3px;
 	overflow: hidden;
 }
-.label-block:hover {
+.mail-jedi .label-block:hover {
 	text-decoration: none;
 }
 
-.label-delete {
+.mail-jedi .label-delete {
 	color: #666666;
 	display: inline-block;
 	margin-left: 6px;
@@ -523,65 +542,65 @@ ul.social-media-list li a.linkedin {
 
 /* NOTE: actually there should be no .label-color-0 class, 
    but as a current workaround we offer this css class */
-.label-color-0 {
+.mail-jedi .label-color-0 {
 	background-color:#E9F7FF;
 	border-color:#BCE7FF;
 }
 
-.label-color-1 {
+.mail-jedi .label-color-1 {
 	background: #9da2d4;
 	border: 1px solid #7b7fa9;
 }
-.label-color-2 {
+.mail-jedi .label-color-2 {
 	background: #c8a2d4;
 	border: 1px solid #9779a0;
 }
-.label-color-3 {
+.mail-jedi .label-color-3 {
 	background: #c8a2a8;
 	border: 1px solid #9f8085;
 }
-.label-color-4 {
+.mail-jedi .label-color-4 {
 	background: #9da2ff;
 	border: 1px solid #7578c1;
 }
-.label-color-5 {
+.mail-jedi .label-color-5 {
 	background: #f4a2a8;
 	border: 1px solid #bf7d82;
 }
-.label-color-6 {
+.mail-jedi .label-color-6 {
 	background: #9dcea8;
 	border: 1px solid #74997d;
 }
-.label-color-7 {
+.mail-jedi .label-color-7 {
 	background: #c8cea8;
 	border: 1px solid #979c7f;
 }
-.label-color-8 {
+.mail-jedi .label-color-8 {
 	background: #dac18e;
 	border: 1px solid #b6a37b;
 }
-.label-color-9 {
+.mail-jedi .label-color-9 {
 	background: #add18b;
 	border: 1px solid #8fad71;
 }
-.label-color-10 {
+.mail-jedi .label-color-10 {
 	background: #de96eb;
 	border: 1px solid #b278bc;
 }
 
 /* .labels-inline-list 
    - this is css wrapper class for the labels. */
-.labels-inline-list {	
+.mail-jedi .labels-inline-list {	
 	display: inline;
 }
-.labels-inline-list ul li {
+.mail-jedi .labels-inline-list ul li {
 	float: left;
 	margin: 0 6px 3px 0;
 }
 
 /* Contact Token
 *****************************************************/
-.contact-token-block {
+.mail-jedi .contact-token-block {
 	background: #CCC;
 	border: 1px solid #666;
 	border-radius: 3px;
@@ -594,22 +613,22 @@ ul.social-media-list li a.linkedin {
 	margin-right: 5px;
 	padding: 2px 5px 6px;
 }
-.contact-token-block:hover {
+.mail-jedi .contact-token-block:hover {
 	text-decoration: none;
 }
-.contact-token-block span {
+.mail-jedi .contact-token-block span {
 	color: #000;
 }
 
 /* Box
 *****************************************************/
-.box {
+.mail-jedi .box {
 }
-.box .inner {
+.mail-jedi .box .inner {
 }
-.box .inner:after, 
-.box .header:after, 
-.box .body:after {
+.mail-jedi .box .inner:after, 
+.mail-jedi .box .header:after, 
+.mail-jedi .box .body:after {
 	clear: both;
 	content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
 	display: block;
@@ -619,22 +638,22 @@ ul.social-media-list li a.linkedin {
 	overflow: hidden;
 	visibility: hidden;	
 }
-.box .inner {
+.mail-jedi .box .inner {
 	position: relative;
 }
-.box .button-bar ul li {
+.mail-jedi .box .button-bar ul li {
 	float: left;
 	margin: 0 6px 0 0;
 }
 
 /* .rounded-corner-box (extends .box) */
-.rounded-corner-box {
+.mail-jedi .rounded-corner-box {
 	border: 1px solid #000;
 	border-radius: 4px; 
 	-moz-border-radius:	4px;
 	-webkit-border-radius: 4px;
 }
-.rounded-corner-box .header {
+.mail-jedi .rounded-corner-box .header {
 	border-radius-topleft: 6px; 
 	border-radius-topright: 6px;
 	-moz-border-radius-topleft: 6px;
@@ -643,45 +662,45 @@ ul.social-media-list li a.linkedin {
 	-webkit-border-top-left-radius: 6px;
 	padding: 9px;
 }
-.rounded-corner-box .header h3 {
+.mail-jedi .rounded-corner-box .header h3 {
 	display: inline-block;
 }
-.rounded-corner-box .body {
+.mail-jedi .rounded-corner-box .body {
 	padding: 9px;
 }
 
 
 /* Header Control Bar
 *****************************************************/
-.header-control-bar {
+.mail-jedi .header-control-bar {
     padding: 6px 0;
 }
 
 /* selection list */
-.header-control-bar ul.selection-list {
+.mail-jedi .header-control-bar ul.selection-list {
     display: inline-block;
     float: left;
 }
-.header-control-bar ul.selection-list li {
+.mail-jedi .header-control-bar ul.selection-list li {
     float: left;
     margin: 0 6px 0 0;
 }
 
 /* filter tabs */
-.header-control-bar ul.filter-tabs {
+.mail-jedi .header-control-bar ul.filter-tabs {
     display: block;
     font-size: 0.95em;
     float: right;
 }
-.header-control-bar ul.filter-tabs li {
+.mail-jedi .header-control-bar ul.filter-tabs li {
     color: #6D6D6D;
     float: left;
     margin: 0 6px 0 0;
 }
-.header-control-bar ul.filter-tabs li a {
+.mail-jedi .header-control-bar ul.filter-tabs li a {
     text-decoration: none;
 }
-.header-control-bar ul.filter-tabs li a.filter-block {
+.mail-jedi .header-control-bar ul.filter-tabs li a.filter-block {
     border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 2px;
@@ -692,20 +711,20 @@ ul.social-media-list li a.linkedin {
 	padding: 2px 5px 3px;
 	overflow: hidden;
 }
-.header-control-bar ul.filter-tabs li.active a.filter-block {
+.mail-jedi .header-control-bar ul.filter-tabs li.active a.filter-block {
     background-color: #666;
     color: #fff;
 }
 
 /* Table List
 *****************************************************/
-.table-list {
+.mail-jedi .table-list {
 	border-spacing: 0;
 	padding: 0;
 	table-layout: fixed;
 	width: 100%;
 }
-.table-list thead th {	
+.mail-jedi .table-list thead th {	
 	empty-cells: show;
 	font-weight: bold;
 	height: 4.25ex;
@@ -714,7 +733,7 @@ ul.social-media-list li a.linkedin {
 	vertical-align :middle;
 	white-space: nowrap;
 }
-.table-list tr td {
+.mail-jedi .table-list tr td {
 	border-bottom: 1px solid #D4D4D4;
 	empty-cells: show;
 	height: 4.25ex;
@@ -726,7 +745,7 @@ ul.social-media-list li a.linkedin {
 
 /* Balloon
 *****************************************************/
-.balloon {
+.mail-jedi .balloon {
     background: none repeat scroll 0 0 #FFFFFF;
     border: 1px solid #DADADA;
     border-radius: 5px; 
@@ -740,7 +759,7 @@ ul.social-media-list li a.linkedin {
     top: 0;
     width: 230px;
 }
-.balloon .arrow-left {
+.mail-jedi .balloon .arrow-left {
     background: url("/i/arrowbln.png") repeat scroll 0 0 transparent;
     display: block;
     height: 38px;
@@ -749,11 +768,11 @@ ul.social-media-list li a.linkedin {
     top: 10px;
     width: 13px;
 }
-.balloon .balloon-header {
+.mail-jedi .balloon .balloon-header {
     margin-bottom: 12px;
     position: relative;
 }
-.balloon .balloon-header .help-button {
+.mail-jedi .balloon .balloon-header .help-button {
     background: url("/i/icon-i.gif") no-repeat scroll center 3px transparent;
     display: block;
     height: 16px;
@@ -763,7 +782,7 @@ ul.social-media-list li a.linkedin {
     top: 0;
     width: 16px;
 }
-.balloon .balloon-header .close-button {
+.mail-jedi .balloon .balloon-header .close-button {
     background: url("/i/btcls.png") repeat scroll 0 0 transparent;
     display: block;
     height: 10px;
@@ -772,32 +791,45 @@ ul.social-media-list li a.linkedin {
     top: 3px;
     width: 10px;
 }
-.balloon .balloon-header .close-button span {
+.mail-jedi .balloon .balloon-header .close-button span {
     display: none;
 }
-.balloon .balloon-inner {
+.mail-jedi .balloon .balloon-inner {
 }
-.balloon .balloon-form label.textfield input {
+.mail-jedi .balloon .balloon-form label.textfield input {
     font-size: 0.98em;
 }
-.balloon .balloon-form-row {
+.mail-jedi .balloon .balloon-form-row {
     margin-bottom: 10px;
     position: relative;
 }
 
 /* MEDIA BLOCK
 *********************************/
-.media-block, .media-block .body { overflow:hidden; _overflow:visible; zoom:1;}
-.media-block .img {float:left; margin-right: 10px;}
-.media-block .img img{display:block;}
-.media-block .imgExt{float:right; margin-left: 10px;}
+.mail-jedi .media-block, 
+.mail-jedi .media-block .body {
+    overflow:hidden; 
+    _overflow:visible; 
+    zoom:1;
+}
+.mail-jedi .media-block .img {
+    float:left; 
+    margin-right: 10px;
+}
+.mail-jedi .media-block .img img {
+    display:block;
+}
+.mail-jedi .media-block .imgExt {
+    float:right;
+    margin-left: 10px;
+}
 
 /* Loading Block
 *****************************************************/
 /* The div .loading-block is an block with loading image as background
    and loading text. This is used for example in different columns 
    like realtime and contact profile. */
-.loading-block {
+.mail-jedi .loading-block {
 	display: block;
 	height: 20px;
 	padding-top: 50px;
@@ -806,12 +838,12 @@ ul.social-media-list li a.linkedin {
 
 /* Unordered List Types
 *****************************************************/
-ul.circle-bullet-list li {
+.mail-jedi ul.circle-bullet-list li {
     background: url(../images/circle-bullet.png) no-repeat left center;
     padding-left: 12px;
 }
 
-ul.thumbnail-list li {
+.mail-jedi ul.thumbnail-list li {
 	border: 0 none;
     display: inline-block;
     margin: 10px 21px;;
@@ -820,6 +852,6 @@ ul.thumbnail-list li {
     vertical-align: top;
     width: 70px;
 }
-ul.thumbnail-list .thumb-container {
+.mail-jedi ul.thumbnail-list .thumb-container {
 	position: relative;
 }
