@@ -21,7 +21,8 @@ var sync = function(config) {
 
             LocalDatabase.endTransaction();
 
-            logger.log('SyncProfiles finished. Channel = {0}, Profiles = {1}'.format(config.id, unmatched_profiles.length));
+            logger.log('SyncProfiles finished. Channel = {0}, Profiles = {1}'
+                .format(config.id, unmatched_profiles.length));
         });
     }
 
@@ -43,7 +44,8 @@ var sync = function(config) {
 
                 LocalDatabase.endTransaction();
 
-                logger.log('SyncMessages finished. Channel = {0}, Profiles = {1}'.format(config.id, unmatched_messages.length));
+                logger.log('SyncMessages finished. Channel = {0}, Profiles = {1}'
+                    .format(config.id, unmatched_messages.length));
             });
         });
     }
@@ -52,9 +54,8 @@ var sync = function(config) {
         run: function() {
             LocalDatabase.executeSql('select * from persons', function(persons) {
                 LocalDatabase.executeSql('select * from profiles', function(profiles) {
-
                     syncProfiles(persons, profiles);
-                    //syncMessages(persons, profiles);
+                    syncMessages(persons, profiles);
 
                     LocalDatabase.executeSql('update channels set lastsync_at = ? where id = ?',
                         [ new Date().to_unixtime(), config.id ]);

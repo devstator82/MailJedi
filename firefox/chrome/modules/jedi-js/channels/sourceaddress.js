@@ -1,14 +1,8 @@
 j_sourceAddress = function(rawAddress) {
-    var displayname = null;
-    var address = null;
-
     return {
-        displayname: function() {
-            return displayname;
-        },
-        address: function() {
-            return address;
-        },
+        displayname: null,
+        address: null,
+
         parse: function() {
             rawAddress = $.trim(rawAddress);
 
@@ -21,31 +15,56 @@ j_sourceAddress = function(rawAddress) {
                 });
 
                 if (parts.length == 1) {
-                    displayname = address = $.trim(parts[0].unquote());
+                    this.displayname = this.address = $.trim(parts[0].unquote());
                 }
                 else if (parts.length == 2) {
-                    displayname = $.trim(parts[0].unquote());
-                    address = $.trim(parts[1].unquote());
+                    this.displayname = $.trim(parts[0].unquote());
+                    this.address = $.trim(parts[1].unquote());
                 }
             }
             else {
-                displayname = rawAddress;
-                address = rawAddress;
+                this.displayname = rawAddress;
+                this.address = rawAddress;
             }
 
-            if (address == null)
-                address = rawAddress;
+            if (this.address == null)
+                this.address = rawAddress;
 
             return this;
         },
         toString: function() {
             // todo implement renderProperties when we start dealing with status updates
 
-            if (displayname != null && $.trim(displayname) != '' && displayname != address) {
-                return '{0} <{1}>'.format(displayname, address);
+            if (this.displayname != null && $.trim(this.displayname) != ''
+                && this.displayname != this.address) {
+                    return '{0} <{1}>'.format(this.displayname, this.address);
             }
 
-            return $.trim(address);
+            return $.trim(this.address);
         }
     }
+};
+
+j_sourceAddressList = function(list) {
+    var parts = list.split(',');
+    var result = [];
+    
+    $.each(parts, function(i, rawAddress) {
+        var address = j_sourceAddress($.trim(rawAddress));
+        address.parse();
+
+        result.push(address);
+    });
+
+    return result;
+};
+
+j_sourceAddressListString = function(list) {
+    var arr = [];
+
+    for (var i = 0; i < list.length; i++) {
+        arr.push(list[i].toString());
+    }
+
+    return arr.join(',');
 };

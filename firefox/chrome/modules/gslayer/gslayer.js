@@ -93,7 +93,7 @@ var gslayer = {
     checkSyncStatus: function() {
 
         var newStatus = $(gslayer.globals.OFFLINE_INDICATOR)
-                .hasClass(gslayer.globals.OFFLINE_INDICATOR_SYNCING);
+            .hasClass(gslayer.globals.OFFLINE_INDICATOR_SYNCING);
 
         if (gslayer.syncing === newStatus)
             return; // Nothing changed        
@@ -227,8 +227,8 @@ var gslayer = {
             GmailDatabase.executeSql('select * from Contacts', callback);
         },
         messages: function(since, callback) {
-            GmailDatabase.executeSql('select m.*, c.Subject, c.SenderListHtml from Messages m, Conversations c ' +
-                    'where c.ConversationId = m.ConversationId and m.Timestamp > ?', [ since ], callback);
+            GmailDatabase.executeSql('select m.*, m2.Subject, m2.FromAddress, m2.ToAddresses, m2.CcAddresses, m2.BccAddresses ' +
+                    'from Messages m, MessagesFT m2 where m2.rowid = m.MessageId and m.IsSpam = 0 and m.Timestamp > ?', [ since ], callback);
         },
         attachments: function(callback) {
             GmailDatabase.executeSql('select * from Attachments', callback);

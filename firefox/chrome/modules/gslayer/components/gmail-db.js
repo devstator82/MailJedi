@@ -39,7 +39,7 @@ var GmailDatabase = function(emailAddress) {
                     params = null;
                 }
 
-                logger.log('Executing GMail query: ' + query);
+                //logger.log('Executing GMail query: ' + query);
 
                 var resultSet = [];
                 var rs = database.execute(query, params);
@@ -64,12 +64,10 @@ var GmailDatabase = function(emailAddress) {
                     rs.next();
                 }
 
-                logger.log('GMail query returned ' + resultSet.length + ' rows');
+                //logger.log('GMail query returned ' + resultSet.length + ' rows');
 
                 // Execute our callback function
                 if (typeof callback == 'function') {
-                    logger.log('Invoking GMail query callback');
-
                     callback(resultSet);
                 }
 
@@ -82,6 +80,11 @@ var GmailDatabase = function(emailAddress) {
                 if (database != null)
                     close(database);
             }
+        },
+        executeRawSql: function(query, params) {
+            var database = open();
+
+            return database.execute(query, params);
         }
     }
 }();

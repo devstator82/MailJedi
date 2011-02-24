@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+        <script type="text/javascript" src="../../gslayer/components/logger.js"></script>
+        <script type="text/javascript" src="../the_force.js"></script>
+        <script type="text/javascript" src="../channels/sourceaddress.js"></script>
+        <script type="text/javascript" src="../channels/contact-matcher.js"></script>
+        <script type="text/javascript" src="../channels/profile-matcher.js"></script>
+        <script type="text/javascript" src="../storage/entities/person.js"></script>
+        <script type="text/javascript" src="../storage/entities/profile.js"></script>
+        <script type="text/javascript" src="fake-db.js"></script>
+    </head>
+    <body>
+        <h1 id="qunit-header">Contact Matcher Unit Tests</h1>
+        <h2 id="qunit-banner"></h2>
+        <div id="qunit-testrunner-toolbar"></div>
+        <h2 id="qunit-userAgent"></h2>
+        <ol id="qunit-tests"></ol>
+        <div id="qunit-fixture">test markup, will be hidden</div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var persons = [
+                    { id: 1, displayname: 'Waseem Sadiq' },
+                    { id: 2, displayname: 'Palwisha Sadiq' },
+                    { id: 3, displayname: 'Amina Sadiq', redirect_id: 2 },
+                    { id: 4, displayname: 'Softie Sadiq', is_soft: true },
+                    { id: 5, displayname: 'Softie2 Sadiq', is_soft: true }
+                ];
+
+                var profiles = [
+                    { id: 1, displayname: 'Waseem Sadiq', service_id: '123456789', address: 'waseem@inbox2.com', person_id: 1 },
+                    { id: 2, displayname: 'Palwisha Sadiq', service_id: '987654321', address: 'palwisha@sadiq.nl', person_id: 2 },
+                    { id: 3, displayname: 'Amina Sadiq', service_id: '0', address: 'amina@sadiq.nl', person_id: 3 },
+                    { id: 4, displayname: 'Softie Sadiq', service_id: 'xxx', address: 'softie@sadiq.nl', person_id: 4, is_soft: true },
+                    { id: 5, displayname: 'Softie2 Sadiq', service_id: 'xxx2', address: 'softie2@sadiq.nl', person_id: 5, is_soft: true }
+                ];
+
+//                test('Match on name', function() {
+//                    var address = j_sourceAddress('Waseem Sadiq <waseem@inbox2.com>');
+//                    address.parse();
+//
+//                    var message = { from: address, to: [], cc: [], bcc: [], source: 'gmail', channel_id: 0 };
+//
+//                    var matcher = j_profile_matcher(persons, profiles, message);
+//                    var result = matcher.match();
+//
+//                    equals(message.person_id, 1, 'Person id matched');
+//                    equals(message.profile_id, 1, 'Profile id matched');
+//                });
+//
+//                test('Match on address', function() {
+//                    var address = j_sourceAddress('Kip Sadiq <waseem@inbox2.com>');
+//                    address.parse();
+//
+//                    var message = { from: address, to: [], cc: [], bcc: [], source: 'gmail', channel_id: 0 };
+//
+//                    var matcher = j_profile_matcher(persons, profiles, message);
+//                    var result = matcher.match();
+//
+//                    equals(message.person_id, 1, 'Person id matched');
+//                    equals(message.profile_id, 1, 'Profile id matched');
+//                });
+
+                test('Create new profile', function() {
+                    var address = j_sourceAddress('Waseem Sadiq <queck@aapje.com>');
+                    address.parse();
+
+                    var message = { from: address, to: [], cc: [], bcc: [], source: 'gmail', channel_id: 0 };
+
+                    var matcher = j_profile_matcher(persons, profiles, message);
+                    var result = matcher.match();
+
+                    equals(message.person_id, 1, 'Person id matched');
+                    equals(message.profile_id, 1, 'Profile id matched');
+                });
+            });
+        </script>
+    </body>
+</html>

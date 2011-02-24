@@ -23,7 +23,7 @@ var gmail_channel = function(config) {
                     profile.displayname = elem.Name;
                     profile.first_name = name.first_name();
                     profile.last_name = name.last_name();
-                    profile.address = sourceaddress.address();
+                    profile.address = sourceaddress.address;
                     profile.avatar = null;
                     profile.url = null;
                     profile.is_soft = false;
@@ -52,7 +52,7 @@ var gmail_channel = function(config) {
                     if (elem.IsInbox)
                         return 10;
 
-                    if (elem.IsOutbox)
+                    if (elem.IsOutbox || elem.IsSent)
                         return 20;
 
                     if (elem.IsDraft)
@@ -68,20 +68,19 @@ var gmail_channel = function(config) {
                 $.each(data, function(i, elem) {
                     var message = j_message();
 
-                    message.id = elem.id;
                     message.channel_id = config.id;
                     message.service_id = elem.ServerId;
                     message.source = 'gmail';
                     message.subject = elem.Subject;
-                    message.preview = elem.Snippet;
-                    message.from = j_sourceAddress(elem.ReplyToAddress).parse();
-                    //message.to = jQuery.parseJSON(elem.to);
-                    //message.cc = jQuery.parseJSON(elem.cc);
-                    //message.bcc = jQuery.parseJSON(elem.bcc);
+                    message.preview = elem.SnippetHtml;
+                    message.from = j_sourceAddress(elem.FromAddress).parse();
+                    message.to = j_sourceAddressList(elem.ToAddresses);
+                    message.cc = j_sourceAddressList(elem.CcAddresses);
+                    message.bcc = j_sourceAddressList(elem.BccAddresses);
                     message.is_unread = elem.IsUnread;
                     message.folder = parseFolder(elem);
                     message.attachments = elem.NumberOfAttachments;
-                    message.sort_date = elem.ReceiveDateMs / 1000;
+                    message.sort_date = elem.ReceivedDateMs / 1000;
 
                     messages.push(message);
                 });

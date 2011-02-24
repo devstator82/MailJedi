@@ -42,7 +42,7 @@ var LocalDatabase = function() {
             }
 
             var paramsLog = (params != null && params.isArray()) ? ' >> params: ' + params.join(', ') : '';
-            logger.log('Executing query: ' + query + paramsLog);
+            //logger.log('Executing query: ' + query + paramsLog);
 
             var resultSet = [];
             var rs = database.execute(query, params);
@@ -66,16 +66,22 @@ var LocalDatabase = function() {
                 resultSet.push(obj);
                 rs.next();
             }
+
             rs.close();
 
-            logger.log('Query returned ' + resultSet.length + ' rows');
+            //logger.log('Query returned ' + resultSet.length + ' rows');
 
             // Execute our callback function
             if (typeof callback == 'function') {
-                logger.log('Invoking query callback');
+                //logger.log('Invoking query callback');
 
                 callback(resultSet);
             }
+        },
+        executeRawSql: function(query, params) {
+            var database = open();
+
+            return database.execute(query, params);
         }
     }
 }();

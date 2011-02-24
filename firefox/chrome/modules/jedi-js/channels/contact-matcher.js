@@ -72,22 +72,24 @@ var j_contactMatcher = function(persons, profiles, contact) {
 
             if (person != null) {
 
-                // Match found, check if profile needs updating
-                profile = find_profile_by_service_id(contact.service_id);
+                if (contact.service_id != '') {
+                    // Match found, check if profile needs updating
+                    profile = find_profile_by_service_id(contact.service_id);
+                }
 
                 if (profile == null) {
-                    var matchOnAddress = find_profile_by_address(contact.address);
-
-                    if (matchOnAddress != null) {
-                        logger.log('Found soft profile {0} for for person {1} with address {2}, removing and recreating'
-                            .format(matchOnAddress.id, person.displayname, contact.address));
-
-                        // We have a soft profile on the same address that we are now receiving a hard profile for,
-                        // remove the soft profile so that the matcher will create a new hard profile.
-                        delete_profile_by_id(matchOnAddress.id);
-
-                        LocalDatabase.executeSql('delete from profiles where id = ?', [ matchOnAddress.id ]);
-                    }
+//                    var matchOnAddress = find_profile_by_address(contact.address);
+//
+//                    if (matchOnAddress != null) {
+//                        logger.log('Found soft profile {0} for for person {1} with address {2}, removing and recreating'
+//                            .format(matchOnAddress.id, person.displayname, contact.address));
+//
+//                        // We have a soft profile on the same address that we are now receiving a hard profile for,
+//                        // remove the soft profile so that the matcher will create a new hard profile.
+//                        delete_profile_by_id(matchOnAddress.id);
+//
+//                        LocalDatabase.executeSql('delete from profiles where id = ?', [ matchOnAddress.id ]);
+//                    }
 
                     logger.log('Found new profile {0} for person {1}'.format(contact.service_id, person.displayname));
 
@@ -174,13 +176,14 @@ var j_contactMatcher = function(persons, profiles, contact) {
             LocalDatabase.executeSql('insert into profiles (' +
                 'service_id, person_id, source, channel_id, displayname, first_name, ' +
                 'last_name, address, avatar, url, is_soft, created_at) ' +
-                'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?); ' +
-                    'select last_insert_rowid();',
+                'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
                 [ String(profile.service_id), profile.person_id, profile.source, profile.channel_id,
                     profile.displayname, profile.first_name, profile.last_name, profile.address, profile.avatar,
                     profile.url, profile.is_soft, profile.created_at ], function(rs) {
 
-                    profile.id = rs[0];
+                    LocalDatabase.executeSql('select last_insert_rowid();', function(rs) {
+                        profile.id = rs[0];
+                    });
             });
 
             // Add profile to our profiles array

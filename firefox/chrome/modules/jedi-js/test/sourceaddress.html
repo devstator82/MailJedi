@@ -22,8 +22,8 @@
                     var result = j_sourceAddress('waseem@sadiq.nl');
                     result.parse();
 
-                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
-                    equals(result.displayname(), 'waseem@sadiq.nl', 'Displayname is correct');
+                    equals(result.address, 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname, 'waseem@sadiq.nl', 'Displayname is correct');
                     equals(result.toString(), 'waseem@sadiq.nl', 'toString is correct');
                 });
 
@@ -31,8 +31,8 @@
                     var result = j_sourceAddress('<waseem@sadiq.nl>');
                     result.parse();
 
-                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
-                    equals(result.displayname(), 'waseem@sadiq.nl', 'Displayname is correct');
+                    equals(result.address, 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname, 'waseem@sadiq.nl', 'Displayname is correct');
                     equals(result.toString(), 'waseem@sadiq.nl', 'toString is correct');
                 });
 
@@ -40,8 +40,8 @@
                     var result = j_sourceAddress('Waseem Sadiq <waseem@sadiq.nl>');
                     result.parse();
 
-                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
-                    equals(result.displayname(), 'Waseem Sadiq', 'Displayname is correct');
+                    equals(result.address, 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname, 'Waseem Sadiq', 'Displayname is correct');
                     equals(result.toString(), 'Waseem Sadiq <waseem@sadiq.nl>', 'toString is correct');
                 });
 
@@ -49,8 +49,8 @@
                     var result = j_sourceAddress('"Waseem Sadiq" <waseem@sadiq.nl>');
                     result.parse();
 
-                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
-                    equals(result.displayname(), 'Waseem Sadiq', 'Displayname is correct');
+                    equals(result.address, 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname, 'Waseem Sadiq', 'Displayname is correct');
                     equals(result.toString(), 'Waseem Sadiq <waseem@sadiq.nl>', 'toString is correct');
                 });
 
@@ -58,9 +58,16 @@
                     var result = j_sourceAddress('" Waseem Sadiq" <waseem@sadiq.nl>');
                     result.parse();
 
-                    equals(result.address(), 'waseem@sadiq.nl', 'Address is correct');
-                    equals(result.displayname(), 'Waseem Sadiq', 'Displayname is correct');
+                    equals(result.address, 'waseem@sadiq.nl', 'Address is correct');
+                    equals(result.displayname, 'Waseem Sadiq', 'Displayname is correct');
                     equals(result.toString(), 'Waseem Sadiq <waseem@sadiq.nl>', 'toString is correct');
+                });
+
+                test('Parse list of addresses', function() {
+                    var result = j_sourceAddressList('waseem@sadiq.nl,marukh_ahmad@hotmail.com');
+
+                    equals(result[0].address, 'waseem@sadiq.nl', 'Address1 is correct');
+                    equals(result[1].address, 'marukh_ahmad@hotmail.com', 'Address2 is correct');
                 });
             });
         </script>
