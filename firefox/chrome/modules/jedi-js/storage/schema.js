@@ -40,12 +40,13 @@ var create_persons_sql =
         'created_at INTEGER);';
 
 var create_person_messages_sql =
-    'CREATE TABLE IF NOT EXISTS documents (' +
+    'CREATE TABLE IF NOT EXISTS person_messages (' +
         'id INTEGER PRIMARY KEY AUTOINCREMENT, ' +
         'channel_id INTEGER, ' +
         'person_id INTEGER, ' +
         'message_id INTEGER, ' +
         'relation INTEGER, ' +
+        'sort_date INTEGER, ' +
         'created_at INTEGER);';
 
 var create_messages_sql =

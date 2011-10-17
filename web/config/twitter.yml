@@ -1,12 +1,12 @@
 default: &default
-    api_key: 'zNWEIzPJ0tYSbCCYAE7bw'
-    consumer_key: 'zNWEIzPJ0tYSbCCYAE7bw'
-    consumer_secret: 'RMS8HvZLE2rBQWAyJXQ6TwB7yPACQOtCU4CGa7RzGJs'
+    api_key: ''
+    consumer_key: ''
+    consumer_secret: ''
 
 development:
-    api_key: 'haEiBqKxMKmTlD7HxB4Q'
-    consumer_key: 'haEiBqKxMKmTlD7HxB4Q'
-    consumer_secret: 'rmbjToXaYDaU79IQ72ZlyzqffpV0PtSmmF9pa5Fb8'
+    api_key: ''
+    consumer_key: ''
+    consumer_secret: ''
 
 test:
     <<: *default

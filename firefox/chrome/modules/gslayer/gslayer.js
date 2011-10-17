@@ -56,7 +56,7 @@ var gslayer = {
 
             gslayer.loaded = true;
 			clearInterval(gslayer.bootstrapTimer);            
-            
+
             if ($(gslayer.globals.OFFLINE_INDICATOR).length) {
                 gslayer.hasOffline = true;
 				logger.log('Found offline indicator');

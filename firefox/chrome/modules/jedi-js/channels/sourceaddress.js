@@ -50,10 +50,14 @@ j_sourceAddressList = function(list) {
     var result = [];
     
     $.each(parts, function(i, rawAddress) {
-        var address = j_sourceAddress($.trim(rawAddress));
-        address.parse();
+        rawAddress = $.trim(rawAddress);
 
-        result.push(address);
+        if (rawAddress != '') {
+            var address = j_sourceAddress(rawAddress);
+            address.parse();
+
+            result.push(address);
+        }
     });
 
     return result;

@@ -80,7 +80,7 @@ var gmail_channel = function(config) {
                     message.is_unread = elem.IsUnread;
                     message.folder = parseFolder(elem);
                     message.attachments = elem.NumberOfAttachments;
-                    message.sort_date = elem.ReceivedDateMs / 1000;
+                    message.sort_date = String(Math.ceil(elem.ReceivedDateMs / 1000));
 
                     messages.push(message);
                 });

@@ -15,22 +15,42 @@ var dashboard = function() {
             logger.log('Dashboard initialized');
         },
         showDashboard: function() {
+            var that = this;
             resetWrapper();
 
-            var query = 'select p.* from messages m, persons p where p.id = m.person_id and m.is_unread = 1';
-            
+            var query = 'select p.*, count(p.id) as message_count ' +
+                    'from persons p, person_messages pm, messages m ' +
+                    'where p.id = pm.person_id and m.id = pm.message_id ' +
+                    'and m.folder = 10 ' +
+                    'group by p.id ' +
+                    'order by message_count desc, pm.sort_date desc ' +
+                    'limit 100';
+
+            var query = 'select p.* from persons p, profiles r where p.id = r.person_id and r.source = "facebook" limit 20';
+
             LocalDatabase.executeSql(query, function(persons) {
+                $.each(persons, function(i, person) {
+                    if (person.avatar == null) {
+                        person.avatar = browser.resolveContent('jedi-js/images/no-avatar-70.png');
+                    }
+                });
+
                 var data = { groups: [
                     { title: 'Friends', people: persons },
-                    { title: 'No relationship', people: []  }
+                    { title: 'No relationship', people: []  },
+                    { title: 'Newsletters', people: []  }
                 ]};
 
                 $('#wrapper').html($.tmpl(dashboard_tpl, data));
 
                 $('.search-field label').labelOver('labelover-apply');
+
+                $('.person-link').click(function() {
+                    that.showPerson($(this).attr('rel'));
+                });
             });
         },
-        showPerson: function() {
+        showPerson: function(id) {
             resetWrapper();
         }
     }

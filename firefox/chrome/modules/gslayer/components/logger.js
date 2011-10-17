@@ -3,21 +3,24 @@ var logger = {
     doAlert: false,
 	
 	log: function(statement) {
-		console.log(logger.prefix + statement);
+        if (typeof console != 'undefined')
+		    console.log(logger.prefix + statement);
 
         if (logger.doAlert) {
             alert(statement);
         }
 	},
     warn: function(statement) {
-        console.log(logger.prefix + 'WARNING: ' + statement);
+        if (typeof console != 'undefined')
+            console.log(logger.prefix + 'WARNING: ' + statement);
 
         if (logger.doAlert) {
             alert(statement);
         }
     },
     error: function(statement) {
-        console.log(logger.prefix + 'ERROR: ' + statement);
+        if (typeof console != 'undefined')
+            console.log(logger.prefix + 'ERROR: ' + statement);
 
         if (logger.doAlert) {
             alert(statement);

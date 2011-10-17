@@ -158,9 +158,12 @@ var j_contactMatcher = function(persons, profiles, contact) {
             // Add profile to our profiles array
             persons.push(person);
         },
-        save_profile: function() {            
+        save_profile: function() {
+
+            var profile_id = contact.service_id != null ? String(contact.service_id) : null;
+
             profile = j_profile();
-            profile.service_id = String(contact.service_id);
+            profile.service_id = profile_id;
             profile.person_id = person.id;
             profile.source = contact.source;
             profile.channel_id = contact.channel_id;
@@ -177,9 +180,9 @@ var j_contactMatcher = function(persons, profiles, contact) {
                 'service_id, person_id, source, channel_id, displayname, first_name, ' +
                 'last_name, address, avatar, url, is_soft, created_at) ' +
                 'values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
-                [ String(profile.service_id), profile.person_id, profile.source, profile.channel_id,
-                    profile.displayname, profile.first_name, profile.last_name, profile.address, profile.avatar,
-                    profile.url, profile.is_soft, profile.created_at ], function(rs) {
+                [ profile.service_id, profile.person_id, profile.source, profile.channel_id, profile.displayname,
+                    profile.first_name, profile.last_name, profile.address, profile.avatar, profile.url,
+                    profile.is_soft, profile.created_at ], function(rs) {
 
                     LocalDatabase.executeSql('select last_insert_rowid();', function(rs) {
                         profile.id = rs[0];
@@ -197,6 +200,14 @@ var j_contactMatcher = function(persons, profiles, contact) {
                     LocalDatabase.executeSql('update persons set is_soft = ? where id = ?',
                         [ false, person.id ]);
                 }
+            }
+
+            // Update avatar if we don't have it yet
+            if ($.trim(contact.avatar) == '' && $.trim(person.avatar) != '') {
+                 person.avatar = contact.avatar;
+
+                LocalDatabase.executeSql('update persons set avatar = ? where id = ?',
+                    [ person.avatar, person.id ]);
             }
         },
         update_profile: function() {            

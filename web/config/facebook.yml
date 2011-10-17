@@ -1,12 +1,12 @@
 default: &default
-    app_id: '100431230037867'
-    app_key: '8c784cbc1f50490d3053620abfc2ca99'
-    app_secret: '9ac53a7cd9b3326a72cb3deab6dfad9d'
+    app_id: ''
+    app_key: ''
+    app_secret: ''
 
 development:
-    app_id: '150787044978886'
-    app_key: '669d8000c0cdd69c20db309d573571b6'
-    app_secret: '2ac933d2a8a8a1dabafe181a46ea5070'
+    app_id: ''
+    app_key: ''
+    app_secret: ''
 
 test:
     <<: *default

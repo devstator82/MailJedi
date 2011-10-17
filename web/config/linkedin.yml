@@ -1,10 +1,10 @@
 default: &default
-    api_key: 'RaSgmB6WSGWVsze3DLseA61Zu6_YzW5mHls-K5ea3D3X-A5pkKHKSSM4cL3ENRKo'
-    secret_key: '1Vq53udpabEcLXkflQQPmJUabGvlVko9Tg7oAMqmOIchBr51E8DS2nnX_zdu4Msz'
+    api_key: ''
+    secret_key: ''
 
 development:
-    api_key: 'S8BOBuqsV-54p5oYM8ifkS7uRg5CoUjtSFJi8a9Zf2d6IxaT3jpOGjutYLGm8NdV'
-    secret_key: '7IDQCpMzpQPq1aOBefCzaB5DhLYczcQNNpdd_X3gV7_6qZDS24PjcQTROJPD_hIM'
+    api_key: ''
+    secret_key: ''
 
 test:
     <<: *default
